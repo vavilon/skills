@@ -19,3 +19,4 @@ team
 Derkachenko Yura - funnyboy201212@gmail.com
 Chernyshenko Sergey - vintorezvs@gmail.com
 Zinkevych Alex - alexzinkevych@yandex.ua
+Salienko Anton - tohaedko@gmail.com
