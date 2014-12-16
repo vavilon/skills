@@ -1,0 +1,22 @@
+<!doctype html>
+<html ng-app="skills">
+    <head>
+        <base href="/">
+        <meta charset="utf-8">
+        <title>Skills</title>
+
+        <link rel="stylesheet" href="/bower_components/bootstrap/dist/css/bootstrap.css">
+    </head>
+    <body>
+        <div class="container">
+            <a href="/"><h1 class="page-header">IKT Skills</h1></a>
+            <ng-view></ng-view>
+        </div>
+
+        <script src="/bower_components/angular/angular.js"></script>
+        <script src="/bower_components/angular-route/angular-route.js"></script>
+
+        <script src="/front/app.js"></script>
+        <script src="/front/users/controllers.js"></script>
+    </body>
+</html>

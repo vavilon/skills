@@ -1,0 +1,6 @@
+/.idea
+# ignore WebStorm files
+/node_modules
+# ignore Node Package Manager Installs
+/bower_components
+# ignore Bower Package Manager Installs
