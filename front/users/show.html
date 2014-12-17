@@ -1,4 +1,4 @@
-<div ng-show="!!user">
+<div ng-show="!!user.FIO">
     <h3>{{user.FIO}}</h3>
     <ul>
         <li ng-repeat="skill in skills" ng-class="{'text-success':user.skills.indexOf(skill.id)+1,'text-danger':user.skills.indexOf(skill.id) == -1}">{{skill.title}}</li>
@@ -7,6 +7,6 @@
 <div ng-show="user === undefined">
     <h3 class="text-muted">Loading...</h3>
 </div>
-<div ng-show="user === null">
+<div ng-show="user === null || !user.FIO">
     <h3 class="text-muted">No user find</h3>
 </div>
