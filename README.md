@@ -17,7 +17,7 @@ To run server:
 team
 ====
 Derkachenko Yura - funnyboy201212@gmail.com  
-Chernyshenko Sergey - vintorezvs@gmail.com  
+Chernyshenko Sergey (VintorezVS) - vintorezvs@gmail.com  
 Zinkevych Alex - alexzinkevych@yandex.ua  
 Pavlyk Alexandr - stiven917@gmail.com  
 Prokopchuk Pavlo - reverse603@yandex.ua  
