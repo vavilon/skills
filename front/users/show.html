@@ -1,7 +1,7 @@
 <div ng-show="!!user.FIO">
     <h3>{{user.FIO}}</h3>
     <ul>
-        <li ng-repeat="skill in skills" ng-class="{'text-success':user.skills.indexOf(skill.id)+1,'text-danger':user.skills.indexOf(skill.id) == -1}">{{skill.title}}</li>
+        <li ng-repeat="skill in userSkillsTitles">{{skill}}</li>
     </ul>
 </div>
 <div ng-show="user === undefined">
