@@ -1,12 +1,12 @@
 
-function getSkillTitle(id, skills) {
+function getSkillByID(id, skills) {
     var idArray = id.split(".");
-    return getSkillTitleRec(idArray, 0, skills);
+    return getSkillByIDRec(idArray, 0, skills);
 }
 
-function getSkillTitleRec(id, index, skills) {
-    if (index == id.length - 1) return skills[parseInt(id[index]) - 1].title;
-    return getSkillTitleRec(id, index + 1, skills[parseInt(id[index]) - 1].subskills);
+function getSkillByIDRec(id, index, skills) {
+    if (index == id.length - 1) return skills[parseInt(id[index]) - 1];
+    return getSkillByIDRec(id, index + 1, skills[parseInt(id[index]) - 1].subskills);
 }
 
 angular.module('skills').controller('users_show_controller',function($scope,$http,$routeParams){
@@ -14,9 +14,9 @@ angular.module('skills').controller('users_show_controller',function($scope,$htt
         $scope.skills = skills;
         $http.get('/models/users/'+$routeParams.user_id+'.json').success(function(user){
             $scope.user = user;
-            $scope.userSkillsTitles = [];
+            $scope.userSkills = [];
             for (var id in $scope.user.skills)
-                $scope.userSkillsTitles.push(getSkillTitle($scope.user.skills[id], $scope.skills));
+                $scope.userSkills.push(getSkillByID($scope.user.skills[id], $scope.skills));
         }).error(function(){
             $scope.user = null;
         })

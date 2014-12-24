@@ -1,7 +1,7 @@
 <div ng-show="!!user.FIO">
     <h3>{{user.FIO}}</h3>
     <ul>
-        <li ng-repeat="skill in userSkillsTitles">{{skill}}</li>
+        <li ng-repeat="skill in userSkills">{{skill.title}}</li>
     </ul>
 </div>
 <div ng-show="user === undefined">
