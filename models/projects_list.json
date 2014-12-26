@@ -1,15 +1,19 @@
-[
-  {
-    "id":"0000",
+{
+  "05d17728-59b2-4ec8-82c5-a34946e6a2ba":{
     "title":"project #0000",
     "description":"'project 0000' description.",
-    "skillsID":["1.1.1.4", "1.1.2.2", "1.2.1.2"]
+    "skillsID":[
+      "81b6074d-24f6-4a08-8f41-a11e798a863a",
+      "48818948-2b1b-4818-871e-98bd6b922ae4",
+      "715d0259-b63d-49ac-8456-9d2b9e76d89a"
+    ]
   },
-
-  {
-    "id":"0001",
-    "title":"project #0001",
-    "description":"'project 0001' description.",
-    "skillsID":["1.1.1.2", "1.2.1.1"]
+  "a9d2768f-c833-47e1-af53-26c646daffec": {
+    "title": "project #0001",
+    "description": "'project 0001' description.",
+    "skillsID": [
+      "daa95bd1-df35-4133-9dcf-dd3e8f50b1f4",
+      "715d0259-b63d-49ac-8456-9d2b9e76d89a"
+    ]
   }
-]
+}
