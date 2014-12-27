@@ -1,0 +1,56 @@
+.container {
+    background-position: center;
+    min-width: 940px;
+/*    background-color: #C1CDCD;*/
+    margin: 10px;
+    font-size: 20px;
+    padding: 10px 0 10px 0;
+    color: #0000FF;
+}
+
+#profile-text {
+    text-align: center;
+    font-size: 50px;
+    color: #0000FF;
+    padding: 10px 0 20px 0;
+}
+
+#creat_job {
+    text-align: center;
+    font-size: 50px;
+    color: red;
+    padding: 10px 0 20px 0;
+}
+
+#check_job {
+    text-align: center;
+    font-size: 50px;
+    color: green;
+    padding: 10px 0 20px 0;
+}
+
+#pad {
+    padding: 15px ;
+}
+
+table th {
+    text-align: center;
+    color: white;
+}
+
+#skills {
+    background-color: #00008B;
+}
+
+#needs {
+    background-color: #006400;
+}
+
+.center {
+    text-align: center;
+}
+
+#creat_condition {
+    font-size: 30px;
+    color: #2F4F4F;
+}
