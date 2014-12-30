@@ -12,6 +12,30 @@
     <body>
         <div class="container">
 
+            <div class="row" id="header">
+                <div class="col-md-3">
+                    <button type="button" class="btn btn-info btn-block" >
+                        <span class="glyphicon glyphicon-user"></span> ПРОФИЛЬ ПОЛЬЗОВАТЕЛЯ
+                    </button>
+                </div>
+                <div class="col-md-3">
+                    <button type="button" class="btn btn-info btn-block">
+                        <span class="glyphicon glyphicon-globe"></span> ВСЕ ПОЛЬЗОВАТЕЛИ
+                    </button>
+                </div>
+                <div class="col-md-3">
+                    <button type="button" class="btn btn-info btn-block">
+                        <span class="glyphicon glyphicon-star"></span> SKILLS
+                    </button>
+                </div>
+                <div class="col-md-3">
+                    <button type="button" class="btn btn-info btn-block">
+                        <span class="glyphicon glyphicon-tasks"></span> ЗАДАНИЯ
+                    </button>
+                </div>
+            </div>
+            <br>
+            
             <div id="check_job">
                 ПРОВЕРКА ЗАДАНИЯ
             </div>
@@ -60,22 +84,49 @@
             <br>
 
             <div id="creat_condition">
+                РЕШЕНИЕ:
+            </div>
+            <div class="row">
+                <div class="col-md-12">
+                    <textarea class="form-control" rows="7"  disabled>
+                        ...здесь находится РЕШЕНИЕ ЗАДАНИЯ другим участником, задание которого проверяется...
+                    </textarea>
+                </div>
+            </div>
+            <br>
+            
+            <div id="creat_condition">
                 ОТВЕТ:
             </div>
             <div class="row">
                 <div class="col-md-12">
                     <textarea class="form-control" rows="7"  disabled>
-                        ...здесь находится ОТВЕТ, по которому система определяет правильность решения задания...
+                        ...здесь находится ОТВЕТ, который помогает в проверке задания...
+                    </textarea>
+                </div>
+            </div>
+            <br>
+            
+            <div id="creat_condition">
+                КОММЕНТАРИЙ к РЕШЕНИЮ:
+            </div>
+            <div class="row">
+                <div class="col-md-12">
+                    <textarea class="form-control" rows="7">...здесь ВЫ можете прописать свой комментарий к решению. Возможно - Вы хотите дать какой-то совет челвоеку, который решал это задание...
                     </textarea>
                 </div>
             </div>
             <br>
             
             <div class="row center">
-                <div class="btn-group">
-                    <button type="button" class="btn btn-lg btn-success">ПОДТВЕРЖДАЮ!</button>
-                    <button type="button" class="btn btn-lg btn-danger">НЕ ВЕРНО!</button>
+                <div class="col-md-3"></div>
+                <div class="col-md-3">
+                    <button type="button" class="btn btn-block btn-success">РЕШЕНО ПРАВИЛЬНО!</button>
                 </div>
+                <div class="col-md-3">
+                    <button type="button" class="btn btn-block btn-danger">РЕШЕНО НЕ ПРАВИЛЬНО!</button>
+                </div>
+                <div class="col-md-3"></div>
             </div>
     
         </div>

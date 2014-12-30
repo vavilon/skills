@@ -1,17 +1,31 @@
 .container {
     background-position: center;
     min-width: 940px;
-/*    background-color: #C1CDCD;*/
     margin: 10px;
     font-size: 20px;
     padding: 10px 0 10px 0;
-    color: #0000FF;
+    color: #363636;
+}
+
+.table {
+    text-align: left;
 }
 
 #profile-text {
     text-align: center;
     font-size: 50px;
-    color: #0000FF;
+    color: #008B8B;
+    padding: 10px 0 20px 0;
+}
+
+#profile-name-text {
+    color: #8B658B;
+}
+
+#job-text {
+    text-align: center;
+    font-size: 50px;
+    color: #EE6363;
     padding: 10px 0 20px 0;
 }
 
@@ -38,12 +52,16 @@ table th {
     color: white;
 }
 
-#skills {
-    background-color: #00008B;
+#bg_user_keep {
+    background-color: #2E8B57;
 }
 
-#needs {
-    background-color: #006400;
+#bg_user_may_make {
+    background-color: #EE6363;
+}
+
+#bg_user_may_approve {
+    background-color:  	#66CD50;
 }
 
 .center {
