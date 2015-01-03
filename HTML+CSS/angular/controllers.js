@@ -19,3 +19,9 @@ var singlePageApp = angular.module('single_pageApp', []).config(function($routeP
         $routeProvider.otherwise({redirectTo: '/my_page'});
 });
 
+singlePageApp.controller('skillsListCtrl', ['$scope', '$http', function($scope, $http)
+{
+    $http.get('models/skills.json').success(function(data) {
+        $scope.skills = data;
+    })
+}]);
