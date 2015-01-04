@@ -6,11 +6,100 @@
         <title>Skills</title>
 
         <link rel="stylesheet" href="/bower_components/bootstrap/dist/css/bootstrap.css">
+        <link href="/front/style.css" rel="stylesheet">
+
     </head>
     <body>
         <div class="container">
             <a href="/"><h1 class="page-header">IKT Skills</h1></a>
-            <ng-view></ng-view>
+            
+            <div class="row">
+                <div class="col-md-3">
+                    <strong>Иванов Иван Иванович</strong>
+                    <br>[ 000'000 ]
+                </div>
+            </div>
+            <br>
+            
+            <div class="row" id="main_btn_header">
+                <div class="col-md-3">
+                    <div class="center">
+                        <label class="btn btn-default">
+                            <span class="glyphicon glyphicon-star-empty"> Skills</span>
+                        </label>
+                        <label class="btn btn-default">
+                            <span class="glyphicon glyphicon-tasks"> Needs</span>
+                        </label>
+                    </div>
+                </div>
+                <div class="col-md-9">
+                    <div class="row">
+                        <div class="col-md-3">
+                            <a class="btn btn-block btn-info" href="/my_page" role="button">
+                                <span class="glyphicon glyphicon-user"></span> Моя СТРАНИЦА
+                            </a>
+                        </div>
+                        <div class="col-md-3">
+                            <a class="btn btn-block btn-info" href="/all_users" role="button">
+                                <span class="glyphicon glyphicon-globe"></span> Все ПОЛЬЗОВАТЕЛИ
+                            </a>
+                        </div>
+                        <div class="col-md-3">
+                            <a class="btn btn-block btn-info" href="/all_skills" role="button">
+                                <span class="glyphicon glyphicon-star"></span> All SKILLS
+                            </a>
+                        </div>
+                        <div class="col-md-3">
+                            <a class="btn btn-block btn-info" href="/all_job" role="button">
+                                <span class="glyphicon glyphicon-tasks"></span> ЗАДАНИЯ
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="row">
+                <div class="col-md-3">
+                    <p>
+                    <div>
+                        <table class="col-md-12" id="main_table">
+                            <tr id="main_table_header"><td>#</td><td>My SKILLS</td></tr>
+                            <tr><td>1.</td><td>Программирование</td></tr>
+                            <tr><td>1.1.</td><td>Теория</td></tr>
+                            <tr><td>1.1.1.</td><td>Алгоритмы</td></tr>
+                            <tr><td>1.1.1.1.</td><td>Алгоритмы оптимизации</td></tr>
+                            <tr><td>1.1.1.2.</td><td>Алгоритмы поиска</td></tr>
+                            <tr><td>1.1.1.3.</td><td>Алгоритмы сжатия</td></tr>
+                            <tr><td>1.1.2.</td><td>Структуры данных</td></tr>
+                            <tr><td>1.1.2.1.</td><td>Граф</td></tr>
+                            <tr><td>1.1.2.5.</td><td>Стек</td></tr>
+                            <tr><td>1.1.2.6.</td><td>Хеш-таблица</td></tr>
+                            <tr><td>1.1.3.</td><td>Парадигмы программирования</td></tr>
+                            <tr><td>1.1.3.1.</td><td>Декларативное программирование</td></tr>
+                            <tr><td>1.1.3.6.</td><td>Функциональное программирование</td></tr>
+                            <tr><td>1.2.</td><td>Навыки</td></tr>
+                            <tr><td>1.2.1.</td><td>Языки программирования</td></tr>
+                            <tr><td>1.2.1.1.</td><td>Java</td></tr>
+                            <tr><td>1.2.1.2.</td><td>C#</td></tr>
+                            <tr><td>1.2.1.5.</td><td>JavaScript</td></tr>
+                            <tr><td>1.2.1.9.</td><td>C</td></tr>
+                            <tr><td>1.2.2.</td><td>Платформы</td></tr>
+                            <tr><td>1.2.2.1.</td><td>Аппаратные платформы</td></tr>
+                            <tr><td>1.2.2.2.</td><td>Программные платформы</td></tr>
+                            <tr><td>1.2.3.</td><td>Инструменты для разработки ПО</td></tr>
+                            <tr><td>1.2.3.1.</td><td>Генераторы документации</td></tr>
+                            <tr><td>1.2.3.2.</td><td>IDE</td></tr>
+                        </table>
+                    </div>
+                </div>
+                
+                <div class="col-md-9">
+                    <div class="row">
+                        <ng-view></ng-view>
+                    </div>
+                </div>
+            </div>
+            
         </div>
 
         <script src="/bower_components/angular/angular.js"></script>
@@ -18,5 +107,6 @@
 
         <script src="/front/app.js"></script>
         <script src="/front/users/controllers.js"></script>
+        
     </body>
 </html>
