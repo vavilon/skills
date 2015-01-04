@@ -11,3 +11,11 @@ angular.module('skills').controller('users_show_controller',function($scope,$htt
         });
     });
 });
+
+
+app.controller('skillsListCtrl', ['$scope', '$http', function($scope, $http)
+{
+    $http.get('models/skills.json').success(function(data) {
+        $scope.skills = data;
+    })
+}]);
