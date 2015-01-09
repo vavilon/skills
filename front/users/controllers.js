@@ -12,6 +12,50 @@ angular.module('skills').controller('users_show_controller',function($scope,$htt
     });
 });
 
+angular.module('skills').controller('skills_show_controller',function($scope,$http,$routeParams){
+    $http.get('/models/skills.json').success(function (skills) {
+
+        var s,
+            g = {
+                nodes: [],
+                edges: []
+            };
+
+    // Generate a random graph:
+        for (var sid in skills)
+            g.nodes.push({
+                id: sid,
+                label: skills[sid].title,
+                x: Math.random(),
+                y: Math.random(),
+                size: 1,
+                color: '#666'
+            });
+
+        var i = 0;
+        for (var sid in skills) {
+
+            if (skills[sid].parents[0]) {
+                g.edges.push({
+                    id: 'e' + i,
+                    source: sid,
+                    target: skills[sid].parents[0],
+                    size: 1,
+                    color: '#ccc'
+                });
+                i++;
+            }
+        }
+
+    // Instantiate sigma:
+        s = new sigma({
+            graph: g,
+            container: 'graph-container'
+        });
+        s.startForceAtlas2();
+        setTimeout(function(){s.stopForceAtlas2();}, 10000);
+    });
+});
 
 app.controller('skillsListCtrl', ['$scope', '$http', function($scope, $http)
 {
