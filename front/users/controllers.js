@@ -15,8 +15,7 @@ angular.module('skills').controller('users_show_controller',function($scope,$htt
 angular.module('skills').controller('skills_show_controller',function($scope,$http,$routeParams){
     $http.get('/models/skills.json').success(function (skills) {
 
-        var s,
-            g = {
+        var g = {
                 nodes: [],
                 edges: []
             };
@@ -50,42 +49,8 @@ angular.module('skills').controller('skills_show_controller',function($scope,$ht
             }
         }
 
-        s = new sigma({
-            graph: g,
-            container: 'graph-container',
-            settings: { labelColor: 'node' }
-        });
+        $scope.sigmaGraph = g;
 
-        s.startForceAtlas2();
-        setTimeout(function(){s.stopForceAtlas2();}, 4000);
-
-        s.bind('clickNode', function(e) {
-            var nodes = s.graph.nodes();
-            var edges = s.graph.edges();
-            for (i = 0; i < nodes.length; i++)
-            {
-                nodes[i].color = 'rgba(30, 30, 30, .1)';
-            }
-            for (i = 0; i < edges.length; i++) edges[i].color = 'rgba(100, 100, 100, .1)';
-            var neighbors = s.graph.neighborhood(e.data.node.id);
-            e.data.node.color = 'rgba(30, 30, 30, 1)';
-            for (i = 0; i < neighbors.nodes.length; i++)
-            {
-                neighbors.nodes[i].color = 'rgba(30, 30, 30, 1)';
-            }
-            for (i = 0; i < neighbors.edges.length; i++) neighbors.edges[i].color = 'rgba(100, 100, 100, 1)';
-            s.refresh();
-        });
-        s.bind('clickStage', function(e) {
-            var nodes = s.graph.nodes();
-            var edges = s.graph.edges();
-            for (i = 0; i < nodes.length; i++)
-            {
-                nodes[i].color = 'rgba(30, 30, 30, 1)';
-            }
-            for (i = 0; i < edges.length; i++) edges[i].color = 'rgba(100, 100, 100, 1)';
-            s.refresh();
-        });
     });
 });
 
