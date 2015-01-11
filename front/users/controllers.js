@@ -89,6 +89,22 @@ angular.module('skills').controller('skills_show_controller',function($scope,$ht
     });
 });
 
+app.controller('usersListCtrl', ['$scope', '$http', '$filter', function($scope, $http, $filter)
+{
+    $http.get('models/users.json').success(function(data) {
+        $scope.users = data;
+    })
+
+    var orderBy = $filter('orderBy');
+
+    $scope.order = function(predicate, reverse) {
+        $scope.users = orderBy($scope.users, predicate, reverse);
+    };
+
+    $scope.order('-ExPe',false);
+
+}]);
+
 app.controller('skillsListCtrl', ['$scope', '$http', function($scope, $http)
 {
     $http.get('models/skills.json').success(function(data) {

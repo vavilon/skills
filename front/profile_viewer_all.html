@@ -2,88 +2,16 @@
     ВСЕ ПОЛЬЗОВАТЕЛИ:
 </div>
 
-<div class="row" id="pad">
+<div class="row" id="pad" ng-controller="usersListCtrl">
     <table class="table table-bordered" align>
-        <tr id="bg_user_keep">
-            <th>ФИО пользователя</th>
-            <th>expe</th>
+        <tr id="bg_user_keep_All">
+            <th><a href="" ng-click="reverse=!reverse;order('FIO', reverse)">ФИО пользователя</a></th>
+            <th><a href="" ng-click="reverse=!reverse;order('ExPe', reverse)">ExPe</a></th>
             <th>ПРОФИЛЬ</th>
         </tr>
-        <tr>
-            <td>Иванов Иван Иванович</td>
-            <td align="center">103'568</td>
-            <td align="center">
-                <button type="button" class="btn btn-primary">
-                    <span class=" glyphicon glyphicon-user"></span>
-                </button>
-            </td>
-        </tr>
-        <tr>
-            <td>Бирюзов Сергей Борисович</td>
-            <td align="center">102'568</td>
-            <td align="center">
-                <button type="button" class="btn btn-primary">
-                    <span class=" glyphicon glyphicon-user"></span>
-                </button>
-            </td>
-        </tr>
-        <tr>
-            <td>Иванова Катерина Эльдаровна</td>
-            <td align="center">84'139</td>
-            <td align="center">
-                <button type="button" class="btn btn-primary">
-                    <span class=" glyphicon glyphicon-user"></span>
-                </button>
-            </td>
-        </tr>
-        <tr>
-            <td>Овербух Валерий Леонтиевич</td>
-            <td align="center">33'899</td>
-            <td align="center">
-                <button type="button" class="btn btn-primary">
-                    <span class=" glyphicon glyphicon-user"></span>
-                </button>
-            </td>
-        </tr>
-        <tr>
-            <td>Макаренко Тамара Николаевна</td>
-            <td align="center">5'404</td>
-            <td align="center">
-                <button type="button" class="btn btn-primary">
-                    <span class=" glyphicon glyphicon-user"></span>
-                </button>
-            </td>
-        </tr>
-        <tr>
-            <td>Даниленко Генадий Борисович</td>
-            <td align="center">1'236</td>
-            <td align="center">
-                <button type="button" class="btn btn-primary">
-                    <span class=" glyphicon glyphicon-user"></span>
-                </button>
-            </td>
-        </tr>
-        <tr>
-            <td>Петренко Петр Петрович</td>
-            <td align="center">988</td>
-            <td align="center">
-                <button type="button" class="btn btn-primary">
-                    <span class=" glyphicon glyphicon-user"></span>
-                </button>
-            </td>
-        </tr>
-        <tr>
-            <td>Сивоха Эдуард Александрович</td>
-            <td align="center">113</td>
-            <td align="center">
-                <button type="button" class="btn btn-primary">
-                    <span class=" glyphicon glyphicon-user"></span>
-                </button>
-            </td>
-        </tr>
-        <tr>
-            <td>......... ........ ..........</td>
-            <td align="center">.....</td>
+        <tr ng-repeat="user in users">
+            <td>{{user.FIO}}</td>
+            <td>{{user.ExPe}}</td>
             <td align="center">
                 <button type="button" class="btn btn-primary">
                     <span class=" glyphicon glyphicon-user"></span>
