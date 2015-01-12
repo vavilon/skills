@@ -4,7 +4,7 @@ app.config(function($locationProvider,$routeProvider){
     $locationProvider.html5Mode(true);
 
     $routeProvider
-        .when('/', {templateUrl: '/front/main.html'})
+//        .when('/', {templateUrl: '/front/main.html'})
         .when('/users/:user_id', {templateUrl: '/front/users/show.html', controller:'users_show_controller'})
         .when('/my_page', {templateUrl:'/front/profile.html'})
         .when('/all_users', {templateUrl:'/front/profile_viewer_all.html'})
@@ -15,7 +15,7 @@ app.config(function($locationProvider,$routeProvider){
         .when('/creat', {templateUrl:'/front/job_create.html'})
         .when('/view_one', {templateUrl:'/front/job_viewer_one.html'})
         .when('/skills', {templateUrl:'/front/skills.html', controller:'skills_show_controller'})
-        .otherwise({redirectTo: '/'});
+        .otherwise({redirectTo: '/my_page'});
 });
 
 (function() {
