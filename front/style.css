@@ -39,6 +39,23 @@
     padding: 10px 0 20px 0;
 }
 
+#tasks_sort {
+    border-bottom: thin solid #000000;
+    padding-bottom: 10px;
+}
+
+#filter_tasks_by_complexity {
+    margin-left: 20px;
+}
+
+#list_with_plus {
+    list-style-type: none;
+}
+
+#element_with_plus:before {
+    content: "+ ";
+}
+
 #creat_job {
     text-align: center;
     font-size: 50px;
