@@ -176,5 +176,12 @@ app.controller('skillsListCtrl', ['$scope', '$http', function($scope, $http)
 {
     $http.get('models/skills.json').success(function(data) {
         $scope.skills = data;
-    })
+    });
+}]);
+
+app.controller('all_tasks_show_controller', ['$scope', '$http', function($scope, $http)
+{
+    $http.get('models/skills.json').success(function(data) {
+        $scope.skills = data;
+    });
 }]);
