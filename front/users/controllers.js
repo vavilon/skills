@@ -49,13 +49,16 @@ function getAllSkillsObject(skills)
         for (var i = 0; i < skills[id].parents.length; i++)
         {
             obj.skills[skills[id].parents[i]] = obj.skills[skills[id].parents[i]] || {};
-            obj.skills[id].parents.push(obj.skills[skills[id].parents[i]]);
+            if ($.inArray(obj.skills[skills[id].parents[i]], obj.skills[id].parents) === -1)
+                obj.skills[id].parents.push(obj.skills[skills[id].parents[i]]);
         }
 
         for (i = 0; i < obj.skills[id].parents.length; i++)
         {
             obj.skills[id].parents[i].leaves = obj.skills[id].parents[i].leaves || [];
-            if (skills[id].isLeaf) obj.skills[id].parents[i].leaves.push(obj.skills[id]);
+            if (skills[id].isLeaf)
+                if ($.inArray(obj.skills[id], obj.skills[id].parents[i].leaves) === -1)
+                    obj.skills[id].parents[i].leaves.push(obj.skills[id]);
         }
         if (skills[id].isLeaf) {
             obj.skills[id].isLeaf = skills[id].isLeaf;
@@ -67,7 +70,8 @@ function getAllSkillsObject(skills)
         for (i = 0; i < obj.skills[id].parents.length; i++)
         {
             obj.skills[id].parents[i].children = obj.skills[id].parents[i].children || [];
-            obj.skills[id].parents[i].children.push(obj.skills[id]);
+            if ($.inArray(obj.skills[id], obj.skills[id].parents[i].children) === -1)
+                obj.skills[id].parents[i].children.push(obj.skills[id]);
         }
     }
 
@@ -76,8 +80,15 @@ function getAllSkillsObject(skills)
     {
         to.allChildren = to.allChildren || [];
         to.allLeaves = to.allLeaves || [];
-        to.allChildren = to.allChildren.concat(from.children);
-        if (from.leaves) to.allLeaves = to.allLeaves.concat(from.leaves);
+
+        for (var i = 0; i < from.children.length; i++)
+            if ($.inArray(from.children[i], to.allChildren) === -1)
+                to.allChildren.push(from.children[i]);
+
+        for (i = 0; i < from.leaves.length; i++)
+            if ($.inArray(from.leaves[i], to.allLeaves) === -1)
+                to.allLeaves.push(from.leaves[i]);
+
         for (var chid in from.children)
         {
             addAllChildrenRec(to, from.children[chid]);
@@ -88,7 +99,11 @@ function getAllSkillsObject(skills)
     function addAllParentsRec(to, from)
     {
         to.allParents = to.allParents || [];
-        to.allParents = to.allParents.concat(from.parents);
+
+        for (var i = 0; i < from.parents.length; i++)
+            if ($.inArray(from.parents[i], to.allParents) === -1)
+                to.allParents.push(from.parents[i]);
+
         for (var pid in from.parents)
         {
             addAllParentsRec(to, from.parents[pid]);
@@ -106,6 +121,8 @@ function getAllSkillsObject(skills)
     obj.log = function() {
         for (var prop in obj) console.log(obj[prop]);
     };
+
+    obj.root = obj.skills['root'];
 
     return obj;
 }
