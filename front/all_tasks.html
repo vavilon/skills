@@ -1,0 +1,38 @@
+<div id="job-text">
+    Все задания:
+</div>
+
+<div class="container-fluid">
+    <div class="col-md-3" style="background-color: #E8E8E8; border-right: thin solid #000000">
+        <input id="filter_tasks_by_name" type="text" placeholder="Название..."/>
+        <label for="filter_tasks_by_complexity" style="margin-top: 20px">Сложность:</label>
+        <div id="filter_tasks_by_complexity">
+            <div class="checkbox">
+                <label><input type="checkbox">Легко</label>
+            </div>
+            <div class="checkbox">
+                <label><input type="checkbox">Средне</label>
+            </div>
+            <div class="checkbox">
+                <label><input type="checkbox">Сложно</label>
+            </div>
+        </div>
+        <label for="list_with_plus" style="margin-top: 20px">Скилы:</label>
+        <ul id="list_with_plus">
+            <a href="#" ng-repeat="skill in skills" ng-click="filterAddSkill()">
+                <li id="element_with_plus">{{skill.title}}</li>
+            </a>
+        </ul>
+    </div>
+    <div class="col-md-9">
+        <div id="tasks_sort" class="row">
+            <div class="col-md-3">
+                Сортировать по:
+            </div>
+            <div class="col-md-9">
+                <label class="radio-inline"><input type="radio" name="sort_by" checked>алфавиту</label>
+                <label class="radio-inline"><input type="radio" name="sort_by">сложности</label>
+            </div>
+        </div>
+    </div>
+</div>
