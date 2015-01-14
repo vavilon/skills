@@ -1,30 +1,33 @@
-<div id="job-text">
-    Все задания:
-</div>
-
 <div class="container-fluid">
-    <div class="col-md-3" style="background-color: #E8E8E8; border-right: thin solid #000000">
-        <input id="filter_tasks_by_name" type="text" placeholder="Название..."/>
-        <label for="filter_tasks_by_complexity" style="margin-top: 20px">Сложность:</label>
-        <div id="filter_tasks_by_complexity">
-            <div class="checkbox">
-                <label><input type="checkbox">Легко</label>
+    <div class="col-md-4">
+        <!--Filter-->
+        <form class="well">
+            <h2 style="margin: 10px 0 15px 0">Все задания:</h2>
+            <input id="filter_tasks_by_name" type="text" class="input-sm search-query" placeholder="Название..." ng-model="query" ng-change="search()">
+            <p class="help-block">Введите название задачи</p>
+            <label for="filter_tasks_by_complexity" style="margin-top: 20px">Сложность:</label>
+            <div id="filter_tasks_by_complexity">
+                <div class="checkbox">
+                    <label><input type="checkbox">Легко</label>
+                </div>
+                <div class="checkbox">
+                    <label><input type="checkbox">Средне</label>
+                </div>
+                <div class="checkbox">
+                    <label><input type="checkbox">Сложно</label>
+                </div>
             </div>
-            <div class="checkbox">
-                <label><input type="checkbox">Средне</label>
-            </div>
-            <div class="checkbox">
-                <label><input type="checkbox">Сложно</label>
-            </div>
-        </div>
-        <label for="list_with_plus" style="margin-top: 20px">Скилы:</label>
-        <ul id="list_with_plus">
-            <a href="#" ng-repeat="skill in skills" ng-click="filterAddSkill()">
-                <li id="element_with_plus">{{skill.title}}</li>
-            </a>
-        </ul>
+            <label for="list_with_plus" style="margin-top: 20px">Скилы:</label>
+            <ul id="list_with_plus">
+                <a href="#" ng-repeat="skill in skills" ng-click="filterAddSkill(skill)">
+                    <li id="element_with_plus">{{skill.title}}</li>
+                </a>
+            </ul>
+        </form> <!--Filter-->
     </div>
-    <div class="col-md-9">
+
+    <div class="col-md-8">
+        <!--Sort-->
         <div id="tasks_sort" class="row">
             <div class="col-md-3">
                 Сортировать по:
@@ -33,6 +36,17 @@
                 <label class="radio-inline"><input type="radio" name="sort_by" checked>алфавиту</label>
                 <label class="radio-inline"><input type="radio" name="sort_by">сложности</label>
             </div>
-        </div>
+        </div> <!--Sort-->
+
+        <!--List of tasks-->
+        <ol>
+            <li ng-repeat="task in tasks">
+                <a href="/view_one"><h3><b>{{task.title}}</b></h3></a>
+                <h4 style="text-indent: 2em">{{task.description}}</h4>
+                <div style="text-indent: 2em; font-style: italic">
+                    <span ng-repeat="id in task.skillsID">{{skills[id].title}}; </span>
+                </div>
+            </li>
+        </ol><!--List of tasks-->
     </div>
 </div>

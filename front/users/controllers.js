@@ -160,7 +160,7 @@ app.controller('usersListCtrl', ['$scope', '$http', '$filter', function($scope, 
 {
     $http.get('models/users.json').success(function(data) {
         $scope.users = data;
-    })
+    });
 
     var orderBy = $filter('orderBy');
 
@@ -183,5 +183,8 @@ app.controller('all_tasks_show_controller', ['$scope', '$http', function($scope,
 {
     $http.get('models/skills.json').success(function(data) {
         $scope.skills = data;
+        $http.get('models/projects_list.json').success(function(tasks){
+            $scope.tasks = tasks;
+        });
     });
 }]);
