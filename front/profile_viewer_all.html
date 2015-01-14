@@ -5,24 +5,20 @@
 <div class="row" id="pad" ng-controller="usersListCtrl">
     <table class="table table-bordered" align>
         <tr id="bg_user_keep_All">
-            <th colspan="2">
-                <a href="" ng-click="FIOreverse=!FIOreverse;order('-FIO', FIOreverse)" ng-model="FIOreverse">ФИО пользователя
-                    <span class="glyphicon glyphicon-chevron-up" ng-hide="FIOreverse"></span>
-                    <span class="glyphicon glyphicon-chevron-down" ng-show="FIOreverse"></span>
-                </a>
+            <th align="center" colspan="2">
+                ФИО пользователя
             </th>
-            <th colspan="2" ng-model="qwert">
-                <a href="" ng-click="EPreverse=!EPreverse;order('ExPe', EPreverse)" ng-model="EPreverse">ExPe
-                    <span class="glyphicon glyphicon-chevron-down" ng-show="EPreverse"></span>
-                    <span class="glyphicon glyphicon-chevron-up" ng-hide="EPreverse"></span>
-                </a>
+            <th>
+                ExPe
             </th>
         </tr>
         <tr ng-repeat="user in users">
             <td align="center">
-                <button type="button" class="btn btn-primary">
-                    <span class=" glyphicon glyphicon-user"></span>
-                </button>
+                <a href="{{users.indexOf(user)}}">
+                    <button type="button" class="btn btn-primary">
+                        <span class=" glyphicon glyphicon-user"></span>
+                    </button>
+                </a>
             </td>
             <td>{{user.FIO}}</td>
             <td class="right">{{user.ExPe | thousand}}</td>
