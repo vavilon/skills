@@ -5,8 +5,18 @@
 <div class="row" id="pad" ng-controller="usersListCtrl">
     <table class="table table-bordered" align>
         <tr id="bg_user_keep_All">
-            <th colspan="2"><a href="" ng-click="reverse=!reverse;order('FIO', reverse)">ФИО пользователя</a></th>
-            <th><a href="" ng-click="reverse=!reverse;order('ExPe', reverse)">ExPe</a></th>
+            <th colspan="2">
+                <a href="" ng-click="FIOreverse=!FIOreverse;order('-FIO', FIOreverse)" ng-model="FIOreverse">ФИО пользователя
+                    <span class="glyphicon glyphicon-chevron-up" ng-hide="FIOreverse"></span>
+                    <span class="glyphicon glyphicon-chevron-down" ng-show="FIOreverse"></span>
+                </a>
+            </th>
+            <th colspan="2" ng-model="qwert">
+                <a href="" ng-click="EPreverse=!EPreverse;order('ExPe', EPreverse)" ng-model="EPreverse">ExPe
+                    <span class="glyphicon glyphicon-chevron-down" ng-show="EPreverse"></span>
+                    <span class="glyphicon glyphicon-chevron-up" ng-hide="EPreverse"></span>
+                </a>
+            </th>
         </tr>
         <tr ng-repeat="user in users">
             <td align="center">

@@ -168,7 +168,7 @@ app.controller('usersListCtrl', ['$scope', '$http', '$filter', function($scope, 
         $scope.users = orderBy($scope.users, predicate, reverse);
     };
 
-    $scope.order('-ExPe',false);
+    $scope.order('-ExPe', false);
 
 }]);
 
