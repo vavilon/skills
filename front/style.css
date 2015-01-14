@@ -18,7 +18,7 @@
     border: 1px;
     text-align: left;
     font-size: 10px;
-    
+
 }
 
 #profile-text {
@@ -54,7 +54,7 @@
 }
 
 #pad {
-    padding: 15px ;
+    padding: 15px;
 }
 
 #bg_user_keep_All {
@@ -75,7 +75,7 @@ table th {
 }
 
 #bg_user_may_approve {
-    background-color:  	#66CD50;
+    background-color: #66CD50;
 }
 
 .center {
@@ -85,4 +85,28 @@ table th {
 #creat_condition {
     font-size: 30px;
     color: #2F4F4F;
+}
+
+.navbar-user {
+    float: left;
+    margin-top: 10px;
+}
+
+.navbar-avatar {
+    float: left;
+    margin-top: 4px;
+    margin-right: 5px;
+}
+
+.navbar-username {
+    float: left;
+    margin-top: 8px;
+    white-space: nowrap;
+    margin-right: 15px;
+}
+
+.navbar-experience {
+    float: left;
+    width: 150px;
+    margin-top:15px;
 }
