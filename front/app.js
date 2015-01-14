@@ -1,4 +1,7 @@
-var app = angular.module('skills',['ngRoute']);
+var app = angular.module('skills',[
+    'ngRoute',
+    'allProfilesFilters'
+]);
 
 app.config(function($locationProvider,$routeProvider){
     $locationProvider.html5Mode(true);
