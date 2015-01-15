@@ -8,7 +8,7 @@ app.config(function($locationProvider,$routeProvider){
         .when('/users/:user_id', {templateUrl: '/front/users/show.html', controller:'users_show_controller'})
         .when('/my_page', {templateUrl:'/front/profile.html'})
         .when('/all_users', {templateUrl:'/front/profile_viewer_all.html'})
-        .when('/all_job', {templateUrl:'/front/job_viewer_all.html'})
+        .when('/all_job', {templateUrl:'/front/all_tasks.html', controller:'all_tasks_show_controller'})
         .when('/decision', {templateUrl:'/front/job_decision.html'})
         .when('/approve', {templateUrl:'/front/job_approve.html'})
         .when('/check', {templateUrl:'/front/job_check.html'})
