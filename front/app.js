@@ -10,6 +10,7 @@ app.config(function($locationProvider,$routeProvider){
 //        .when('/', {templateUrl: '/front/main.html'})
         .when('/users/:user_id', {templateUrl: '/front/users/show.html', controller:'users_show_controller'})
         .when('/my_page', {templateUrl:'/front/profile.html'})
+        .when('/about_me', {templateUrl:'/front/profile_viewer_about_me.html'})
         .when('/all_users', {templateUrl:'/front/profile_viewer_all.html'})
         .when('/all_job', {templateUrl:'/front/all_tasks.html', controller:'all_tasks_show_controller'})
         .when('/decision', {templateUrl:'/front/job_decision.html'})
