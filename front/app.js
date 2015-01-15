@@ -1,4 +1,7 @@
-var app = angular.module('skills',['ngRoute']);
+var app = angular.module('skills',[
+    'ngRoute',
+    'allProfilesFilters'
+]);
 
 app.config(function($locationProvider,$routeProvider){
     $locationProvider.html5Mode(true);
@@ -15,6 +18,7 @@ app.config(function($locationProvider,$routeProvider){
         .when('/creat', {templateUrl:'/front/job_create.html'})
         .when('/view_one', {templateUrl:'/front/job_viewer_one.html'})
         .when('/skills', {templateUrl:'/front/skills.html', controller:'skills_show_controller'})
+        .when('/:userId', {templateUrl: '/front/profile_viewer_one.html', controller:'ProfileViewerOneCtrl'})
         .otherwise({redirectTo: '/my_page'});
 });
 
