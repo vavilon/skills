@@ -1,0 +1,21 @@
+<div class="container-fluid" ng-controller="usersListCtrl">
+    <div id="creat_condition">{{users[0].FIO}}</div>
+    <div class="table">{{users[0].ExPe | thousand}}</div>
+    <p><p>
+
+    <div class="row" ng-controller="skillsListCtrl">
+        <p>
+        <table class="col-md-12" id="main_table">
+            <tr id="main_table_header"><td>My SKILLS</td></tr>
+            <tr ng-repeat="skill in users[0].userSkills">
+                <td>{{skills[skill].title}}</td>
+            </tr>
+        </table>
+        <table class="col-md-12" id="main_table">
+            <tr id="main_table_header"><td>My NEEDS</td></tr>
+            <tr ng-repeat="skill in users[0].userNeeds">
+                <td>{{skills[skill].title}}</td>
+            </tr>
+        </table>
+    </div>
+</div>
