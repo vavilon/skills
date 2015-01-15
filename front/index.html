@@ -11,17 +11,49 @@
     </head>
     <body>
         <div class="container" ng-controller="usersListCtrl">
-            <a href="/"><h1 class="page-header">IKT Skills</h1></a>
-            
-            <div class="row">
-                <div class="col-md-3">
-                    <strong>{{users[0].FIO}}</strong>
-                    <br>[ {{users[0].ExPe}} ]
+
+            <nav class="navbar navbar-collapse" role="navigation">
+                <div class="container-fluid">
+                    <div class="navbar-header">
+                        <a href="/" class="navbar-brand">IKT Skills</a>
+                    </div>
+
+                    <form class="navbar-form navbar-left" role="search">
+                        <div class="input-group">
+                            <input type="text" class="form-control" placeholder="Поиск...">
+                            <span class="input-group-btn">
+                                <button type="button" class="btn btn-default"><span class="glyphicon glyphicon-search"></span></button>
+                            </span>
+                        </div>
+                    </form>
+
+                    <ul class="nav navbar-nav">
+                        <li ><a href="/skills">Skills</a></li>
+                        <li ><a href="/all_job">Tasks</a></li>
+                        <li ><a href="/all_users">Users</a></li>
+                    </ul>
+
+                    <div class="navbar-right">
+
+                        <div class="navbar-user">
+                            <img class="navbar-avatar" src="/models/users/avatar.jpg" width="20" height="20">
+                            <a href="index.html"><h5 class="navbar-username">{{users[0].FIO}}</h5></a>
+                        </div>
+
+                        <div class="progress navbar-experience">
+                            <div class="progress-bar" role="progressbar" style="width: 90%;">
+                                exp: {{users[0].ExPe}}
+                            </div>
+                        </div>
+
+                        <button type="button" class="btn btn-link navbar-btn"><span class="glyphicon glyphicon-log-out"></span></button>
+
+                    </div>
                 </div>
-            </div>
-            <br>
-            
-            <div class="row" id="main_btn_header">
+                <hr style="margin: 0px;">
+            </nav>
+
+            <!--div class="row" id="main_btn_header">
                 <div class="col-md-3"></div>
                 <div class="col-md-9">
                     <div class="row">
@@ -47,7 +79,7 @@
                         </div>
                     </div>
                 </div>
-            </div>
+            </div!-->
             
             <div class="row" ng-controller="skillsListCtrl">
                 <p>
@@ -76,6 +108,8 @@
 
         <script src="/bower_components/angular/angular.js"></script>
         <script src="/bower_components/angular-route/angular-route.js"></script>
+
+        <script src="/bower_components/jquery/dist/jquery.min.js"></script>
 
         <script src="/front/app.js"></script>
         <script src="/front/users/controllers.js"></script>
@@ -112,7 +146,6 @@
         <script src="/bower_components/sigma/src/misc/sigma.misc.animation.js"></script>
         <script src="/bower_components/sigma/src/misc/sigma.misc.bindEvents.js"></script>
         <script src="/bower_components/sigma/src/misc/sigma.misc.drawHovers.js"></script>
-
 
         <script src="/bower_components/sigma/plugins/sigma.plugins.relativeSize/sigma.plugins.relativeSize.js"></script>
         <script src="/bower_components/sigma/plugins/sigma.plugins.neighborhoods/sigma.plugins.neighborhoods.js"></script>
