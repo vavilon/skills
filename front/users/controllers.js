@@ -16,9 +16,9 @@
  *
  * @param skills    Объект, считанный из skills.json
  * @returns {{}|*}  Объект-обертка, содержащий свойства:
- *                      allLeaves   (array)     спосок ссылок на все листья
- *                      skills      (object)    объект, содержащий все скиллы, как свойства
- *                      root        (object)    ссылка на скилл "Абсолютные знания"
+ *                      leaves      (array)     спосок ссылок на все листья
+ *                      skills      (object)   объект, содержащий все скиллы, как свойства
+ *                      root        (object)   ссылка на скилл "Абсолютные знания"
  *                      log()       (function)  выводит в консоль все свойства объекта (для дебага)
  *                  Свойства скилла:
  *                      title       (string)  название скилла
@@ -29,58 +29,59 @@
  *                      isLeaf      (bool)    является ли листком (может отсутствовать)
  *                      leaves      (array)   список ссылок на листья скилла (только собственные)
  *                      allLeaves   (array)   список ссылок на все листья скилла (рекурсивно по детям)
- *
+ *                      id          (string)  id скилла
  *
  */
-function getAllSkillsObject(skills)
+function extendedSkills(skills)
 {
     'use strict';
-    var obj = {}; //объект-обертка для всех скиллов
-    obj.leaves = []; //хранит ССЫЛКИ (не id) на все листья
-    obj.skills = {}; //объект, в котором свойствами являются скиллы
-    
+    this.leaves = []; //хранит ССЫЛКИ (не id) на все листья
+    this.skills = {}; //объект, в котором свойствами являются скиллы
+
     for (var id in skills)
     {
         //копируем имеющиеся свойства
-        obj.skills[id] = obj.skills[id] || {}; //проверка нужна, потому что дальше объекты могут создаваться
-        obj.skills[id].title = skills[id].title;
-        obj.skills[id].parents = []; //хранит ССЫЛКИ (не id) на родителей
-        obj.skills[id].leaves = obj.skills[id].leaves || [];
+        this.skills[id] = this.skills[id] || {}; //проверка нужна, потому что дальше объекты могут создаваться
+        this.skills[id].title = skills[id].title;
+        this.skills[id].parents = []; //хранит ССЫЛКИ (не id) на родителей
+        this.skills[id].leaves = this.skills[id].leaves || [];
+        this.skills[id].allChildren = [];
+        this.skills[id].allParents = [];
+        this.skills[id].allLeaves = [];
+        this.skills[id].id = id;
+
         for (var i = 0; i < skills[id].parents.length; i++)
         {
-            obj.skills[skills[id].parents[i]] = obj.skills[skills[id].parents[i]] || {};
-            if ($.inArray(obj.skills[skills[id].parents[i]], obj.skills[id].parents) === -1)
-                obj.skills[id].parents.push(obj.skills[skills[id].parents[i]]);
+            this.skills[skills[id].parents[i]] = this.skills[skills[id].parents[i]] || {};
+            if ($.inArray(this.skills[skills[id].parents[i]], this.skills[id].parents) === -1)
+                this.skills[id].parents.push(this.skills[skills[id].parents[i]]);
         }
 
-        for (i = 0; i < obj.skills[id].parents.length; i++)
+        for (i = 0; i < this.skills[id].parents.length; i++)
         {
-            obj.skills[id].parents[i].leaves = obj.skills[id].parents[i].leaves || [];
+            this.skills[id].parents[i].leaves = this.skills[id].parents[i].leaves || [];
             if (skills[id].isLeaf)
-                if ($.inArray(obj.skills[id], obj.skills[id].parents[i].leaves) === -1)
-                    obj.skills[id].parents[i].leaves.push(obj.skills[id]);
+                if ($.inArray(this.skills[id], this.skills[id].parents[i].leaves) === -1)
+                    this.skills[id].parents[i].leaves.push(this.skills[id]);
         }
         if (skills[id].isLeaf) {
-            obj.skills[id].isLeaf = skills[id].isLeaf;
-            obj.leaves.push(obj.skills[id]);
+            this.skills[id].isLeaf = skills[id].isLeaf;
+            this.leaves.push(this.skills[id]);
         }
 
         //создаем массив ССЫЛОК (не id) на детей
-        obj.skills[id].children = obj.skills[id].children || []; //проверка нужна, чтобы children сохранялись
-        for (i = 0; i < obj.skills[id].parents.length; i++)
+        this.skills[id].children = this.skills[id].children || []; //проверка нужна, чтобы children сохранялись
+        for (i = 0; i < this.skills[id].parents.length; i++)
         {
-            obj.skills[id].parents[i].children = obj.skills[id].parents[i].children || [];
-            if ($.inArray(obj.skills[id], obj.skills[id].parents[i].children) === -1)
-                obj.skills[id].parents[i].children.push(obj.skills[id]);
+            this.skills[id].parents[i].children = this.skills[id].parents[i].children || [];
+            if ($.inArray(this.skills[id], this.skills[id].parents[i].children) === -1)
+                this.skills[id].parents[i].children.push(this.skills[id]);
         }
     }
 
     //рекурсия для добавления всех детей вплоть до листьев и всех листьев
     function addAllChildrenRec(to, from)
     {
-        to.allChildren = to.allChildren || [];
-        to.allLeaves = to.allLeaves || [];
-
         for (var i = 0; i < from.children.length; i++)
             if ($.inArray(from.children[i], to.allChildren) === -1)
                 to.allChildren.push(from.children[i]);
@@ -98,8 +99,6 @@ function getAllSkillsObject(skills)
     //рекурсия для добавления всех родителей вплоть до корня
     function addAllParentsRec(to, from)
     {
-        to.allParents = to.allParents || [];
-
         for (var i = 0; i < from.parents.length; i++)
             if ($.inArray(from.parents[i], to.allParents) === -1)
                 to.allParents.push(from.parents[i]);
@@ -111,28 +110,24 @@ function getAllSkillsObject(skills)
     }
 
     //добавление ссылок на всех детей и всех родителей
-    for (id in obj.skills)
+    for (id in this.skills)
     {
-        addAllChildrenRec(obj.skills[id], obj.skills[id]);
-        addAllParentsRec(obj.skills[id], obj.skills[id]);
+        addAllChildrenRec(this.skills[id], this.skills[id]);
+        addAllParentsRec(this.skills[id], this.skills[id]);
     }
 
     //для дебага
-    obj.log = function() {
-        for (var prop in obj) console.log(obj[prop]);
+    this.log = function() {
+        for (var prop in this) console.log(this[prop]);
     };
 
-    obj.root = obj.skills['root'];
-
-    return obj;
+    this.root = this.skills['root'];
 }
 
 angular.module('skills').controller('skills_show_controller',function($scope,$http,$routeParams){
     $http.get('/models/skills.json').success(function (skills) {
 
-        var aso = getAllSkillsObject(skills);
-        //aso.log();
-        console.log(aso);
+        var exs = new extendedSkills(skills);
 
         var g = {
                 nodes: [],
@@ -140,10 +135,10 @@ angular.module('skills').controller('skills_show_controller',function($scope,$ht
             };
 
         //Заполняем граф узлами
-        for (var sid in skills)
+        for (var sid in exs.skills)
             g.nodes.push({
                 id: sid,
-                label: skills[sid].title,
+                label: exs.skills[sid].title,
                 x: Math.random(),
                 y: Math.random(),
                 size: 1,
@@ -152,13 +147,13 @@ angular.module('skills').controller('skills_show_controller',function($scope,$ht
 
         //Заполняем граф связями
         var i = 0;
-        for (var sid in skills) {
-            if (skills[sid].parents) {
-                for (var j = 0; j < skills[sid].parents.length; j++) {
+        for (var sid in exs.skills) {
+            if (exs.skills[sid].parents) {
+                for (var j = 0; j < exs.skills[sid].parents.length; j++) {
                     g.edges.push({
                         id: 'e' + i,
                         source: sid,
-                        target: skills[sid].parents[j],
+                        target: exs.skills[sid].parents[j].id,
                         size: 1,
                         color: 'rgba(100, 100, 100, 1)',
                         type: 'arrow'
