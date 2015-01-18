@@ -49,19 +49,20 @@ app.config(function($locationProvider,$routeProvider){
                 });
 
                 scope.$watch('graph', function (newVal, oldVal) {
-                    s.graph.clear();
-                    s.graph.read(scope.graph);
-                    s.refresh();
+                    if (scope.graph) {
+                        s.graph.clear();
+                        s.graph.read(scope.graph);
+                        s.refresh();
 
+                        s.startForceAtlas2();
+                        setTimeout(function () {
+                            s.killForceAtlas2();
+                        }, 4000);
 
-                    s.startForceAtlas2();
-                    setTimeout(function () {
-                        s.stopForceAtlas2();
-                    }, 4000);
-
-                    if (scope.releativeSizeNode) {
-                        //this feature needs the plugin to be added
-                        sigma.plugins.relativeSize(s, 2);
+                        if (scope.releativeSizeNode) {
+                            //this feature needs the plugin to be added
+                            sigma.plugins.relativeSize(s, 2);
+                        }
                     }
                 });
 
@@ -80,6 +81,7 @@ app.config(function($locationProvider,$routeProvider){
 
                 element.on('$destroy', function () {
                     s.graph.clear();
+                    s.killForceAtlas2();
                 });
 
                 s.bind('clickNode', function (e) {
