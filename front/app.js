@@ -1,6 +1,7 @@
 var app = angular.module('skills',[
     'ngRoute',
-    'allProfilesFilters'
+    'allProfilesFilters',
+    'ngMaterial'
 ]);
 
 app.config(function($locationProvider,$routeProvider){
@@ -22,6 +23,7 @@ app.config(function($locationProvider,$routeProvider){
         .when('/:userId', {templateUrl: '/front/profile_viewer_one.html', controller:'ProfileViewerOneCtrl'})
         .otherwise({redirectTo: '/my_page'});
 });
+
 
 (function() {
     'use strict';

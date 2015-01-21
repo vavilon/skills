@@ -3,89 +3,29 @@
     <head>
         <base href="/">
         <meta charset="utf-8">
+        <meta name="viewport" content="initial-scale=1, maximum-scale=1, user-scalable=no" />
         <title>Skills</title>
 
-        <link rel="stylesheet" href="/bower_components/bootstrap/dist/css/bootstrap.css">
-        <link href="/front/style.css" rel="stylesheet">
+        <link rel="stylesheet" href="/bower_components/angular-material/angular-material.css">
+        <link rel="stylesheet" href="/front/style.css">
 
-    </head>
-    <body>
-        <div class="container" ng-controller="usersListCtrl">
-
-            <nav class="navbar navbar-collapse" role="navigation">
-                <div class="container-fluid">
-                    <div class="navbar-header">
-                        <a href="/" class="navbar-brand">IKT Skills</a>
-                    </div>
-
-                    <form class="navbar-form navbar-left" role="search">
-                        <div class="input-group">
-                            <input type="text" class="form-control" placeholder="Поиск...">
-                            <span class="input-group-btn">
-                                <button type="button" class="btn btn-default"><span class="glyphicon glyphicon-search"></span></button>
-                            </span>
-                        </div>
-                    </form>
-
-                    <ul class="nav navbar-nav">
-                        <li ><a href="/skills">Skills</a></li>
-                        <li ><a href="/all_job">Tasks</a></li>
-                        <li ><a href="/all_users">Users</a></li>
-                    </ul>
-
-                    <div class="navbar-right">
-
-                        <div class="navbar-user">
-                            <img class="navbar-avatar" src="/models/users/avatar.jpg" width="20" height="20">
-                            <a href="/about_me"><h5 class="navbar-username">{{users[0].FIO}}</h5></a>
-                        </div>
-
-                        <div class="progress navbar-experience">
-                            <div class="progress-bar" role="progressbar" style="width: 90%;">
-                                exp: {{users[0].ExPe}}
-                            </div>
-                        </div>
-
-                        <button type="button" class="btn btn-link navbar-btn"><span class="glyphicon glyphicon-log-out"></span></button>
-
-                    </div>
-                </div>
-                <hr style="margin: 0px;">
-            </nav>
-
-            <div class="row" ng-controller="skillsListCtrl">
-                <p>
-                <div class="col-md-3">
-                    <table class="col-md-12" id="main_table">
-                        <tr id="main_table_header"><td>My SKILLS</td></tr>
-                        <tr ng-repeat="skill in users[0].userSkills">
-                            <td>{{skills[skill].title}}</td>
-                        </tr>
-                    </table>
-                    <table class="col-md-12" id="main_table">
-                        <tr id="main_table_header"><td>My NEEDS</td></tr>
-                        <tr ng-repeat="skill in users[0].userNeeds">
-                            <td>{{skills[skill].title}}</td>
-                        </tr>
-                    </table>
-                </div>
-
-                <div class="col-md-9">
-                    <div class="row">
-                        <ng-view></ng-view>
-                    </div>
-                </div>
-            </div>
-        </div>
 
         <script src="/bower_components/angular/angular.js"></script>
-        <script src="/bower_components/angular-route/angular-route.js"></script>
-
+        <script src="/bower_components/angular-animate/angular-animate.min.js"></script>
+        <script src="/bower_components/angular-route/angular-route.min.js"></script>
+        <script src="/bower_components/angular-aria/angular-aria.min.js"></script>
+        <script src="/bower_components/hammerjs/hammer.js"></script>
+        <script src="/bower_components/angular-material/angular-material.min.js"></script>
         <script src="/bower_components/jquery/dist/jquery.min.js"></script>
 
         <script src="/front/app.js"></script>
         <script src="/front/users/controllers.js"></script>
         <script src="/front/filter.js"></script>
+
+    </head>
+
+    <body layout="row">
+
 
         <script src="/bower_components/sigma/src/sigma.core.js"></script>
         <script src="/bower_components/sigma/src/conrad.js"></script>
@@ -121,12 +61,12 @@
         <script src="/bower_components/sigma/src/misc/sigma.misc.drawHovers.js"></script>
         <script src="/bower_components/sigma/plugins/sigma.plugins.relativeSize/sigma.plugins.relativeSize.js"></script>
         <script src="/bower_components/sigma/plugins/sigma.plugins.neighborhoods/sigma.plugins.neighborhoods.js"></script>
-        <!--
+
         <script src="/bower_components/sigma/plugins/sigma.renderers.edgeLabels/settings.js"></script>
         <script src="/bower_components/sigma/plugins/sigma.renderers.edgeLabels/sigma.canvas.edges.labels.def.js"></script>
         <script src="/bower_components/sigma/plugins/sigma.renderers.edgeLabels/sigma.canvas.edges.labels.curve.js"></script>
         <script src="/bower_components/sigma/plugins/sigma.renderers.edgeLabels/sigma.canvas.edges.labels.curvedArrow.js"></script>
-        -->
+
         <script src="/bower_components/sigma/plugins/sigma.layout.forceAtlas2/worker.js"></script>
         <script src="/bower_components/sigma/plugins/sigma.layout.forceAtlas2/supervisor.js"></script>
     </body>
