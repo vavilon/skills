@@ -22,9 +22,16 @@ app.config(function($locationProvider,$routeProvider){
         .when('/skills', {templateUrl:'/front/skills/skills.html', controller:'skills_show_controller'})
         .when('/users/:userId', {templateUrl: '/front/users/one.html', controller:'ProfileViewerOneCtrl'})
         .otherwise({redirectTo: '/main'});
-
 });
 
+app.controller('navbar_controller',['$scope', '$http', '$routeParams', '$location',
+    function($scope, $http, $routeParams, $location) {
+        $scope.selectedIndex = 0;
+        $scope.goToMain = function(){$location.path('/main'); $scope.selectedIndex = 0;};
+        $scope.goToSkills = function(){$location.path('/skills');};
+        $scope.goToTasks = function(){$location.path('/tasks');};
+        $scope.goToUsers = function(){$location.path('/users');};
+    }]);
 
 (function() {
     'use strict';
