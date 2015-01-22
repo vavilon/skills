@@ -5,39 +5,9 @@
         <meta charset="utf-8">
         <meta name="viewport" content="initial-scale=1, maximum-scale=1, user-scalable=no" />
         <title>Skills</title>
+
         <link rel="stylesheet" href="/bower_components/angular-material/angular-material.css">
-        <style>
-            .header-logo {
-                font-family: 'Courier New', Courier, monospace;
-                font-weight: bold;
-                letter-spacing: 7px;
-                text-transform: uppercase;
-            }
 
-            md-tabs {
-                height: 64px;
-            }
-
-            section.md-header {
-                height: 64px !important;
-            }
-
-            md-tabs-ink-bar {
-                background-color: #FFFF8D !important;
-                height: 3px;
-            }
-
-            .fixed-nav {
-                position: fixed;
-                top: 0;
-                z-index: 999999;
-                width: 100%;
-            }
-
-            .content {
-                margin-top: 64px;
-            }
-        </style>
         <script src="/bower_components/angular/angular.js"></script>
         <script src="/bower_components/angular-animate/angular-animate.min.js"></script>
         <script src="/bower_components/angular-route/angular-route.min.js"></script>
@@ -53,48 +23,8 @@
     </head>
 
     <body>
-        <div ng-controller="navbar_controller">
-            <md-toolbar>
-                <div layout="row" layout-align="space-between center">
-                    <div class="md-toolbar-tools" flex="20" hide-gt-md>
-                        <md-button class="md-raised">
-                            <img src='/bower_components/material-design-icons/navigation/svg/design/ic_menu_24px.svg'>
-                        </md-button>
-                    </div>
-                    <div class="md-toolbar-tools" flex="20">
-                        <a href="" ng-click="goToMain()" class="header-logo">Skills</a>
-                    </div>
-                    <div class="md-toolbar-tools" hide show-gt-md flex="50">
-                        <md-tabs md-selected="selectedIndex">
-                            <md-tab md-on-select="goToMain()">Main</md-tab>
-                            <md-tab md-on-select="goToSkills()">Skills</md-tab>
-                            <md-tab md-on-select="goToTasks()">Tasks</md-tab>
-                            <md-tab md-on-select="goToUsers()">Users</md-tab>
-                        </md-tabs>
-                    </div>
-                    <div class="md-toolbar-tools" layout="row" layout-align="end center">
-                        <div flex="40" hide show-md show-gt-md>
-                            <h5>
-                                <a href="">alexeychikk</a>
-                            </h5>
-                        </div>
-                        <div flex="40" hide show-gt-md>
-                            <h6>
-                                <a href="">exp: 203,765</a>
-                            </h6>
-                        </div>
-                        <div flex="20">
-                            <md-button class="md-raised">
-                                <img src='/bower_components/material-design-icons/action/svg/design/ic_account_circle_24px.svg'>
-                            </md-button>
-                        </div>
-                    </div>
-                </div>
-            </md-toolbar>
-        </div>
-        <div>
-            <ng-view></ng-view>
-        </div>
+
+        <ng-view></ng-view>
 
         <script src="/bower_components/sigma/src/sigma.core.js"></script>
         <script src="/bower_components/sigma/src/conrad.js"></script>
