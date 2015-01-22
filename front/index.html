@@ -7,7 +7,26 @@
         <title>Skills</title>
 
         <link rel="stylesheet" href="/bower_components/angular-material/angular-material.css">
+        <style>
+            .header-logo {
+                font-family: 'Courier New', Courier, monospace;
+                font-weight: bold;
+                letter-spacing: 7px;
+                text-transform: uppercase;
+            }
 
+            md-tabs {
+                height: 64px;
+            }
+
+            section.md-header {
+                height: 64px !important;
+            }
+
+            md-tabs-ink-bar {
+                background-color: #FFFF8D !important;
+            }
+        </style>
         <script src="/bower_components/angular/angular.js"></script>
         <script src="/bower_components/angular-animate/angular-animate.min.js"></script>
         <script src="/bower_components/angular-route/angular-route.min.js"></script>
@@ -23,7 +42,25 @@
     </head>
 
     <body>
-
+        <div ng-controller="navbar_controller">
+            <md-toolbar>
+                <div layout="row">
+                    <div class="md-toolbar-tools" flex="20">
+                        <h3>
+                            <a href="" ng-click="goToMain()" class="header-logo">Skills</a>
+                        </h3>
+                    </div>
+                    <div class="md-toolbar-tools" flex="70">
+                        <md-tabs md-selected="selectedIndex">
+                            <md-tab md-on-select="goToMain()">Main</md-tab>
+                            <md-tab md-on-select="goToSkills()">Skills</md-tab>
+                            <md-tab md-on-select="goToTasks()">Tasks</md-tab>
+                            <md-tab md-on-select="goToUsers()">Users</md-tab>
+                        </md-tabs>
+                    </div>
+                </div>
+            </md-toolbar>
+        </div>
         <ng-view></ng-view>
 
         <script src="/bower_components/sigma/src/sigma.core.js"></script>
