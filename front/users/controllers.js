@@ -205,14 +205,22 @@ app.controller('skillsListCtrl', ['$scope', '$http', function($scope, $http)
     });
 }]);
 
-app.controller('all_tasks_show_controller', ['$scope', '$http', function($scope, $http)
+app.controller('all_tasks_show_controller', ['$scope', '$http', '$mdSidenav', function($scope, $http, $mdSidenav)
 {
-    $http.get('models/skills.json').success(function(data) {
-        $scope.skills = data;
+    $http.get('models/skills.json').success(function(skills) {
+        $scope.skills = skills;
         $http.get('models/projects_list.json').success(function(tasks){
             $scope.tasks = tasks;
         });
     });
+
+    $scope.toggleFilter = function() {
+        $mdSidenav('left').toggle();
+    };
+
+    $scope.closeFilter = function() {
+        $mdSidenav('left').close();
+    };
 }]);
 
 app.controller('ProfileViewerOneCtrl', ['$scope', '$routeParams', '$http',

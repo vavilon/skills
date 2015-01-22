@@ -1,6 +1,52 @@
-<div class="container-fluid">
+<div layout="column" layout-fill>
+    <section layout="row" flex>
+        <md-sidenav class="md-sidenav-left md-whiteframe-z2" style="margin-top: 1%" md-component-id="left" md-is-locked-open="$media('gt-md')">
+            <md-toolbar style="background-color: rgba(0, 0, 0, 0.23); color: rgba(0, 0, 0, 0.87)">
+                <div layout="row">
+                    <span class="md-toolbar-tools" flex="80">Фильтр</span>
+                    <md-button class="md-fab-top-right" ng-click="closeFilter()" aria-label="hideFilter" flex="20" hide-gt-md>
+                        <img style="border-radius: 50%; border: thin solid rgba(0, 0, 0, 0.87)" src='/bower_components/material-design-icons/navigation/svg/design/ic_arrow_back_24px.svg'>
+                        <md-tooltip>Скрыть</md-tooltip>
+                    </md-button>
+                </div>
+            </md-toolbar>
+            <md-content class="md-padding">
+                <form name="filterByName">
+                    <md-input-container>
+                        <label>Название</label>
+                        <input type="text" ng-model="taskFilter.name"/>
+                    </md-input-container>
+                </form>
+
+                    <md-subheader>Сложность</md-subheader>
+                    <md-checkbox class="checkboxFilter" ng-model="taskFilter.complexityEasy">Легко</md-checkbox>
+                    <md-checkbox class="checkboxFilter" ng-model="taskFilter.complexityMedium">Средне</md-checkbox>
+                    <md-checkbox class="checkboxFilter" ng-model="taskFilter.complexityHard">Сложно</md-checkbox>
+
+                <form name="filterBySkill" layout="row" layout-align="center center">
+                        <md-input-container flex="85">
+                            <label>Скилы</label>
+                            <input type="text" ng-model="taskFilter.skill" name="skillsFilter" required/>
+                            <div ng-messages="filterBySkill.skillsFilter.$error">
+                                <div ng-message="required">Введите название скила.</div>
+                            </div>
+                        </md-input-container>
+                        <md-button class="md-primary" style="height: 50%" flex="15" layout-align="center center" aria-label="filter_add_skill">
+                            <img src="/bower_components/material-design-icons/content/svg/design/ic_add_24px.svg"/>
+                        </md-button>
+                </form>
+
+            </md-content>
+        </md-sidenav>
+
+        <md-button ng-click="toggleFilter()" class="md-primary" hide-gt-md>Развернуть</md-button>
+    </section>
+
+</div>
+
+<!--div class="container-fluid">
     <div class="col-md-4">
-        <!--Filter-->
+        <!--Filter->
         <form class="well">
             <h2 style="margin: 10px 0 15px 0">Все задания:</h2>
             <input id="filter_tasks_by_name" type="text" class="input-sm search-query" placeholder="Название..." ng-model="query" ng-change="search()">
@@ -23,11 +69,11 @@
                     <li id="element_with_plus">{{skill.title}}</li>
                 </a>
             </ul>
-        </form> <!--Filter-->
+        </form> <!--Filter->
     </div>
 
     <div class="col-md-8">
-        <!--Sort-->
+        <!--Sort->
         <div id="tasks_sort" class="row">
             <div class="col-md-3">
                 Сортировать по:
@@ -38,7 +84,7 @@
             </div>
         </div> <!--Sort-->
 
-        <!--List of tasks-->
+        <!--List of tasks->
         <ol>
             <li ng-repeat="task in tasks">
                 <a href="/view_one"><h3><b>{{task.title}}</b></h3></a>
@@ -47,6 +93,6 @@
                     <span ng-repeat="id in task.skillsID">{{skills[id].title}}; </span>
                 </div>
             </li>
-        </ol><!--List of tasks-->
+        </ol><!--List of tasks->
     </div>
-</div>
+</div-->
