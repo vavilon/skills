@@ -26,6 +26,15 @@ app.config(function($locationProvider,$routeProvider){
 });
 
 
+app.controller('navbar_controller',['$scope', '$http', '$routeParams', '$location',
+    function($scope, $http, $routeParams, $location) {
+        $scope.selectedIndex = 0;
+        $scope.goToMain = function(){$location.path('/main'); $scope.selectedIndex = 0;};
+        $scope.goToSkills = function(){$location.path('/skills');};
+        $scope.goToTasks = function(){$location.path('/tasks');};
+        $scope.goToUsers = function(){$location.path('/users');};
+    }]);
+
 (function() {
     'use strict';
     app.directive('sigmajs', function () {
