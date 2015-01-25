@@ -11,7 +11,7 @@ angular.module('allProfilesFilters', []).filter('thousand', function() {
             count++;
 
             if (count == 3   &&   i!=0) {
-                arr = "'" + arr;
+                arr = "," + arr;
                 count = 0;
             }
         }

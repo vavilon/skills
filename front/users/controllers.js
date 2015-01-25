@@ -172,6 +172,10 @@ app.controller('usersListCtrl', ['$scope', '$http', '$filter', function($scope, 
 {
     $http.get('models/users.json').success(function(data) {
         $scope.users = data;
+        $scope.lastExpandedUser = $scope.users[0];
+    });
+    $http.get('/models/skills.json').success(function(data) {
+        $scope.skills = data;
     });
 
     var orderBy = $filter('orderBy');
@@ -180,8 +184,13 @@ app.controller('usersListCtrl', ['$scope', '$http', '$filter', function($scope, 
         $scope.users = orderBy($scope.users, predicate, reverse);
     };
 
-    $scope.order('-ExPe', false);
+    $scope.order('-exp', false);
 
+    $scope.expand = function(user) {
+        if ($scope.lastExpandedUser !== user) $scope.lastExpandedUser.expanded = false;
+        user.expanded = !user.expanded;
+        $scope.lastExpandedUser = user;
+    }
 }]);
 
 app.controller('skillsListCtrl', ['$scope', '$http', function($scope, $http)

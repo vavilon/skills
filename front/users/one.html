@@ -1,6 +1,6 @@
 <div class="container-fluid">
     <div id="creat_condition">{{user.FIO}}</div>
-    <div class="table">{{user.ExPe | thousand}}</div>
+    <div class="table">{{user.exp | thousand}}</div>
     <p><p>
 
     <div class="row" ng-controller="skillsListCtrl">
@@ -9,7 +9,7 @@
             <tr>
                 <td id="main_table_header">SKILLS</td>
             </tr>
-            <tr ng-repeat="skill in user.userSkills">
+            <tr ng-repeat="skill in user.skills">
                 <td>{{skills[skill].title}}</td>
             </tr>
         </table>
@@ -19,7 +19,7 @@
             <tr id="main_table_header">
                 <td>NEEDS</td>
             </tr>
-            <tr ng-repeat="skill in user.userNeeds">
+            <tr ng-repeat="skill in user.needs">
                 <td>{{skills[skill].title}}</td>
             </tr>
         </table>
