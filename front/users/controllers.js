@@ -1,5 +1,5 @@
 //angular.module('skills').controller('users_show_controller',function($scope,$http,$routeParams){
-//    $http.get('/models/projects_list.json').success(function(projects) {
+//    $http.get('/models/tasks_list.json').success(function(projects) {
 //        $scope.projects = projects;
 //        $http.get('/models/skills.json').success(function (skills) {
 //            $scope.skills = skills;
@@ -209,7 +209,7 @@ app.controller('all_tasks_show_controller', ['$scope', '$http', '$mdSidenav', fu
 {
     $http.get('models/skills.json').success(function(skills) {
         $scope.skills = skills;
-        $http.get('models/projects_list.json').success(function(tasks){
+        $http.get('models/tasks_list.json').success(function(tasks){
             $scope.tasks = tasks;
         });
     });
