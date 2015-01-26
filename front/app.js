@@ -5,7 +5,7 @@ var app = angular.module('skills',[
     'ngAnimate'
 ]);
 
-app.config(function($locationProvider,$routeProvider){
+app.config(function($locationProvider,$routeProvider,$mdThemingProvider){
     $locationProvider.html5Mode(true);
 
     $routeProvider
@@ -23,6 +23,23 @@ app.config(function($locationProvider,$routeProvider){
         .when('/skills', {templateUrl:'/front/skills/skills.html', controller:'skills_show_controller'})
         .when('/users/:userId', {templateUrl: '/front/users/one.html', controller:'ProfileViewerOneCtrl'})
         .otherwise({redirectTo: '/main'});
+
+    $mdThemingProvider.theme('default')
+        .primaryColor('indigo', {
+            'default': '500',
+            'hue-1': '300',
+            'hue-2': '800',
+            'hue-3': 'A100'})
+        .accentColor('pink', {
+            'default': '400',
+            'hue-1': '300',
+            'hue-2': '800',
+            'hue-3': 'A100'})
+        .warnColor('red', {
+            'default': '500',
+            'hue-1': '300',
+            'hue-2': '800',
+            'hue-3': 'A100'});
 });
 
 app.controller('navbar_controller',['$scope', '$http', '$routeParams', '$location',
