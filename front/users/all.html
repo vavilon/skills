@@ -84,7 +84,7 @@
             </md-toolbar>
             <md-content>
                 <md-list>
-                    <md-item class="animate" ng-repeat="user in users | filter:username">
+                    <md-item class="animate" ng-repeat="user in users | filter: {FIO:username}">
                         <md-item-content style="align-items: flex-start !important;">
                             <div class="md-tile-left">
                                 <img src="/bower_components/material-design-icons/action/svg/design/ic_account_circle_24px.svg"
