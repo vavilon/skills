@@ -42,6 +42,17 @@ app.config(function($locationProvider,$routeProvider,$mdThemingProvider){
             'hue-3': 'A100'});
 });
 
+app.filter('objectByKeyValFilter', function () {
+    return function (input, filterKey, filterVal) {
+        var filteredInput = {};
+        angular.forEach(input, function(value, key) {
+            if(value[filterKey] && (new RegExp(filterVal, "i")).test(value[filterKey])) {
+                filteredInput[key]= value;
+            }
+        });
+        return filteredInput;
+    }});
+
 app.controller('navbar_controller',['$scope', '$http', '$routeParams', '$location',
     function($scope, $http, $routeParams, $location) {
         $scope.selectedIndex = 0;
