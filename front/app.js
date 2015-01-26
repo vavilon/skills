@@ -1,7 +1,8 @@
 var app = angular.module('skills',[
     'ngRoute',
     'allProfilesFilters',
-    'ngMaterial'
+    'ngMaterial',
+    'ngAnimate'
 ]);
 
 app.config(function($locationProvider,$routeProvider){
