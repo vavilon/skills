@@ -1,47 +1,52 @@
-<div layout="column" layout-fill>
-    <section layout="row" flex>
-        <md-sidenav class="md-sidenav-left md-whiteframe-z2" style="margin-top: 1%" md-component-id="left" md-is-locked-open="$media('gt-md')">
-            <md-toolbar style="background-color: rgba(0, 0, 0, 0.23); color: rgba(0, 0, 0, 0.87)">
-                <div layout="row">
-                    <span class="md-toolbar-tools" flex="80">Фильтр</span>
-                    <md-button class="md-fab-top-right" ng-click="closeFilter()" aria-label="hideFilter" flex="20" hide-gt-md>
-                        <img style="border-radius: 50%; border: thin solid rgba(0, 0, 0, 0.87)" src='/bower_components/material-design-icons/navigation/svg/design/ic_arrow_back_24px.svg'>
-                        <md-tooltip>Скрыть</md-tooltip>
-                    </md-button>
-                </div>
-            </md-toolbar>
-            <md-content class="md-padding">
-                <form name="filterByName">
-                    <md-input-container>
-                        <label>Название</label>
-                        <input type="text" ng-model="taskFilter.name"/>
+<div layout="row" flex>
+    <div class="md-whiteframe-z2" flex="20">
+        <md-content class="md-padding">
+            <form name="filterByName">
+                <md-input-container>
+                    <label>Название задачи</label>
+                    <input type="text" ng-model="taskFilter.name"/>
+                </md-input-container>
+            </form>
+            <div class="complexityFilter" style="margin-left: 5%">
+                <h5>Сложность</h5>
+                <md-checkbox ng-model="taskFilter.complexityEasy">Легко</md-checkbox>
+                <md-checkbox ng-model="taskFilter.complexityMedium">Средне</md-checkbox>
+                <md-checkbox ng-model="taskFilter.complexityHard">Сложно</md-checkbox>
+            </div>
+            <form name="filterBySkill" layout="row" layout-align="center center">
+                    <md-input-container flex="85">
+                        <label>Скилы</label>
+                        <input type="text" ng-model="taskFilter.skill" name="skillsFilter" required/>
+                        <div ng-messages="filterBySkill.skillsFilter.$error">
+                            <div ng-message="required">Введите название скила.</div>
+                        </div>
                     </md-input-container>
-                </form>
+                    <md-button class="md-primary" style="height: 50%" flex="15" layout-align="center center" aria-label="filter_add_skill">
+                        <img src="/bower_components/material-design-icons/content/svg/design/ic_add_24px.svg"/>
+                    </md-button>
+            </form>
+        </md-content>
+    </div>
 
-                    <md-subheader>Сложность</md-subheader>
-                    <md-checkbox class="checkboxFilter" ng-model="taskFilter.complexityEasy">Легко</md-checkbox>
-                    <md-checkbox class="checkboxFilter" ng-model="taskFilter.complexityMedium">Средне</md-checkbox>
-                    <md-checkbox class="checkboxFilter" ng-model="taskFilter.complexityHard">Сложно</md-checkbox>
+    <div layout="column" layout-fill>
+        <div>
+            <div layout="row" layout-align="start center" layout-margin>
+                <h5>Сортировать по: </h5>
+                <div class="sortBy">
+                    <label for="sortAlphabetDown">алфавиту</label>
+                    <img id="sortAlphabetDown" src="/bower_components/material-design-icons/navigation/svg/design/ic_arrow_drop_down_24px.svg"/>
+                </div>
+                <div class="sortBy">
+                    <label for="sortComplexityDown">сложности</label>
+                    <img id="sortComplexityDown" src="/bower_components/material-design-icons/navigation/svg/design/ic_arrow_drop_down_24px.svg"/>
+                </div>
+            </div>
+        </div>
+        <md-divider></md-divider>
+        <div>
 
-                <form name="filterBySkill" layout="row" layout-align="center center">
-                        <md-input-container flex="85">
-                            <label>Скилы</label>
-                            <input type="text" ng-model="taskFilter.skill" name="skillsFilter" required/>
-                            <div ng-messages="filterBySkill.skillsFilter.$error">
-                                <div ng-message="required">Введите название скила.</div>
-                            </div>
-                        </md-input-container>
-                        <md-button class="md-primary" style="height: 50%" flex="15" layout-align="center center" aria-label="filter_add_skill">
-                            <img src="/bower_components/material-design-icons/content/svg/design/ic_add_24px.svg"/>
-                        </md-button>
-                </form>
-
-            </md-content>
-        </md-sidenav>
-
-        <md-button ng-click="toggleFilter()" class="md-primary" hide-gt-md>Развернуть</md-button>
-    </section>
-
+        </div>
+    </div>
 </div>
 
 <!--div class="container-fluid">

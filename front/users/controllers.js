@@ -215,11 +215,9 @@ app.controller('all_tasks_show_controller', ['$scope', '$http', '$mdSidenav', fu
     });
 
     $scope.toggleFilter = function() {
-        $mdSidenav('left').toggle();
     };
 
     $scope.closeFilter = function() {
-        $mdSidenav('left').close();
     };
 }]);
 
