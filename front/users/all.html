@@ -43,12 +43,12 @@
 
     .my-show-hide-animation.ng-hide-add,
     .my-show-hide-animation.ng-hide-remove {
-        -webkit-transition: 500ms cubic-bezier(0.250, 0.750, 0.750, 0.250) all;
-        transition: 500ms cubic-bezier(0.250, 0.750, 0.750, 0.250) all;
+        -webkit-transition: 500ms linear all;
+        transition: 500ms linear all;
 
         /* remember to add this */
         display:block!important;
-        max-height: 500px;
+        max-height: 250px;
         overflow: hidden;
         opacity: 1;
     }
@@ -57,6 +57,19 @@
         max-height: 0;
         opacity: 0;
     }
+
+    .label-button {
+        font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
+        text-transform: none;
+        font-size: 14px;
+        margin-right: 5px;
+        margin-bottom: 5px;
+        padding: 0;
+        padding-right: 3px;
+        padding-left: 3px;
+        padding-bottom: 1px;
+    }
+
 </style>
 
 <div style="position: fixed; background-color: #FAFAFA; height: 100%; width: 100%;"></div>
@@ -98,10 +111,10 @@
                                     Выполнено заданий: {{user.tasksDone.length}}
                                 </p>
                                 <div class="my-show-hide-animation" ng-show="user.expanded">
-                                    <h3>Skills:</h3>
-                                    <ul><li ng-repeat="skill in user.skills"><h4>{{skills[skill].title}}</h4></li></ul>
-                                    <h3>Needs:</h3>
-                                    <ul><li ng-repeat="need in user.needs"><h4>{{skills[need].title}}</h4></li></ul>
+                                    <h3 style="float: left; margin-right: 7px; margin-top: 3px;">Skills:</h3>
+                                    <md-button class="md-raised md-primary label-button" ng-repeat="skill in user.skills">{{skills[skill].title}}</md-button>
+                                    <br><h3 style="float: left; margin-right: 7px; margin-top: 3px;">Needs:</h3>
+                                    <md-button class="md-raised md-accent md-hue-2 label-button" ng-repeat="need in user.needs">{{skills[need].title}}</md-button>
                                 </div>
                             </div>
                             <div>
