@@ -8,6 +8,7 @@
         <link rel="stylesheet" href="/bower_components/angular-material/angular-material.css">
         <link rel="stylesheet" href="/bower_components/bootstrap/dist/css/bootstrap.min.css">
         <link rel="stylesheet" href="/front/style.css">
+        <link rel="stylesheet" href="/front/tasks/tasks_style.css">
         <style>
             .header-logo {
                 font-family: 'Courier New', Courier, monospace;
@@ -106,9 +107,7 @@
             </md-toolbar>
         </div>
 
-        <div class="content">
-            <ng-view></ng-view>
-        </div>
+        <div class="content ng-view" layout="column" layout-fill></div>
 
         <script src="/bower_components/sigma/src/sigma.core.js"></script>
         <script src="/bower_components/sigma/src/conrad.js"></script>
