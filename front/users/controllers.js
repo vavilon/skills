@@ -223,7 +223,7 @@ app.controller('all_tasks_show_controller', ['$scope', '$http', '$mdSidenav', fu
 
     $scope.findUser = function(id) {
         for(var user in $scope.users)
-            if($scope.users[user].user_id === id) return $scope.users[user];
+            if($scope.users[user].id === id) return $scope.users[user];
     };
 
     $scope.expand = function(task) {
