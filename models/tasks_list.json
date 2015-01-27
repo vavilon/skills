@@ -1,19 +1,92 @@
 {
-  "05d17728-59b2-4ec8-82c5-a34946e6a2ba":{
-    "title":"project #0000",
-    "description":"'project 0000' description.",
-    "skillsID":[
-      "81b6074d-24f6-4a08-8f41-a11e798a863a",
-      "48818948-2b1b-4818-871e-98bd6b922ae4",
-      "715d0259-b63d-49ac-8456-9d2b9e76d89a"
-    ]
+  "05d17728-59b2-4ec8-82c5-a34946e6a2ba": {
+    "title": "'Hello, World!' на C#",
+    "description": "Написать программу на языке программирования C#, которая выводит на консоль надпись 'Hello, World!'.",
+    "skills": [
+      "4d8932e1-020c-4e2b-9991-c9b7f1f8b97e"
+    ],
+    "exp": 100500,
+    "author": "u00000000001",
+    "dateCreated": "26.01.15"
   },
-  "a9d2768f-c833-47e1-af53-26c646daffec": {
-    "title": "project #0001",
-    "description": "'project 0001' description.",
-    "skillsID": [
-      "daa95bd1-df35-4133-9dcf-dd3e8f50b1f4",
-      "715d0259-b63d-49ac-8456-9d2b9e76d89a"
-    ]
+  "e1bd8023-fd57-4d72-8dc4-87e8c3e1dbf4": {
+    "title": "'Hello, World!' на Java",
+    "description": "Написать программу на языке программирования Java, которая выводит на консоль надпись 'Hello, World!'.",
+    "skills": [
+      "bee722c0-30fe-4f93-9ef5-ac0fcc31d1af"
+    ],
+    "exp": 100500,
+    "author": "u00000000001",
+    "dateCreated": "26.01.15"
+  },
+  "0e20cdbc-8022-49f8-9e09-401902c0ae77": {
+    "title": "'Hello, World!' на PHP",
+    "description": "Написать программу на языке программирования PHP, которая выводит на консоль надпись 'Hello, World!'.",
+    "skills": [
+      "5a0574cc-66b7-4c89-9950-03a2eea0c701"
+    ],
+    "exp": 100500,
+    "author": "u00000000001",
+    "dateCreated": "26.01.15"
+  },
+  "1a637405-5a01-480e-b92d-c02c3c7162d6": {
+    "title": "'Hello, World!' на C++",
+    "description": "Написать программу на языке программирования C++, которая выводит на консоль надпись 'Hello, World!'.",
+    "skills": [
+      "f302dcf1-0cce-4891-bb68-75f0477139f0"
+    ],
+    "exp": 100500,
+    "author": "u00000000001",
+    "dateCreated": "26.01.15"
+  },
+  "4ad3557c-4572-442f-8429-9419a7ae09e0": {
+    "title": "'Hello, World!' на JavaScript",
+    "description": "Написать программу на языке программирования JavaScript, которая выводит на консоль надпись 'Hello, World!'.",
+    "skills": [
+      "df04e464-0aee-46db-8dd4-67b9d92af08b"
+    ],
+    "exp": 100500,
+    "author": "u00000000001",
+    "dateCreated": "26.01.15"
+  },
+  "9644ea40-06db-4b83-8f18-309d4952d249": {
+    "title": "'Hello, World!' на Python",
+    "description": "Написать программу на языке программирования Python, которая выводит на консоль надпись 'Hello, World!'.",
+    "skills": [
+      "8b33a559-a0b4-47da-a27e-84439cdecf9c"
+    ],
+    "exp": 100500,
+    "author": "u00000000001",
+    "dateCreated": "26.01.15"
+  },
+  "04cad06f-b31d-4ddd-9cfb-5de4de73d366": {
+    "title": "'Hello, World!' на Objective-C",
+    "description": "Написать программу на языке программирования Objective-C, которая выводит на консоль надпись 'Hello, World!'.",
+    "skills": [
+      "233955be-12bb-497d-93fa-b924742930f1"
+    ],
+    "exp": 100500,
+    "author": "u00000000001",
+    "dateCreated": "26.01.15"
+  },
+  "d0c8c962-47ff-4a69-a81e-cf47e58e73ec": {
+    "title": "'Hello, World!' на Ruby",
+    "description": "Написать программу на языке программирования Ruby, которая выводит на консоль надпись 'Hello, World!'.",
+    "skills": [
+      "95ba492d-7a91-4c7f-927d-c588ebb7a291"
+    ],
+    "exp": 100500,
+    "author": "u00000000001",
+    "dateCreated": "26.01.15"
+  },
+  "8f0d0d1d-5e49-45e8-acde-0f0a3174b55e": {
+    "title": "'Hello, World!' на C",
+    "description": "Написать программу на языке программирования C, которая выводит на консоль надпись 'Hello, World!'.",
+    "skills": [
+      "5bcee326-1efb-4787-bf6b-42f8531d6bbd"
+    ],
+    "exp": 100500,
+    "author": "u00000000001",
+    "dateCreated": "26.01.15"
   }
 }
