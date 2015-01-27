@@ -211,7 +211,29 @@ app.controller('all_tasks_show_controller', ['$scope', '$http', '$mdSidenav', fu
         $scope.skills = skills;
         $http.get('models/tasks_list.json').success(function(tasks){
             $scope.tasks = tasks;
+            $scope.lastExpandedTask = $scope.tasks[Object.keys($scope.tasks)[0]];
+            $scope.lastExpandedTask.expanded = false;
+
+            $http.get('models/users.json').success(function(users){
+                $scope.users = users;
+            });
         });
+    });
+
+
+    $scope.findUser = function(id) {
+        for(var user in $scope.users)
+            if($scope.users[user].user_id === id) return $scope.users[user];
+    };
+
+    $scope.expand = function(task) {
+        if ($scope.lastExpandedTask !== task) $scope.lastExpandedTask.expanded = false;
+        task.expanded = !task.expanded;
+        $scope.lastExpandedTask = task;
+    };
+
+    $scope.$watch('taskName', function(newval, oldval) {
+        if ($scope.lastExpandedTask) $scope.lastExpandedTask.expanded = false;
     });
 
     $scope.toggleFilter = function() {
