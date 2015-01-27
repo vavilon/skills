@@ -42,13 +42,27 @@ app.config(function($locationProvider,$routeProvider,$mdThemingProvider){
             'hue-3': 'A100'});
 });
 
+app.filter('objectByKeyValFilter', function () {
+    return function (input, filterKey, filterVal) {
+        var filteredInput = {};
+        angular.forEach(input, function(value, key) {
+            if(value[filterKey] && (new RegExp(filterVal, "i")).test(value[filterKey])) {
+                filteredInput[key]= value;
+            }
+        });
+        return filteredInput;
+    }});
+
 app.controller('navbar_controller',['$scope', '$http', '$routeParams', '$location',
     function($scope, $http, $routeParams, $location) {
-        $scope.selectedIndex = 0;
+        if($location.url() == '/main') $scope.selectedIndex = 0;
+        else if($location.url() == '/skills') $scope.selectedIndex = 1;
+        else if($location.url() == '/tasks') $scope.selectedIndex = 2;
+        else if($location.url() == '/users') $scope.selectedIndex = 3;
         $scope.goToMain = function(){$location.path('/main'); $scope.selectedIndex = 0;};
-        $scope.goToSkills = function(){$location.path('/skills');};
-        $scope.goToTasks = function(){$location.path('/tasks');};
-        $scope.goToUsers = function(){$location.path('/users');};
+        $scope.goToSkills = function(){$location.path('/skills'); $scope.selectedIndex = 1;};
+        $scope.goToTasks = function(){$location.path('/tasks'); $scope.selectedIndex = 2;};
+        $scope.goToUsers = function(){$location.path('/users'); $scope.selectedIndex = 3;};
     }]);
 
 (function() {

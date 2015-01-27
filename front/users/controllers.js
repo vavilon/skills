@@ -1,5 +1,5 @@
 //angular.module('skills').controller('users_show_controller',function($scope,$http,$routeParams){
-//    $http.get('/models/projects_list.json').success(function(projects) {
+//    $http.get('/models/tasks_list.json').success(function(projects) {
 //        $scope.projects = projects;
 //        $http.get('/models/skills.json').success(function (skills) {
 //            $scope.skills = skills;
@@ -205,14 +205,42 @@ app.controller('skillsListCtrl', ['$scope', '$http', function($scope, $http)
     });
 }]);
 
-app.controller('all_tasks_show_controller', ['$scope', '$http', function($scope, $http)
+app.controller('all_tasks_show_controller', ['$scope', '$http', '$mdSidenav', function($scope, $http, $mdSidenav)
 {
-    $http.get('models/skills.json').success(function(data) {
-        $scope.skills = data;
-        $http.get('models/projects_list.json').success(function(tasks){
+    $http.get('models/skills.json').success(function(skills) {
+        $scope.skills = skills;
+        $http.get('models/tasks_list.json').success(function(tasks){
             $scope.tasks = tasks;
+            $scope.lastExpandedTask = $scope.tasks[Object.keys($scope.tasks)[0]];
+            $scope.lastExpandedTask.expanded = false;
+
+            $http.get('models/users.json').success(function(users){
+                $scope.users = users;
+            });
         });
     });
+
+
+    $scope.findUser = function(id) {
+        for(var user in $scope.users)
+            if($scope.users[user].user_id === id) return $scope.users[user];
+    };
+
+    $scope.expand = function(task) {
+        if ($scope.lastExpandedTask !== task) $scope.lastExpandedTask.expanded = false;
+        task.expanded = !task.expanded;
+        $scope.lastExpandedTask = task;
+    };
+
+    $scope.$watch('taskName', function(newval, oldval) {
+        if ($scope.lastExpandedTask) $scope.lastExpandedTask.expanded = false;
+    });
+
+    $scope.toggleFilter = function() {
+    };
+
+    $scope.closeFilter = function() {
+    };
 }]);
 
 app.controller('ProfileViewerOneCtrl', ['$scope', '$routeParams', '$http',
