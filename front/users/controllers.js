@@ -129,42 +129,6 @@ angular.module('skills').controller('skills_show_controller',function($scope,$ht
 
         var exs = new extendedSkills(skills);
 
-        var g = {
-                nodes: [],
-                edges: []
-            };
-
-        //Заполняем граф узлами
-        for (var sid in exs.skills)
-            g.nodes.push({
-                id: sid,
-                label: exs.skills[sid].title,
-                x: Math.random(),
-                y: Math.random(),
-                size: 1,
-                color: 'rgba(30, 30, 30, 1)'
-            });
-
-        //Заполняем граф связями
-        var i = 0;
-        for (var sid in exs.skills) {
-            if (exs.skills[sid].parents) {
-                for (var j = 0; j < exs.skills[sid].parents.length; j++) {
-                    g.edges.push({
-                        id: 'e' + i,
-                        source: sid,
-                        target: exs.skills[sid].parents[j].id,
-                        size: 1,
-                        color: 'rgba(100, 100, 100, 1)',
-                        type: 'arrow'
-                    });
-                    i++;
-                }
-            }
-        }
-
-        $scope.sigmaGraph = g;
-
     });
 });
 
