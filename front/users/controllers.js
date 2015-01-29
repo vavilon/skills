@@ -246,7 +246,7 @@ app.controller('all_tasks_show_controller', ['$scope', '$http', '$mdSidenav', fu
 app.controller('ProfileViewerOneCtrl', ['$scope', '$routeParams', '$http',
     function($scope, $routeParams, $http) {
         $http.get('models/users.json').success(function(data) {
-            $scope.user = data[$routeParams.userId];
+            $scope.user = data[$routeParams.user_id];
         });
     }
 ]);
