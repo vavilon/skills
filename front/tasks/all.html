@@ -115,12 +115,11 @@
         <md-divider></md-divider>
         <div>
             <md-list>
-                <md-item class="animate" ng-repeat="task in tasks | objectByKeyValFilter: 'title': taskName">
+                <md-item class="animate" ng-repeat="(key, task) in tasks | objectByKeyValFilter: 'title': taskName">
                     <md-item-content style="align-items: flex-start !important;">
                         <div class="md-tile-content">
                             <div>
-                                <h3 style="float: left; margin-right: 20px"><a href="#"> {{task.title}}</a></h3>
-
+                                <h3 style="float: left; margin-right: 20px"> <a href="/tasks/{{key}}"> {{task.title}}</a></h3>
                                 <h3 style="float: left; color: #4CAF50">ЛЕГКО</h3>
                                 <md-subheader style="float: right; padding: 0">exp: {{task.exp | thousand}}
                                 </md-subheader>
