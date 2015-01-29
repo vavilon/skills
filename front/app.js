@@ -9,8 +9,6 @@ app.config(function($locationProvider,$routeProvider,$mdThemingProvider){
     $locationProvider.html5Mode(true);
 
     $routeProvider
-//        .when('/', {templateUrl: '/front/main.html'})
-//        .when('/users/:user_id', {templateUrl: '/front/users/show.html', controller:'users_show_controller'})
         .when('/main', {templateUrl:'/front/main.html'})
         .when('/about_me', {templateUrl:'/front/users/about_me.html'})
         .when('/users', {templateUrl:'/front/users/all.html'})
@@ -21,7 +19,7 @@ app.config(function($locationProvider,$routeProvider,$mdThemingProvider){
         .when('/tasks/:task_id/check', {templateUrl:'/front/tasks/check.html'})
         .when('/tasks/:task_id/create', {templateUrl:'/front/tasks/create.html'})
         .when('/skills', {templateUrl:'/front/skills/skills.html', controller:'skills_show_controller'})
-        .when('/users/:userId', {templateUrl: '/front/users/one.html', controller:'ProfileViewerOneCtrl'})
+        .when('/users/:user_id', {templateUrl: '/front/users/one.html', controller:'ProfileViewerOneCtrl'})
         .otherwise({redirectTo: '/main'});
 
     $mdThemingProvider.theme('default')
