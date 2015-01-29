@@ -30,18 +30,6 @@
                 height: 3px;
             }
 
-            .fixed-nav {
-                position: fixed;
-                top: 0;
-                z-index: 999999;
-                width: 100%;
-                box-shadow: 0 1px 2px rgba(0,0,0,0.26);
-            }
-
-            .content {
-                margin-top: 64px;
-            }
-
             /*Убрать после удаления бустрапа */
             a.toolLink {
                 text-decoration: none !important;
@@ -68,9 +56,9 @@
 
     </head>
 
-    <body>
-        <div ng-controller="navbar_controller" class="fixed-nav">
-            <md-toolbar class="md-hue-2">
+    <body layout="row">
+        <div layout="column" layout-fill tabindex="-1" role="main">
+            <md-toolbar class="md-hue-2" style="box-shadow: 0 1px 2px rgba(0,0,0,0.26);" ng-controller="navbar_controller" >
                 <div layout="row" layout-align="space-between center">
                     <div class="md-toolbar-tools" flex="20" hide-gt-md>
                         <md-button class="md-raised" aria-label="menuButton">
@@ -105,45 +93,8 @@
                     </div>
                 </div>
             </md-toolbar>
+            <md-content ng-view md-scroll-y flex style="background-color: #FAFAFA;"></md-content>
         </div>
 
-        <div class="content ng-view" layout="column" layout-fill></div>
-
-        <script src="/bower_components/sigma/src/sigma.core.js"></script>
-        <script src="/bower_components/sigma/src/conrad.js"></script>
-        <script src="/bower_components/sigma/src/utils/sigma.utils.js"></script>
-        <script src="/bower_components/sigma/src/utils/sigma.polyfills.js"></script>
-        <script src="/bower_components/sigma/src/sigma.settings.js"></script>
-        <script src="/bower_components/sigma/src/classes/sigma.classes.dispatcher.js"></script>
-        <script src="/bower_components/sigma/src/classes/sigma.classes.configurable.js"></script>
-        <script src="/bower_components/sigma/src/classes/sigma.classes.graph.js"></script>
-        <script src="/bower_components/sigma/src/classes/sigma.classes.camera.js"></script>
-        <script src="/bower_components/sigma/src/classes/sigma.classes.quad.js"></script>
-        <script src="/bower_components/sigma/src/captors/sigma.captors.mouse.js"></script>
-        <script src="/bower_components/sigma/src/captors/sigma.captors.touch.js"></script>
-        <script src="/bower_components/sigma/src/renderers/sigma.renderers.canvas.js"></script>
-        <script src="/bower_components/sigma/src/renderers/sigma.renderers.webgl.js"></script>
-        <script src="/bower_components/sigma/src/renderers/sigma.renderers.def.js"></script>
-        <script src="/bower_components/sigma/src/renderers/webgl/sigma.webgl.nodes.def.js"></script>
-        <script src="/bower_components/sigma/src/renderers/webgl/sigma.webgl.nodes.fast.js"></script>
-        <script src="/bower_components/sigma/src/renderers/webgl/sigma.webgl.edges.def.js"></script>
-        <script src="/bower_components/sigma/src/renderers/webgl/sigma.webgl.edges.fast.js"></script>
-        <script src="/bower_components/sigma/src/renderers/webgl/sigma.webgl.edges.arrow.js"></script>
-        <script src="/bower_components/sigma/src/renderers/canvas/sigma.canvas.labels.def.js"></script>
-        <script src="/bower_components/sigma/src/renderers/canvas/sigma.canvas.hovers.def.js"></script>
-        <script src="/bower_components/sigma/src/renderers/canvas/sigma.canvas.nodes.def.js"></script>
-        <script src="/bower_components/sigma/src/renderers/canvas/sigma.canvas.edges.def.js"></script>
-        <script src="/bower_components/sigma/src/renderers/canvas/sigma.canvas.edges.curve.js"></script>
-        <script src="/bower_components/sigma/src/renderers/canvas/sigma.canvas.edges.arrow.js"></script>
-        <script src="/bower_components/sigma/src/renderers/canvas/sigma.canvas.edges.curvedArrow.js"></script>
-        <script src="/bower_components/sigma/src/middlewares/sigma.middlewares.rescale.js"></script>
-        <script src="/bower_components/sigma/src/middlewares/sigma.middlewares.copy.js"></script>
-        <script src="/bower_components/sigma/src/misc/sigma.misc.animation.js"></script>
-        <script src="/bower_components/sigma/src/misc/sigma.misc.bindEvents.js"></script>
-        <script src="/bower_components/sigma/src/misc/sigma.misc.drawHovers.js"></script>
-        <script src="/bower_components/sigma/plugins/sigma.plugins.relativeSize/sigma.plugins.relativeSize.js"></script>
-        <script src="/bower_components/sigma/plugins/sigma.plugins.neighborhoods/sigma.plugins.neighborhoods.js"></script>
-        <script src="/bower_components/sigma/plugins/sigma.layout.forceAtlas2/worker.js"></script>
-        <script src="/bower_components/sigma/plugins/sigma.layout.forceAtlas2/supervisor.js"></script>
     </body>
 </html>

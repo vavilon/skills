@@ -124,53 +124,56 @@ function extendedSkills(skills)
     this.root = this.skills['root'];
 }
 
-angular.module('skills').controller('skills_show_controller',function($scope,$http,$routeParams){
+angular.module('skills').controller('skills_show_controller',function($scope,$http,$filter){
     $http.get('/models/skills.json').success(function (skills) {
 
-        var exs = new extendedSkills(skills);
+        $http.get('models/users.json').success(function(data) {
+            $scope.users = data;
+        });
 
-        var g = {
-                nodes: [],
-                edges: []
-            };
+        $scope.skillTitle = "";
+        $scope.filteredSkills = [];
 
-        //Заполняем граф узлами
-        for (var sid in exs.skills)
-            g.nodes.push({
-                id: sid,
-                label: exs.skills[sid].title,
-                x: Math.random(),
-                y: Math.random(),
-                size: 1,
-                color: 'rgba(30, 30, 30, 1)'
-            });
+        $scope.highlightSkills = true;
+        $scope.highlightNeeds = true;
 
-        //Заполняем граф связями
-        var i = 0;
-        for (var sid in exs.skills) {
-            if (exs.skills[sid].parents) {
-                for (var j = 0; j < exs.skills[sid].parents.length; j++) {
-                    g.edges.push({
-                        id: 'e' + i,
-                        source: sid,
-                        target: exs.skills[sid].parents[j].id,
-                        size: 1,
-                        color: 'rgba(100, 100, 100, 1)',
-                        type: 'arrow'
-                    });
-                    i++;
-                }
+        $scope.exs = new extendedSkills(skills);
+
+        $scope.toogleExpandedForAll = function(expand) {
+            for (var skill in $scope.exs.skills) {
+                $scope.exs.skills[skill].expanded = expand;
             }
-        }
+        };
 
-        $scope.sigmaGraph = g;
+        $scope.toogleExpandedForAll(true);
 
+        $scope.expand = function(skill){
+            skill.expanded = !skill.expanded;
+        };
+
+        $scope.isInUserSkills = function(skill) {
+            return angular.isUndefined($scope.users) || ($.inArray(skill.id, $scope.users[0].skills) !== -1);
+        };
+
+        $scope.isInUserNeeds = function(skill) {
+            return angular.isUndefined($scope.users) || ($.inArray(skill.id, $scope.users[0].needs) !== -1);
+        };
+
+        $scope.$watch('skillTitle', function(newval, oldval) {
+            if ($scope.skillTitle && $scope.filteredSkills)
+            $scope.filteredSkills = $filter('objectByKeyValFilterArr')($scope.exs.skills, 'title', newval);
+            for (var skill in $scope.filteredSkills) {
+                $scope.filteredSkills[skill].expanded = false;
+            }
+        });
     });
 });
 
 app.controller('usersListCtrl', ['$scope', '$http', '$filter', function($scope, $http, $filter)
 {
     $scope.username = "";
+    $scope.filteredUsers = [];
+
     $http.get('models/users.json').success(function(data) {
         $scope.users = data;
         $scope.lastExpandedUser = $scope.users[0];

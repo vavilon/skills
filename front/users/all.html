@@ -5,14 +5,14 @@
         width: 48px;
         margin: 16px;
     }
+
     md-toolbar.demo-toolbar {
-        background: rgba(0,0,0,0.12) !important;
-        color: rgba(0,0,0,0.54);
+        background: rgba(0, 0, 0, 0.12) !important;
+        color: rgba(0, 0, 0, 0.54);
     }
 
     .animate.ng-enter,
-    .animate.ng-leave
-    {
+    .animate.ng-leave {
         -webkit-transition: 500ms cubic-bezier(0.250, 0.750, 0.750, 0.250) all;
         -moz-transition: 500ms cubic-bezier(0.250, 0.750, 0.750, 0.250) all;
         -ms-transition: 500ms cubic-bezier(0.250, 0.750, 0.750, 0.250) all;
@@ -22,7 +22,7 @@
         display: block;
         overflow: hidden;
         text-overflow: clip;
-        white-space:nowrap;
+        white-space: nowrap;
     }
 
     .animate.ng-leave.animate.ng-leave-active,
@@ -47,11 +47,12 @@
         transition: 500ms linear all;
 
         /* remember to add this */
-        display:block!important;
+        display: block !important;
         max-height: 250px;
         overflow: hidden;
         opacity: 1;
     }
+
     .my-show-hide-animation.ng-hide {
         height: auto;
         max-height: 0;
@@ -59,7 +60,7 @@
     }
 
     .label-button {
-        font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
+        font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
         text-transform: none;
         font-size: 14px;
         margin-right: 5px;
@@ -72,13 +73,13 @@
 
 </style>
 
-<div style="position: fixed; background-color: #FAFAFA; height: 100%; width: 100%;"></div>
 <div style="position: absolute; background-color: #3F51B5; height: 232px; width: 100%;"></div>
 
-<div ng-controller="usersListCtrl" style="position: relative">
+<div ng-controller="usersListCtrl" style="position: relative;">
     <div layout="row">
         <div flex="15" flex-md="5" hide-sm></div>
-        <div flex style="margin-top: 30px; margin-bottom: 30px; box-shadow: 0 1px 2px rgba(0,0,0,0.26); background-color: #FFFFFF">
+        <div flex
+             style="margin-top: 30px; margin-bottom: 30px; box-shadow: 0 1px 2px rgba(0,0,0,0.26); background-color: #FFFFFF; z-index: 3;">
             <md-toolbar class="demo-toolbar">
                 <div layout="row">
                     <div flex="40">
@@ -97,34 +98,55 @@
             </md-toolbar>
             <md-content>
                 <md-list>
-                    <md-item class="animate" ng-repeat="user in users | filter: {FIO:username}">
+                    <md-item class="animate" ng-model="notFound"
+                             ng-repeat="user in filteredUsers = (users | filter: {FIO:username})">
                         <md-item-content style="align-items: flex-start !important;">
                             <div class="md-tile-left">
                                 <img src="/bower_components/material-design-icons/action/svg/design/ic_account_circle_24px.svg"
                                      class="face" alt="{{user.FIO}}">
                             </div>
                             <div class="md-tile-content">
-                                <h3> <a href="/users/{{users.indexOf(user)}}"> {{user.FIO}}</a></h3>
+                                <h3><a href="/users/{{users.indexOf(user)}}"> {{user.FIO}}</a></h3>
                                 <h4>exp: {{user.exp | thousand}}</h4>
+
                                 <p>
                                     Получено скиллов: {{user.skills.length}}<span style="margin-left: 20px;"></span>
                                     Выполнено заданий: {{user.tasksDone.length}}
                                 </p>
+
                                 <div class="my-show-hide-animation" ng-show="user.expanded">
                                     <h3 style="float: left; margin-right: 7px; margin-top: 3px;">Skills:</h3>
-                                    <md-button class="md-raised md-primary label-button" ng-repeat="skill in user.skills">{{skills[skill].title}}</md-button>
-                                    <br><h3 style="float: left; margin-right: 7px; margin-top: 3px;">Needs:</h3>
-                                    <md-button class="md-raised md-accent md-hue-2 label-button" ng-repeat="need in user.needs">{{skills[need].title}}</md-button>
+                                    <md-button class="md-raised md-primary label-button"
+                                               ng-repeat="skill in user.skills">{{skills[skill].title}}
+                                    </md-button>
+                                    <br>
+
+                                    <h3 style="float: left; margin-right: 7px; margin-top: 3px;">Needs:</h3>
+                                    <md-button class="md-raised md-accent md-hue-2 label-button"
+                                               ng-repeat="need in user.needs">{{skills[need].title}}
+                                    </md-button>
                                 </div>
                             </div>
                             <div>
                                 <md-button ng-click="expand(user)" style="margin: 20px" aria-label="expand">
-                                    <img ng-show="!user.expanded" src="/bower_components/material-design-icons/navigation/svg/design/ic_expand_more_24px.svg">
-                                    <img ng-show="user.expanded" src="/bower_components/material-design-icons/navigation/svg/design/ic_expand_less_24px.svg">
-                                </md-button><br>
+                                    <img ng-show="!user.expanded"
+                                         src="/bower_components/material-design-icons/navigation/svg/design/ic_expand_more_24px.svg">
+                                    <img ng-show="user.expanded"
+                                         src="/bower_components/material-design-icons/navigation/svg/design/ic_expand_less_24px.svg">
+                                </md-button>
+                                <br>
                             </div>
                         </md-item-content>
                         <md-divider ng-if="!$last"></md-divider>
+                    </md-item>
+                    <md-item ng-show="filteredUsers.length == 0">
+                        <md-item-content>
+                            <div class="md-tile-content" layout="column" layout-align="center center">
+                                <div>
+                                    <h3 style="color: rgba(0,0,0,0.54);">Пользователь с таким именем не найден :(</h3>
+                                </div>
+                            </div>
+                        </md-item-content>
                     </md-item>
                 </md-list>
             </md-content>
