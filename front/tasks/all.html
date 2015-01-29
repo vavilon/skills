@@ -1,7 +1,6 @@
 <style>
     .animate.ng-enter,
-    .animate.ng-leave
-    {
+    .animate.ng-leave {
         -webkit-transition: 500ms ease-in-out all;
         -moz-transition: 500ms ease-in-out all;
         -ms-transition: 500ms ease-in-out all;
@@ -11,8 +10,9 @@
         display: block;
         overflow: hidden;
         text-overflow: clip;
-        white-space:nowrap;
+        white-space: nowrap;
     }
+
     .animate.ng-leave.animate.ng-leave-active,
     .animate.ng-enter {
         opacity: 0;
@@ -21,22 +21,25 @@
         max-width: 0;
         max-height: 0;
     }
+
     .animate.ng-enter.ng-enter-active,
     .animate.ng-leave {
         opacity: 1;
         max-width: 2000px;
         max-height: 150px;
     }
+
     .my-show-hide-animation.ng-hide-add,
     .my-show-hide-animation.ng-hide-remove {
         -webkit-transition: 500ms ease-in-out all;
         transition: 500ms ease-in-out all;
         /* remember to add this */
-        display:block!important;
+        display: block !important;
         max-height: 300px;
         overflow: hidden;
         opacity: 1;
     }
+
     .my-show-hide-animation.ng-hide {
         height: auto;
         max-height: 0;
@@ -49,7 +52,7 @@
     }
 
     .label-button {
-        font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
+        font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
         text-transform: none;
         font-size: 14px;
         margin-right: 5px;
@@ -62,47 +65,50 @@
 </style>
 
 <div layout="row" flex>
-    <div class="md-whiteframe-z2" flex="20">
-        <md-content class="md-padding">
-            <form name="filterByName">
-                <md-input-container>
-                    <label>Название задачи</label>
-                    <input type="text" ng-model="taskName"/>
-                </md-input-container>
-            </form>
-            <div class="complexityFilter" style="margin-left: 5%">
-                <h5>Сложность</h5>
-                <md-checkbox ng-model="taskFilter.complexityEasy">Легко</md-checkbox>
-                <md-checkbox ng-model="taskFilter.complexityMedium">Средне</md-checkbox>
-                <md-checkbox ng-model="taskFilter.complexityHard">Сложно</md-checkbox>
-            </div>
-            <form name="filterBySkill" layout="row" layout-align="center center">
-                    <md-input-container flex="85">
-                        <label>Скилы</label>
-                        <input type="text" ng-model="skillName" name="skillsFilter" required/>
-                        <div ng-messages="filterBySkill.skillsFilter.$error">
-                            <div ng-message="required">Введите название скила.</div>
-                        </div>
-                    </md-input-container>
-                    <div></div>
-                    <md-button class="md-primary" style="height: 50%" flex="15" layout-align="center center" aria-label="filter_add_skill">
-                        <img src="/bower_components/material-design-icons/content/svg/design/ic_add_24px.svg"/>
-                    </md-button>
-            </form>
-        </md-content>
+    <div class="md-whiteframe-z2" flex="20" style="padding: 16px; z-index: 1">
+        <form name="filterByName">
+            <md-input-container>
+                <label>Название задачи</label>
+                <input type="text" ng-model="taskName"/>
+            </md-input-container>
+        </form>
+        <div class="complexityFilter" style="margin-left: 5%">
+            <h5>Сложность</h5>
+            <md-checkbox ng-model="taskFilter.complexityEasy">Легко</md-checkbox>
+            <md-checkbox ng-model="taskFilter.complexityMedium">Средне</md-checkbox>
+            <md-checkbox ng-model="taskFilter.complexityHard">Сложно</md-checkbox>
+        </div>
+        <form name="filterBySkill" layout="row" layout-align="center center">
+            <md-input-container flex="85">
+                <label>Скилы</label>
+                <input type="text" ng-model="skillName" name="skillsFilter" required/>
+
+                <div ng-messages="filterBySkill.skillsFilter.$error">
+                    <div ng-message="required">Введите название скила.</div>
+                </div>
+            </md-input-container>
+            <div></div>
+            <md-button class="md-primary" style="height: 50%" flex="15" layout-align="center center"
+                       aria-label="filter_add_skill">
+                <img src="/bower_components/material-design-icons/content/svg/design/ic_add_24px.svg"/>
+            </md-button>
+        </form>
     </div>
 
-    <div layout="column" layout-fill>
+    <div layout="column" layout-fill style="background-color: #fff; ">
         <div>
             <div layout="row" layout-align="start center" layout-margin>
                 <h5>Сортировать по: </h5>
+
                 <div class="sortBy">
                     <label for="sortAlphabetDown">алфавиту</label>
-                    <img id="sortAlphabetDown" src="/bower_components/material-design-icons/navigation/svg/design/ic_arrow_drop_down_24px.svg"/>
+                    <img id="sortAlphabetDown"
+                         src="/bower_components/material-design-icons/navigation/svg/design/ic_arrow_drop_down_24px.svg"/>
                 </div>
                 <div class="sortBy">
                     <label for="sortComplexityDown">сложности</label>
-                    <img id="sortComplexityDown" src="/bower_components/material-design-icons/navigation/svg/design/ic_arrow_drop_down_24px.svg"/>
+                    <img id="sortComplexityDown"
+                         src="/bower_components/material-design-icons/navigation/svg/design/ic_arrow_drop_down_24px.svg"/>
                 </div>
             </div>
         </div>
@@ -113,14 +119,19 @@
                     <md-item-content style="align-items: flex-start !important;">
                         <div class="md-tile-content">
                             <div>
-                                <h3 style="float: left; margin-right: 20px"> <a href="#"> {{task.title}}</a></h3>
+                                <h3 style="float: left; margin-right: 20px"><a href="#"> {{task.title}}</a></h3>
+
                                 <h3 style="float: left; color: #4CAF50">ЛЕГКО</h3>
-                                <md-subheader style="float: right; padding: 0">exp: {{task.exp | thousand}}</md-subheader>
+                                <md-subheader style="float: right; padding: 0">exp: {{task.exp | thousand}}
+                                </md-subheader>
                             </div>
 
                             <br/>
+
                             <h3 style="float: left; margin-right: 7px; margin-top: 3px;">Skills:</h3>
-                            <md-button class="md-raised md-primary label-button" ng-repeat="skill in task.skills">{{skills[skill].title}}</md-button>
+                            <md-button class="md-raised md-primary label-button" ng-repeat="skill in task.skills">
+                                {{skills[skill].title}}
+                            </md-button>
 
                             <div class="my-show-hide-animation" ng-show="task.expanded">
                                 <div style="margin-top: 5px;">
@@ -129,14 +140,19 @@
                             </div>
                             <div layout="row" layout-align="space-between center">
                                 <div class="my-subheader">Дата создания: {{task.dateCreated}}</div>
-                                <div class="my-subheader">Автор: <a href="/users/{{users.indexOf(findUser(task.author))}}">{{findUser(task.author).FIO}}</a></div>
+                                <div class="my-subheader">Автор: <a
+                                        href="/users/{{users.indexOf(findUser(task.author))}}">{{findUser(task.author).FIO}}</a>
+                                </div>
                             </div>
                         </div>
                         <div>
                             <md-button ng-click="expand(task)" style="margin: 20px" aria-label="expand">
-                                <img ng-show="!task.expanded" src="/bower_components/material-design-icons/navigation/svg/design/ic_expand_more_24px.svg">
-                                <img ng-show="task.expanded" src="/bower_components/material-design-icons/navigation/svg/design/ic_expand_less_24px.svg">
-                            </md-button><br>
+                                <img ng-show="!task.expanded"
+                                     src="/bower_components/material-design-icons/navigation/svg/design/ic_expand_more_24px.svg">
+                                <img ng-show="task.expanded"
+                                     src="/bower_components/material-design-icons/navigation/svg/design/ic_expand_less_24px.svg">
+                            </md-button>
+                            <br>
                         </div>
                     </md-item-content>
                     <md-divider ng-if="!$last"></md-divider>
@@ -186,15 +202,15 @@
             </div>
         </div> <!--Sort-->
 
-        <!--List of tasks->
-        <ol>
-            <li ng-repeat="task in tasks">
-                <a href="/view_one"><h3><b>{{task.title}}</b></h3></a>
-                <h4 style="text-indent: 2em">{{task.description}}</h4>
-                <div style="text-indent: 2em; font-style: italic">
-                    <span ng-repeat="id in task.skillsID">{{skills[id].title}}; </span>
-                </div>
-            </li>
-        </ol><!--List of tasks->
-    </div>
+<!--List of tasks->
+<ol>
+    <li ng-repeat="task in tasks">
+        <a href="/view_one"><h3><b>{{task.title}}</b></h3></a>
+        <h4 style="text-indent: 2em">{{task.description}}</h4>
+        <div style="text-indent: 2em; font-style: italic">
+            <span ng-repeat="id in task.skillsID">{{skills[id].title}}; </span>
+        </div>
+    </li>
+</ol><!--List of tasks->
+</div>
 </div-->

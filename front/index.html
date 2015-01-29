@@ -30,18 +30,6 @@
                 height: 3px;
             }
 
-            .fixed-nav {
-                position: fixed;
-                top: 0;
-                z-index: 999999;
-                width: 100%;
-                box-shadow: 0 1px 2px rgba(0,0,0,0.26);
-            }
-
-            .content {
-                margin-top: 64px;
-            }
-
             /*Убрать после удаления бустрапа */
             a.toolLink {
                 text-decoration: none !important;
@@ -68,9 +56,9 @@
 
     </head>
 
-    <body>
-        <div ng-controller="navbar_controller" class="fixed-nav">
-            <md-toolbar class="md-hue-2">
+    <body layout="row">
+        <div layout="column" layout-fill tabindex="-1" role="main">
+            <md-toolbar class="md-hue-2" style="box-shadow: 0 1px 2px rgba(0,0,0,0.26);" ng-controller="navbar_controller" >
                 <div layout="row" layout-align="space-between center">
                     <div class="md-toolbar-tools" flex="20" hide-gt-md>
                         <md-button class="md-raised" aria-label="menuButton">
@@ -105,9 +93,8 @@
                     </div>
                 </div>
             </md-toolbar>
+            <md-content ng-view md-scroll-y flex style="background-color: #FAFAFA;"></md-content>
         </div>
-
-        <div class="content ng-view" layout="column" layout-fill></div>
 
     </body>
 </html>
