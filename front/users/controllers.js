@@ -253,3 +253,15 @@ app.controller('ProfileViewerOneCtrl', ['$scope', '$routeParams', '$http',
         });
     }
 ]);
+
+app.controller('OneTaskCtrl', ['$scope', '$routeParams', '$http',
+    function($scope, $routeParams, $http) {
+        $http.get('models/tasks_list.json').success(function(tasks) {
+            $http.get('models/users.json').success(function(users) {
+                $scope.task = tasks[$routeParams.task_id];
+                for(var user in users)
+                    if(users[user].id === $scope.task.author) $scope.author = users[user];
+            });
+        });
+    }
+]);
