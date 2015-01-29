@@ -124,17 +124,56 @@ function extendedSkills(skills)
     this.root = this.skills['root'];
 }
 
-angular.module('skills').controller('skills_show_controller',function($scope,$http,$routeParams){
+angular.module('skills').controller('skills_show_controller',function($scope,$http,$filter){
     $http.get('/models/skills.json').success(function (skills) {
 
-        var exs = new extendedSkills(skills);
+        $http.get('models/users.json').success(function(data) {
+            $scope.users = data;
+        });
 
+        $scope.skillTitle = "";
+        $scope.filteredSkills = [];
+
+        $scope.highlightSkills = true;
+        $scope.highlightNeeds = true;
+
+        $scope.exs = new extendedSkills(skills);
+
+        $scope.toogleExpandedForAll = function(expand) {
+            for (var skill in $scope.exs.skills) {
+                $scope.exs.skills[skill].expanded = expand;
+            }
+        };
+
+        $scope.toogleExpandedForAll(true);
+
+        $scope.expand = function(skill){
+            skill.expanded = !skill.expanded;
+        };
+
+        $scope.isInUserSkills = function(skill) {
+            return angular.isUndefined($scope.users) || ($.inArray(skill.id, $scope.users[0].skills) !== -1);
+        };
+
+        $scope.isInUserNeeds = function(skill) {
+            return angular.isUndefined($scope.users) || ($.inArray(skill.id, $scope.users[0].needs) !== -1);
+        };
+
+        $scope.$watch('skillTitle', function(newval, oldval) {
+            if ($scope.skillTitle && $scope.filteredSkills)
+            $scope.filteredSkills = $filter('objectByKeyValFilterArr')($scope.exs.skills, 'title', newval);
+            for (var skill in $scope.filteredSkills) {
+                $scope.filteredSkills[skill].expanded = false;
+            }
+        });
     });
 });
 
 app.controller('usersListCtrl', ['$scope', '$http', '$filter', function($scope, $http, $filter)
 {
     $scope.username = "";
+    $scope.filteredUsers = [];
+
     $http.get('models/users.json').success(function(data) {
         $scope.users = data;
         $scope.lastExpandedUser = $scope.users[0];
