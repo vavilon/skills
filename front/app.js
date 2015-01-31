@@ -64,10 +64,10 @@ app.filter('objectByKeyValFilterArr', function () {
 
 app.controller('navbar_controller',['$scope', '$http', '$routeParams', '$location',
     function($scope, $http, $routeParams, $location) {
-        if($location.url() == '/main') $scope.selectedIndex = 0;
-        else if($location.url() == '/skills') $scope.selectedIndex = 1;
-        else if($location.url() == '/tasks') $scope.selectedIndex = 2;
-        else if($location.url() == '/users') $scope.selectedIndex = 3;
+        if((new RegExp("/main")).test($location.url())) $scope.selectedIndex = 0;
+        else if((new RegExp("/skills")).test($location.url())) $scope.selectedIndex = 1;
+        else if((new RegExp("/tasks")).test($location.url())) $scope.selectedIndex = 2;
+        else if((new RegExp("/users")).test($location.url())) $scope.selectedIndex = 3;
         $scope.goToMain = function(){$location.path('/main'); $scope.selectedIndex = 0;};
         $scope.goToSkills = function(){$location.path('/skills'); $scope.selectedIndex = 1;};
         $scope.goToTasks = function(){$location.path('/tasks'); $scope.selectedIndex = 2;};
