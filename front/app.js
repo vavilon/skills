@@ -13,7 +13,7 @@ app.config(function($locationProvider,$routeProvider,$mdThemingProvider){
         .when('/about_me', {templateUrl:'/front/users/about_me.html'})
         .when('/users', {templateUrl:'/front/users/all.html'})
         .when('/tasks', {templateUrl:'/front/tasks/all.html', controller:'all_tasks_show_controller'})
-        .when('/tasks/:task_id', {templateUrl:'/front/tasks/view.html'})
+        .when('/tasks/:task_id', {templateUrl:'/front/tasks/view.html', controller:'OneTaskCtrl'})
         .when('/tasks/:task_id/decision', {templateUrl:'/front/tasks/decision.html'})
         .when('/tasks/:task_id/approve', {templateUrl:'/front/tasks/approve.html'})
         .when('/tasks/:task_id/check', {templateUrl:'/front/tasks/check.html'})
