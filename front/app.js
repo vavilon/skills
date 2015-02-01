@@ -62,14 +62,27 @@ app.filter('objectByKeyValFilterArr', function () {
         return filteredInput;
     }});
 
-app.controller('navbar_controller',['$scope', '$http', '$routeParams', '$location',
-    function($scope, $http, $routeParams, $location) {
-        if((new RegExp("/main")).test($location.url())) $scope.selectedIndex = 0;
-        else if((new RegExp("/skills")).test($location.url())) $scope.selectedIndex = 1;
-        else if((new RegExp("/tasks")).test($location.url())) $scope.selectedIndex = 2;
-        else if((new RegExp("/users")).test($location.url())) $scope.selectedIndex = 3;
-        $scope.goToMain = function(){$location.path('/main'); $scope.selectedIndex = 0;};
-        $scope.goToSkills = function(){$location.path('/skills'); $scope.selectedIndex = 1;};
-        $scope.goToTasks = function(){$location.path('/tasks'); $scope.selectedIndex = 2;};
-        $scope.goToUsers = function(){$location.path('/users'); $scope.selectedIndex = 3;};
+app.factory('navbarSelectedIndex', function() {
+    var selectedIndex = 0;
+    var service = {};
+    service.set = function(index) {
+        selectedIndex = index;
+    };
+    service.get = function() {
+        return selectedIndex;
+    };
+    return service;
+});
+
+app.controller('navbar_controller',['$scope', '$http', '$routeParams', '$location', 'navbarSelectedIndex',
+    function($scope, $http, $routeParams, $location, navbarSelectedIndex) {
+        $scope.getNavbarSelectedIndex = navbarSelectedIndex.get;
+        if((new RegExp('/main')).test($location.url())) navbarSelectedIndex.set(0);
+        else if((new RegExp('/skills')).test($location.url())) navbarSelectedIndex.set(1);
+        else if((new RegExp('/tasks')).test($location.url())) navbarSelectedIndex.set(2);
+        else if((new RegExp('/users')).test($location.url())) navbarSelectedIndex.set(3);
+        $scope.goToMain = function(){$location.path('/main'); navbarSelectedIndex.set(0);};
+        $scope.goToSkills = function(){$location.path('/skills'); navbarSelectedIndex.set(1);};
+        $scope.goToTasks = function(){$location.path('/tasks'); navbarSelectedIndex.set(2);};
+        $scope.goToUsers = function(){$location.path('/users'); navbarSelectedIndex.set(3);};
     }]);
