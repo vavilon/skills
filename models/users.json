@@ -1,7 +1,8 @@
 [
   {
     "id": "u00000000001",
-    "FIO": "Иванов Иван Иванович",
+    "nickname": "nickname1",
+    "fullName": "Иванов Иван Иванович",
     "exp": 123456,
     "skills": [
       "d2f5af07-8a89-4ec0-ab80-0706f16ae07f",
@@ -17,11 +18,14 @@
       "ecfccee4-94c8-431c-94bb-126aa7bba241"
     ],
     "tasksDone": ["05d17728-59b2-4ec8-82c5-a34946e6a2ba"],
-    "tasksReceived": ["a9d2768f-c833-47e1-af53-26c646daffec"]
+    "tasksReceived": ["04cad06f-b31d-4ddd-9cfb-5de4de73d366"],
+    "tasksApproved": ["d0c8c962-47ff-4a69-a81e-cf47e58e73ec"],
+    "tasksCreated": []
   },
   {
     "id": "u00000000002",
-    "FIO": "Петров Петр Петрович",
+    "nickname": "nickname2",
+    "fullName": "Петров Петр Петрович",
     "exp": 789456,
     "skills": [
       "e9a89f37-6bdc-4c14-87b3-01bbda92bebf",
@@ -42,11 +46,14 @@
       "d32e1463-e1bd-4d8e-b8d8-f01e22436268"
     ],
     "tasksDone": ["05d17728-59b2-4ec8-82c5-a34946e6a2ba"],
-    "tasksReceived": ["a9d2768f-c833-47e1-af53-26c646daffec"]
+    "tasksReceived": ["04cad06f-b31d-4ddd-9cfb-5de4de73d366"],
+    "tasksApproved": ["d0c8c962-47ff-4a69-a81e-cf47e58e73ec"],
+    "tasksCreated": []
   },
   {
     "id": "u00000000003",
-    "FIO": "Сидоров Сидр Сидорович",
+    "nickname": "nickname3",
+    "fullName": "Сидоров Сидр Сидорович",
     "exp": 456123,
     "skills": [
       "d2f5af07-8a89-4ec0-ab80-0706f16ae07f",
@@ -62,11 +69,14 @@
       "ecfccee4-94c8-431c-94bb-126aa7bba241"
     ],
     "tasksDone": ["05d17728-59b2-4ec8-82c5-a34946e6a2ba"],
-    "tasksReceived": ["a9d2768f-c833-47e1-af53-26c646daffec"]
+    "tasksReceived": ["04cad06f-b31d-4ddd-9cfb-5de4de73d366"],
+    "tasksApproved": ["d0c8c962-47ff-4a69-a81e-cf47e58e73ec"],
+    "tasksCreated": []
   },
   {
     "id": "u00000000004",
-    "FIO": "Васильев Висилий Васильевич",
+    "nickname": "nickname4",
+    "fullName": "Васильев Висилий Васильевич",
     "exp": 321654,
     "skills": [
       "e9a89f37-6bdc-4c14-87b3-01bbda92bebf",
@@ -87,11 +97,14 @@
       "d32e1463-e1bd-4d8e-b8d8-f01e22436268"
     ],
     "tasksDone": ["05d17728-59b2-4ec8-82c5-a34946e6a2ba"],
-    "tasksReceived": ["a9d2768f-c833-47e1-af53-26c646daffec"]
+    "tasksReceived": ["04cad06f-b31d-4ddd-9cfb-5de4de73d366"],
+    "tasksApproved": ["d0c8c962-47ff-4a69-a81e-cf47e58e73ec"],
+    "tasksCreated": []
   },
   {
     "id": "u00000000005",
-    "FIO": "Григорьев Григорий Григорьевич",
+    "nickname": "nickname5",
+    "fullName": "Григорьев Григорий Григорьевич",
     "exp": 98745,
     "skills": [
       "d2f5af07-8a89-4ec0-ab80-0706f16ae07f",
@@ -107,11 +120,14 @@
       "ecfccee4-94c8-431c-94bb-126aa7bba241"
     ],
     "tasksDone": ["05d17728-59b2-4ec8-82c5-a34946e6a2ba"],
-    "tasksReceived": ["a9d2768f-c833-47e1-af53-26c646daffec"]
+    "tasksReceived": ["04cad06f-b31d-4ddd-9cfb-5de4de73d366"],
+    "tasksApproved": ["d0c8c962-47ff-4a69-a81e-cf47e58e73ec"],
+    "tasksCreated": []
   },
   {
     "id": "u00000000006",
-    "FIO": "Борисов Борис Борисович",
+    "nickname": "nickname6",
+    "fullName": "Борисов Борис Борисович",
     "exp": 12345,
     "skills": [
       "e9a89f37-6bdc-4c14-87b3-01bbda92bebf",
@@ -132,11 +148,14 @@
       "d32e1463-e1bd-4d8e-b8d8-f01e22436268"
     ],
     "tasksDone": ["05d17728-59b2-4ec8-82c5-a34946e6a2ba"],
-    "tasksReceived": ["a9d2768f-c833-47e1-af53-26c646daffec"]
+    "tasksReceived": ["04cad06f-b31d-4ddd-9cfb-5de4de73d366"],
+    "tasksApproved": ["d0c8c962-47ff-4a69-a81e-cf47e58e73ec"],
+    "tasksCreated": []
   },
   {
     "id": "u00000000007",
-    "FIO": "Сергеев Сергей Сергеевич",
+    "nickname": "nickname7",
+    "fullName": "Сергеев Сергей Сергеевич",
     "exp": 65498,
     "skills": [
       "d2f5af07-8a89-4ec0-ab80-0706f16ae07f",
@@ -152,11 +171,14 @@
       "ecfccee4-94c8-431c-94bb-126aa7bba241"
     ],
     "tasksDone": ["05d17728-59b2-4ec8-82c5-a34946e6a2ba"],
-    "tasksReceived": ["a9d2768f-c833-47e1-af53-26c646daffec"]
+    "tasksReceived": ["04cad06f-b31d-4ddd-9cfb-5de4de73d366"],
+    "tasksApproved": ["d0c8c962-47ff-4a69-a81e-cf47e58e73ec"],
+    "tasksCreated": []
   },
   {
     "id": "u00000000008",
-    "FIO": "Александров Александр Александрович",
+    "nickname": "nickname8",
+    "fullName": "Александров Александр Александрович",
     "exp": 9874,
     "skills": [
       "e9a89f37-6bdc-4c14-87b3-01bbda92bebf",
@@ -177,11 +199,14 @@
       "d32e1463-e1bd-4d8e-b8d8-f01e22436268"
     ],
     "tasksDone": ["05d17728-59b2-4ec8-82c5-a34946e6a2ba"],
-    "tasksReceived": ["a9d2768f-c833-47e1-af53-26c646daffec"]
+    "tasksReceived": ["04cad06f-b31d-4ddd-9cfb-5de4de73d366"],
+    "tasksApproved": ["d0c8c962-47ff-4a69-a81e-cf47e58e73ec"],
+    "tasksCreated": []
   },
   {
     "id": "u00000000009",
-    "FIO": "Евгеньев Евгений Евгеньевич",
+    "nickname": "nickname9",
+    "fullName": "Евгеньев Евгений Евгеньевич",
     "exp": 45678,
     "skills": [
       "e9a89f37-6bdc-4c14-87b3-01bbda92bebf",
@@ -202,11 +227,14 @@
       "d32e1463-e1bd-4d8e-b8d8-f01e22436268"
     ],
     "tasksDone": ["05d17728-59b2-4ec8-82c5-a34946e6a2ba"],
-    "tasksReceived": ["a9d2768f-c833-47e1-af53-26c646daffec"]
+    "tasksReceived": ["04cad06f-b31d-4ddd-9cfb-5de4de73d366"],
+    "tasksApproved": ["d0c8c962-47ff-4a69-a81e-cf47e58e73ec"],
+    "tasksCreated": []
   },
   {
     "id": "u00000000010",
-    "FIO": "Кирилов Кирил Кирилович",
+    "nickname": "nickname10",
+    "fullName": "Кирилов Кирил Кирилович",
     "exp": 789654,
     "skills": [
       "d2f5af07-8a89-4ec0-ab80-0706f16ae07f",
@@ -222,6 +250,8 @@
       "ecfccee4-94c8-431c-94bb-126aa7bba241"
     ],
     "tasksDone": ["05d17728-59b2-4ec8-82c5-a34946e6a2ba"],
-    "tasksReceived": ["a9d2768f-c833-47e1-af53-26c646daffec"]
+    "tasksReceived": ["04cad06f-b31d-4ddd-9cfb-5de4de73d366"],
+    "tasksApproved": ["d0c8c962-47ff-4a69-a81e-cf47e58e73ec"],
+    "tasksCreated": []
   }
 ]

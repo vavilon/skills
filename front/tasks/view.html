@@ -1,50 +1,106 @@
-<div id="job-text">
-    ЗАДАНИЕ:
-</div>
+<div layout="column" layout-fill style="background-color: #ffffff; padding: 1%">
+    <div layout="row" layout-align="space-between start" flex>
+        <div>
+            <h2>{{task.title}}</h2>
+            <div style="font-size: 15px; margin-left: 10px; color: rgba(0, 0, 0, 0.57)">
+                <i>Дата создания: {{task.dateCreated}}</i>
+            </div>
+        </div>
+        <div style="margin-top: 20px; margin-bottom: 10px; font-size: medium">
+            <md-button class="md-accent">
+                <img src="/bower_components/material-design-icons/action/svg/design/ic_thumb_up_24px.svg">
+                {{task.likes}}
+                <md-tooltip>Мне нравится</md-tooltip>
+            </md-button>
+            <md-button class="md-primary">
+                <img src="/bower_components/material-design-icons/action/svg/design/ic_work_24px.svg">
+                {{task.likes}}
+                <md-tooltip>Получить задание</md-tooltip>
+            </md-button>
+        </div>
+    </div>
+    <md-divider></md-divider>
+    <div layout="row" layout-align="start center" style="margin-left: 10px;">
+        <h3 style="color: #4CAF50; margin-right: 20px">ЛЕГКО</h3>
+        <h3><i>exp: {{task.exp | thousand}}</i></h3>
+    </div>
+    <div class="taskTabs">
+        <md-tabs class="md-accent" md-selected="selectedIndex">
+            <md-tab id="tab1" aria-controls="tab1-content">
+                Условие
+            </md-tab>
+            <md-tab id="tab2" aria-controls="tab2-content">
+                Навыки
+            </md-tab>
+            <md-tab id="tab3" aria-controls="tab3-content">
+                Автор
+            </md-tab>
+        </md-tabs>
+        <ng-switch on="selectedIndex" class="tabpanel-container">
+            <div role="tabpanel"
+                 id="tab1-content"
+                 aria-labelledby="tab1"
+                 ng-switch-when="0"
+                 md-swipe-left="next()"
+                 md-swipe-right="previous()" >
+                <md-content style="background-color: inherit">
+                    {{task.description}}
+                </md-content>
+            </div>
+            <div role="tabpanel"
+                 id="tab2-content"
+                 aria-labelledby="tab2"
+                 ng-switch-when="1"
+                 md-swipe-left="next()"
+                 md-swipe-right="previous()" >
+                <md-content style="background-color: inherit">
+                    <md-button class="md-raised md-primary label-button" ng-repeat="skill in task.skills">
+                        {{skills[skill].title}}
+                    </md-button>
+                </md-content>
+            </div>
+            <div role="tabpanel"
+                 id="tab3-content"
+                 aria-labelledby="tab3"
+                 ng-switch-when="2"
+                 md-swipe-left="next()"
+                 md-swipe-right="previous()" >
+                <md-content style="background-color: inherit">
+                    <div layout="row" layout-align="start center">
+                        <img src="/bower_components/material-design-icons/action/svg/design/ic_account_circle_24px.svg"
+                               class="authorFace">
+                        <div>
+                            <h4><a class="toolLink" href="/users/{{users.indexOf(author)}}" ng-click="goToAuthor()">{{author.fullName}}</a></h4>
+                            <h5>exp: {{author.exp | thousand}}</h5>
+                        </div>
+                    </div>
+                    <div>
+                        <h5>Навыки: </h5>
+                        <md-button class="md-raised md-primary md-hue-2 label-button" ng-repeat="skill in author.skills">
+                            {{skills[skill].title}}
+                        </md-button>
+                    </div>
+                    <div layout="row">
+                        <div ng-show="author.tasksReceived.length" flex>
+                            <h5>Полученные задания: </h5>
+                            <ul><li ng-repeat="taskReceived in author.tasksReceived">{{tasks[taskReceived].title}}</li></ul>
+                        </div>
+                        <div ng-show="author.tasksDone.length" flex>
+                            <h5>Выполненные задания: </h5>
+                            <ul><li ng-repeat="taskDone in author.tasksDone">{{tasks[taskDone].title}}</li></ul>
+                        </div>
 
-<div id="creat_condition">
-    * Skills, после успешного выполнения:
-</div>
-<div class="row">
-    <div class="col-md-11">
-        <select multiple class="form-control">
-            <option>0.0.0.0 добавленный Needs</option>
-            <option>0.0.0.0 .................</option>
-            <option>0.0.0.0 .................</option>
-            <option>0.0.0.0 .................</option>
-            <option>0.0.0.0 .................</option>
-            <option>0.0.0.0 .................</option>
-            <option>0.0.0.0 .................</option>
-        </select>
+                        <div ng-show="author.tasksApproved.length" flex>
+                            <h5>Созданные задания: </h5>
+                            <ul><li ng-repeat="taskApproved in author.tasksApproved">{{tasks[taskApproved].title}}</li></ul>
+                        </div>
+                        <div ng-show="author.tasksCreated.length" flex>
+                            <h5>Подтвержденные задания: </h5>
+                            <ul><li ng-repeat="taskCreated in author.tasksCreated">{{tasks[taskCreated].title}}</li></ul>
+                        </div>
+                    </div>
+                </md-content>
+            </div>
+        </ng-switch>
     </div>
 </div>
-<p>
-
-<div id="creat_condition">
-    УСЛОВИЕ:
-</div>
-<div class="row">
-    <div class="col-md-11">
-        <textarea class="form-control" rows="7" disabled>...здесь необходимо прописать полное условие задания...
-        </textarea>
-    </div>
-</div>
-<p>
-
-<div id="creat_condition">
-    * Skills, необходимые для решения:
-</div>
-<div class="row">
-    <div class="col-md-11">
-        <select multiple class="form-control">
-            <option>0.0.0.0 добавленный Skill</option>
-            <option>0.0.0.0 .................</option>
-            <option>0.0.0.0 .................</option>
-            <option>0.0.0.0 .................</option>
-            <option>0.0.0.0 .................</option>
-            <option>0.0.0.0 .................</option>
-            <option>0.0.0.0 .................</option>
-        </select>
-    </div>
-</div>
-<p>
