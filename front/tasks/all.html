@@ -1,74 +1,8 @@
-<style>
-    .animate.ng-enter,
-    .animate.ng-leave {
-        -webkit-transition: 500ms ease-in-out all;
-        -moz-transition: 500ms ease-in-out all;
-        -ms-transition: 500ms ease-in-out all;
-        -o-transition: 500ms ease-in-out all;
-        transition: 500ms ease-in-out all;
-        position: relative;
-        display: block;
-        overflow: hidden;
-        text-overflow: clip;
-        white-space: nowrap;
-    }
-
-    .animate.ng-leave.animate.ng-leave-active,
-    .animate.ng-enter {
-        opacity: 0;
-        width: auto;
-        height: auto;
-        max-width: 0;
-        max-height: 0;
-    }
-
-    .animate.ng-enter.ng-enter-active,
-    .animate.ng-leave {
-        opacity: 1;
-        max-width: 2000px;
-        max-height: 150px;
-    }
-
-    .my-show-hide-animation.ng-hide-add,
-    .my-show-hide-animation.ng-hide-remove {
-        -webkit-transition: 500ms ease-in-out all;
-        transition: 500ms ease-in-out all;
-        /* remember to add this */
-        display: block !important;
-        max-height: 300px;
-        overflow: hidden;
-        opacity: 1;
-    }
-
-    .my-show-hide-animation.ng-hide {
-        height: auto;
-        max-height: 0;
-        opacity: 0;
-    }
-
-    .my-subheader {
-        font-size: 12px;
-        color: rgba(0, 0, 0, 0.54);
-    }
-
-    .label-button {
-        font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
-        text-transform: none;
-        font-size: 14px;
-        margin-right: 5px;
-        margin-bottom: 5px;
-        padding: 0;
-        padding-right: 3px;
-        padding-left: 3px;
-        padding-bottom: 1px;
-    }
-</style>
-
 <div layout="row" flex>
     <div class="md-whiteframe-z2" flex="20" style="padding: 16px; z-index: 1; background-color: #FAFAFA;">
         <form name="filterByName">
             <md-input-container>
-                <label>Название задачи</label>
+                <label>Название задания</label>
                 <input type="text" ng-model="taskName"/>
             </md-input-container>
         </form>
@@ -139,8 +73,8 @@
                             </div>
                             <div layout="row" layout-align="space-between center">
                                 <div class="my-subheader">Дата создания: {{task.dateCreated}}</div>
-                                <div class="my-subheader">Автор: <a
-                                        href="/users/{{users.indexOf(findUser(task.author))}}">{{findUser(task.author).FIO}}</a>
+                                <div class="my-subheader">
+                                    Автор: <a href="/users/{{users.indexOf(findUser(task.author))}}">{{findUser(task.author).fullName}}</a>
                                 </div>
                             </div>
                         </div>

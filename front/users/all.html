@@ -99,14 +99,14 @@
             <md-content>
                 <md-list>
                     <md-item class="animate" ng-model="notFound"
-                             ng-repeat="user in filteredUsers = (users | filter: {FIO:username})">
+                             ng-repeat="user in filteredUsers = (users | filter: {fullName:username})">
                         <md-item-content style="align-items: flex-start !important;">
                             <div class="md-tile-left">
                                 <img src="/bower_components/material-design-icons/action/svg/design/ic_account_circle_24px.svg"
-                                     class="face" alt="{{user.FIO}}">
+                                     class="face" alt="{{user.fullName}}">
                             </div>
                             <div class="md-tile-content">
-                                <h3><a href="/users/{{users.indexOf(user)}}"> {{user.FIO}}</a></h3>
+                                <h3><a href="/users/{{users.indexOf(user)}}"> {{user.fullName}}</a></h3>
                                 <h4>exp: {{user.exp | thousand}}</h4>
 
                                 <p>
