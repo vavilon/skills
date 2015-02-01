@@ -70,7 +70,7 @@
                         <img src="/bower_components/material-design-icons/action/svg/design/ic_account_circle_24px.svg"
                                class="authorFace">
                         <div>
-                            <h4><a class="toolLink" href="/users/{{users.indexOf(author)}}">{{author.fullName}}</a></h4>
+                            <h4><a class="toolLink" href="/users/{{users.indexOf(author)}}" ng-click="goToAuthor()">{{author.fullName}}</a></h4>
                             <h5>exp: {{author.exp | thousand}}</h5>
                         </div>
                     </div>
