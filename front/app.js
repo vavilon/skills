@@ -9,7 +9,7 @@ app.config(function($locationProvider,$routeProvider,$mdThemingProvider){
     $locationProvider.html5Mode(true);
 
     $routeProvider
-        .when('/main', {templateUrl:'/front/main.html'})
+        .when('/main', {templateUrl:'/front/main.html', controller: 'mainPageCtrl'})
         .when('/about_me', {templateUrl:'/front/users/about_me.html'})
         .when('/users', {templateUrl:'/front/users/all.html'})
         .when('/tasks', {templateUrl:'/front/tasks/all.html', controller:'all_tasks_show_controller'})
