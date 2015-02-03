@@ -14,7 +14,6 @@
                 font-family: 'Courier New', Courier, monospace;
                 font-weight: bold;
                 letter-spacing: 7px;
-                text-transform: uppercase;
             }
 
             md-tabs {
@@ -60,34 +59,36 @@
         <div layout="column" layout-fill tabindex="-1" role="main">
             <md-toolbar class="md-hue-2" style="box-shadow: 0 1px 2px rgba(0,0,0,0.26);" ng-controller="navbar_controller" >
                 <div layout="row" layout-align="space-between center">
-                    <div class="md-toolbar-tools" flex="20" hide-gt-md>
-                        <md-button class="md-raised" aria-label="menuButton">
-                            <img src='/bower_components/material-design-icons/navigation/svg/design/ic_menu_24px.svg'>
-                        </md-button>
+                    <div flex="50" flex-gt-md="20" layout="row">
+                        <div class="md-toolbar-tools" flex="30" flex-md="25" hide-gt-md>
+                            <md-button class="md-raised" aria-label="menuButton">
+                                <img src='/bower_components/material-design-icons/navigation/svg/design/ic_menu_24px.svg'>
+                            </md-button>
+                        </div>
+                        <div class="md-toolbar-tools" flex="70" flex-gt-md="100">
+                            <a href="" ng-click="goToMain()" class="header-logo toolLink">SkillUp</a>
+                        </div>
                     </div>
-                    <div class="md-toolbar-tools" flex="20">
-                        <a href="" ng-click="goToMain()" class="header-logo toolLink">Skills</a>
-                    </div>
-                    <div class="md-toolbar-tools" hide show-gt-md flex="50">
+                    <div class="md-toolbar-tools" hide show-gt-md flex="60" flex-gt-lg="50">
                         <md-tabs class="md-hue-2" md-selected="getNavbarSelectedIndex()">
-                            <md-tab ng-click="goToMain()">Main</md-tab>
-                            <md-tab ng-click="goToSkills()">Skills</md-tab>
-                            <md-tab ng-click="goToTasks()">Tasks</md-tab>
-                            <md-tab ng-click="goToUsers()">Users</md-tab>
+                            <md-tab ng-click="goToMain()">Моя страница</md-tab>
+                            <md-tab ng-click="goToSkills()">Навыки</md-tab>
+                            <md-tab ng-click="goToTasks()">Задания</md-tab>
+                            <md-tab ng-click="goToUsers()">Пользователи</md-tab>
                         </md-tabs>
                     </div>
-                    <div class="md-toolbar-tools" layout="row" layout-align="end center">
-                        <div flex="40" hide show-md show-gt-md>
+                    <div class="md-toolbar-tools" layout="row" layout-align="end center" flex-gt-md="25" flex-gt-lg="30" flex-md="40" flex-sm="35">
+                        <div style="margin-right: 30px;">
                             <h5>
-                                <a class="toolLink" href="/about_me">alexeychikk</a>
+                                <a class="toolLink" href="/about_me">{{users[0].nickname}}</a>
                             </h5>
                         </div>
-                        <div flex="40" hide show-gt-md>
+                        <div hide show-md show-gt-lg style="margin-right: 30px;">
                             <h6>
                                 exp: 203,765
                             </h6>
                         </div>
-                        <div flex="20">
+                        <div flex>
                             <img class="md-raised" src='/bower_components/material-design-icons/action/svg/design/ic_account_circle_24px.svg'>
                         </div>
                     </div>
