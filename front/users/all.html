@@ -110,18 +110,18 @@
                                 <h4>exp: {{user.exp | thousand}}</h4>
 
                                 <p>
-                                    Получено скиллов: {{user.skills.length}}<span style="margin-left: 20px;"></span>
+                                    Получено навыков: {{user.skills.length}}<span style="margin-left: 20px;"></span>
                                     Выполнено заданий: {{user.tasksDone.length}}
                                 </p>
 
                                 <div class="my-show-hide-animation" ng-show="user.expanded">
-                                    <h3 style="float: left; margin-right: 7px; margin-top: 3px;">Skills:</h3>
+                                    <h3 style="float: left; margin-right: 7px; margin-top: 3px;">Навыки:</h3>
                                     <md-button class="md-raised md-primary label-button"
                                                ng-repeat="skill in user.skills">{{skills[skill].title}}
                                     </md-button>
                                     <br>
 
-                                    <h3 style="float: left; margin-right: 7px; margin-top: 3px;">Needs:</h3>
+                                    <h3 style="float: left; margin-right: 7px; margin-top: 3px;">Цели:</h3>
                                     <md-button class="md-raised md-accent md-hue-2 label-button"
                                                ng-repeat="need in user.needs">{{skills[need].title}}
                                     </md-button>
