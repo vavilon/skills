@@ -4,16 +4,14 @@
         <base href="/">
         <meta charset="utf-8">
         <meta name="viewport" content="initial-scale=1, maximum-scale=1, user-scalable=no" />
-        <title>Skills</title>
+        <title>SkillUp</title>
         <link rel="stylesheet" href="/bower_components/angular-material/angular-material.css">
-        <link rel="stylesheet" href="/bower_components/bootstrap/dist/css/bootstrap.min.css">
-        <link rel="stylesheet" href="/front/style.css">
         <link rel="stylesheet" href="/front/tasks/tasks_style.css">
         <style>
             .header-logo {
-                font-family: 'Courier New', Courier, monospace;
+                font-size: 26px;
                 font-weight: bold;
-                letter-spacing: 7px;
+                letter-spacing: 2px;
             }
 
             md-tabs {
@@ -29,17 +27,15 @@
                 height: 3px;
             }
 
-            /*Убрать после удаления бустрапа */
-            a.toolLink {
+            a.header-logo {
                 text-decoration: none !important;
             }
-            a:hover.toolLink {
+            a:hover.header-logo, a:visited.header-logo  {
                 color: #ffffff !important;
             }
-            a:visited.toolLink {
-                color: #ffffff !important;
+            a:hover.header-logo span, a:visited.header-logo span{
+                color: #EC407A !important;
             }
-
         </style>
         <script src="/bower_components/angular/angular.js"></script>
         <script src="/bower_components/angular-animate/angular-animate.min.js"></script>
@@ -66,7 +62,7 @@
                             </md-button>
                         </div>
                         <div class="md-toolbar-tools" flex="70" flex-gt-md="100">
-                            <a href="" ng-click="goToMain()" class="header-logo toolLink">SkillUp</a>
+                            <a href="#" ng-click="goToMain()" class="header-logo">skill<span style="color: #E91E63;">up</span></a>
                         </div>
                     </div>
                     <div class="md-toolbar-tools" hide show-gt-md flex="60" flex-gt-lg="50">

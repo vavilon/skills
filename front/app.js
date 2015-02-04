@@ -23,17 +23,17 @@ app.config(function($locationProvider,$routeProvider,$mdThemingProvider){
         .otherwise({redirectTo: '/main'});
 
     $mdThemingProvider.theme('default')
-        .primaryColor('indigo', {
+        .primaryPalette('indigo', {
             'default': '500',
             'hue-1': '300',
             'hue-2': '800',
             'hue-3': 'A100'})
-        .accentColor('pink', {
+        .accentPalette('pink', {
             'default': '400',
             'hue-1': '300',
             'hue-2': '800',
             'hue-3': 'A100'})
-        .warnColor('red', {
+        .warnPalette('red', {
             'default': '500',
             'hue-1': '300',
             'hue-2': '800',
