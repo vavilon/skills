@@ -55,9 +55,15 @@
     font-size: 14px;
     margin-right: 5px;
     margin-bottom: 5px;
+<<<<<<< HEAD
     padding: 0 3px 1px;
 }
 
+=======
+    padding: 3px;
+    padding-top: 1px;
+}
+>>>>>>> Исправлены последствия удаления бутстрапа
 /* view.html */
 
 .taskTabs .tab-content {
