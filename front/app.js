@@ -2,10 +2,11 @@ var app = angular.module('skills',[
     'ngRoute',
     'allProfilesFilters',
     'ngMaterial',
-    'ngAnimate'
+    'ngAnimate',
+    'hljs'
 ]);
 
-app.config(function($locationProvider,$routeProvider,$mdThemingProvider){
+app.config(function($locationProvider,$routeProvider,$mdThemingProvider,hljsServiceProvider){
     $locationProvider.html5Mode(true);
 
     $routeProvider
@@ -38,6 +39,10 @@ app.config(function($locationProvider,$routeProvider,$mdThemingProvider){
             'hue-1': '300',
             'hue-2': '800',
             'hue-3': 'A100'});
+
+    hljsServiceProvider.setOptions({
+        tabReplace: '    '
+    });
 });
 
 app.filter('objectByKeyValFilter', function () {
