@@ -76,6 +76,9 @@ app.factory('navbarSelectedIndex', function() {
 
 app.controller('navbar_controller',['$scope', '$http', '$routeParams', '$location', 'navbarSelectedIndex',
     function($scope, $http, $routeParams, $location, navbarSelectedIndex) {
+        $http.get('models/users.json').success(function(data) {
+            $scope.users = data;
+        });
         $scope.getNavbarSelectedIndex = navbarSelectedIndex.get;
         if((new RegExp('/main')).test($location.url())) navbarSelectedIndex.set(0);
         else if((new RegExp('/skills')).test($location.url())) navbarSelectedIndex.set(1);
