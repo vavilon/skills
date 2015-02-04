@@ -1,97 +1,108 @@
 <!doctype html>
 <html ng-app="skills">
-    <head>
-        <base href="/">
-        <meta charset="utf-8">
-        <meta name="viewport" content="initial-scale=1, maximum-scale=1, user-scalable=no" />
-        <title>SkillUp</title>
-        <link rel="stylesheet" href="/bower_components/angular-material/angular-material.css">
-        <link rel="stylesheet" href="/front/tasks/tasks_style.css">
-        <style>
-            .header-logo {
-                font-size: 26px;
-                font-weight: bold;
-                letter-spacing: 2px;
-            }
+<head>
+    <base href="/">
+    <meta charset="utf-8">
+    <meta name="viewport" content="initial-scale=1, maximum-scale=1, user-scalable=no"/>
+    <title>SkillUp</title>
+    <link rel="stylesheet" href="/bower_components/angular-material/angular-material.css">
+    <link rel="stylesheet" href="/front/tasks/tasks_style.css">
+    <style>
+        .header-logo {
+            font-size: 30px;
+            font-weight: bold;
+            letter-spacing: 2px;
+        }
 
-            md-tabs {
-                height: 64px;
-            }
+        a.header-logo {
+            text-decoration: none !important;
+        }
 
-            section.md-header {
-                height: 64px !important;
-            }
+        a:hover.header-logo {
+            color: #ffffff !important;
+        }
 
-            md-tabs-ink-bar {
-                background-color: #FFEB3B !important;
-                height: 3px;
-            }
+        a:hover.header-logo span {
+            color: #F06292 !important;
+        }
 
-            a.header-logo {
-                text-decoration: none !important;
-            }
-            a:hover.header-logo, a:visited.header-logo  {
-                color: #ffffff !important;
-            }
-            a:hover.header-logo span, a:visited.header-logo span{
-                color: #EC407A !important;
-            }
-        </style>
-        <script src="/bower_components/angular/angular.js"></script>
-        <script src="/bower_components/angular-animate/angular-animate.min.js"></script>
-        <script src="/bower_components/angular-route/angular-route.min.js"></script>
-        <script src="/bower_components/angular-aria/angular-aria.min.js"></script>
-        <script src="/bower_components/hammerjs/hammer.js"></script>
-        <script src="/bower_components/angular-material/angular-material.min.js"></script>
-        <script src="/bower_components/jquery/dist/jquery.min.js"></script>
+        .md-toolbar-tools a:hover h5 {
+            color: #FFFFFF;
+            text-shadow: 0 2px 4px rgba(0, 0, 0, 0.54);
+        }
 
-        <script src="/front/app.js"></script>
-        <script src="/front/users/controllers.js"></script>
-        <script src="/front/users/filter.js"></script>
+        .md-toolbar-tools a:hover h5.navbar-active {
+            color: #E91E63;
+            text-shadow: 0 2px 4px rgba(0, 0, 0, 0.54);
+        }
 
-    </head>
+        .md-toolbar-tools a h5 {
+            margin-top: 0px;
+            margin-bottom: 0px;
+            margin-right: 30px;
+        }
 
-    <body layout="row">
-        <div layout="column" layout-fill tabindex="-1" role="main">
-            <md-toolbar class="md-hue-2" style="box-shadow: 0 1px 2px rgba(0,0,0,0.26);" ng-controller="navbar_controller" >
-                <div layout="row" layout-align="space-between center">
-                    <div flex="50" flex-gt-md="20" layout="row">
-                        <div class="md-toolbar-tools" flex="30" flex-md="25" hide-gt-md>
-                            <md-button class="md-raised" aria-label="menuButton">
-                                <img src='/bower_components/material-design-icons/navigation/svg/design/ic_menu_24px.svg'>
-                            </md-button>
-                        </div>
-                        <div class="md-toolbar-tools" flex="70" flex-gt-md="100">
-                            <a href="#" ng-click="goToMain()" class="header-logo">skill<span style="color: #E91E63;">up</span></a>
-                        </div>
-                    </div>
-                    <div class="md-toolbar-tools" hide show-gt-md flex="60" flex-gt-lg="50">
-                        <md-tabs class="md-hue-2" md-selected="getNavbarSelectedIndex()">
-                            <md-tab ng-click="goToMain()">Моя страница</md-tab>
-                            <md-tab ng-click="goToSkills()">Навыки</md-tab>
-                            <md-tab ng-click="goToTasks()">Задания</md-tab>
-                            <md-tab ng-click="goToUsers()">Пользователи</md-tab>
-                        </md-tabs>
-                    </div>
-                    <div class="md-toolbar-tools" layout="row" layout-align="end center" flex-gt-md="25" flex-gt-lg="30" flex-md="40" flex-sm="35">
-                        <div style="margin-right: 30px;">
-                            <h5>
-                                <a class="toolLink" href="/about_me">{{users[0].nickname}}</a>
-                            </h5>
-                        </div>
-                        <div hide show-md show-gt-lg style="margin-right: 30px;">
-                            <h6>
-                                exp: 203,765
-                            </h6>
-                        </div>
-                        <div flex>
-                            <img class="md-raised" src='/bower_components/material-design-icons/action/svg/design/ic_account_circle_24px.svg'>
-                        </div>
-                    </div>
+        .navbar-active {
+            color: #E91E63;
+        }
+
+        a:hover .nickname {
+            color: #ffffff !important;
+        }
+    </style>
+    <script src="/bower_components/angular/angular.js"></script>
+    <script src="/bower_components/angular-animate/angular-animate.min.js"></script>
+    <script src="/bower_components/angular-route/angular-route.min.js"></script>
+    <script src="/bower_components/angular-aria/angular-aria.min.js"></script>
+    <script src="/bower_components/hammerjs/hammer.js"></script>
+    <script src="/bower_components/angular-material/angular-material.min.js"></script>
+    <script src="/bower_components/jquery/dist/jquery.min.js"></script>
+
+    <script src="/front/app.js"></script>
+    <script src="/front/users/controllers.js"></script>
+    <script src="/front/users/filter.js"></script>
+
+</head>
+
+<body layout="row">
+<div layout="column" layout-fill tabindex="-1" role="main">
+    <md-toolbar class="md-hue-2" style="box-shadow: 0 1px 2px rgba(0,0,0,0.26);" ng-controller="navbar_controller">
+        <div layout="row" layout-align="space-between center">
+            <div flex="50" flex-gt-md="20" layout="row">
+                <div class="md-toolbar-tools" flex="30" flex-md="25" hide-gt-md>
+                    <md-button class="md-raised" aria-label="menuButton">
+                        <img src='/bower_components/material-design-icons/navigation/svg/design/ic_menu_24px.svg'>
+                    </md-button>
                 </div>
-            </md-toolbar>
-            <md-content ng-view md-scroll-y flex style="background-color: #FAFAFA;"></md-content>
+                <div hide show-gt-lg flex="15"></div>
+                <div class="md-toolbar-tools" flex flex-gt-md="90">
+                    <a href ng-click="goToMain()" class="header-logo">skill<span style="color: #E91E63;">up</span></a>
+                </div>
+            </div>
+            <div class="md-toolbar-tools" hide show-gt-md flex="60" flex-gt-lg="50">
+                <a href ng-click="goToMain()"><h5 ng-class="{'navbar-active': getNavbarSelectedIndex() == 0}">Моя
+                    Страница</h5></a>
+                <a href ng-click="goToSkills()"><h5 ng-class="{'navbar-active': getNavbarSelectedIndex() == 1}">
+                    Навыки</h5></a>
+                <a href ng-click="goToTasks()"><h5 ng-class="{'navbar-active': getNavbarSelectedIndex() == 2}">
+                    Задания</h5></a>
+                <a href ng-click="goToUsers()"><h5 ng-class="{'navbar-active': getNavbarSelectedIndex() == 3}">
+                    Пользователи</h5></a>
+            </div>
+            <div class="md-toolbar-tools" layout="row" layout-align="end center" flex>
+                <div flex layout="row" layout-align="end center">
+                    <a href="/about_me">
+                        <h6 class="nickname" style="margin-right: 10px;">{{users[0].nickname}}</h6>
+                    </a>
+                    <img class="md-raised"
+                         src='/bower_components/material-design-icons/action/svg/design/ic_account_circle_24px.svg'>
+                </div>
+                <div hide show-gt-lg flex="15"></div>
+            </div>
         </div>
+    </md-toolbar>
+    <md-content ng-view md-scroll-y flex style="background-color: #FAFAFA;"></md-content>
+</div>
 
-    </body>
+</body>
 </html>
