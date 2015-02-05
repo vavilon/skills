@@ -14,16 +14,15 @@
             </md-button>
             <md-button class="md-primary">
                 <img src="/bower_components/material-design-icons/action/svg/design/ic_work_24px.svg">
-                {{task.likes}}
-                <md-tooltip>Получить задание</md-tooltip>
+                {{task.participants}}
+                <md-tooltip>Взять задание</md-tooltip>
             </md-button>
         </div>
     </div>
     <md-divider></md-divider>
-    <div layout="row" layout-align="start center" style="margin-left: 10px;">
-        <h3 style="color: #4CAF50; margin-right: 20px">ЛЕГКО</h3>
-        <h3><i>exp: {{task.exp | thousand}}</i></h3>
-    </div>
+
+    <h3 style="margin-left: 10px;"><i>exp: {{task.exp | thousand}}</i></h3>
+
     <div class="taskTabs">
         <md-tabs class="md-accent" md-selected="selectedIndex">
             <md-tab id="tab1" aria-controls="tab1-content">
@@ -38,39 +37,44 @@
         </md-tabs>
         <ng-switch on="selectedIndex" class="tabpanel-container">
             <div role="tabpanel"
-                 id="tab1-content"
                  aria-labelledby="tab1"
+                 layout="column"
+                 layout-align="space-between start"
                  ng-switch-when="0"
                  md-swipe-left="next()"
                  md-swipe-right="previous()" >
-                <md-content style="background-color: inherit">
+                <md-content style="padding: 20px; width: 100%">
                     {{task.description}}
                 </md-content>
+                <div class="tab-content"></div>
             </div>
             <div role="tabpanel"
-                 id="tab2-content"
                  aria-labelledby="tab2"
+                 layout="column"
+                 layout-align="space-between start"
                  ng-switch-when="1"
                  md-swipe-left="next()"
                  md-swipe-right="previous()" >
-                <md-content style="background-color: inherit">
+                <md-content style="padding: 20px; width: 100%">
                     <md-button class="md-raised md-primary label-button" ng-repeat="skill in task.skills">
                         {{skills[skill].title}}
                     </md-button>
                 </md-content>
+                <div class="tab-content"></div>
             </div>
             <div role="tabpanel"
-                 id="tab3-content"
                  aria-labelledby="tab3"
+                 layout="column"
+                 layout-align="space-between start"
                  ng-switch-when="2"
                  md-swipe-left="next()"
                  md-swipe-right="previous()" >
-                <md-content style="background-color: inherit">
+                <md-content style="padding: 20px; width: 100%">
                     <div layout="row" layout-align="start center">
                         <img src="/bower_components/material-design-icons/action/svg/design/ic_account_circle_24px.svg"
                                class="authorFace">
                         <div>
-                            <h4><a class="toolLink" href="/users/{{users.indexOf(author)}}" ng-click="goToAuthor()">{{author.fullName}}</a></h4>
+                            <h4><a class="authorToolLink" href="/users/{{users.indexOf(author)}}" ng-click="goToAuthor()">{{author.fullName}}</a></h4>
                             <h5>exp: {{author.exp | thousand}}</h5>
                         </div>
                     </div>
@@ -100,6 +104,7 @@
                         </div>
                     </div>
                 </md-content>
+                <div class="tab-content"></div>
             </div>
         </ng-switch>
     </div>

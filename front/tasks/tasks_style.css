@@ -7,7 +7,6 @@
 .animate.ng-leave {
     -webkit-transition: 500ms ease-in-out all;
     -moz-transition: 500ms ease-in-out all;
-    -ms-transition: 500ms ease-in-out all;
     -o-transition: 500ms ease-in-out all;
     transition: 500ms ease-in-out all;
     position: relative;
@@ -46,7 +45,8 @@
     opacity: 0; }
 
 .my-subheader {
-    font-size: 12px;
+    font-size: 14px;
+    font-style: italic;
     color: rgba(0, 0, 0, 0.54); }
 
 .label-button {
@@ -55,32 +55,27 @@
     font-size: 14px;
     margin-right: 5px;
     margin-bottom: 5px;
-    padding: 0;
-    padding-right: 3px;
-    padding-left: 3px;
-    padding-bottom: 1px; }
+    padding: 0 3px 1px;
+}
 
 /* view.html */
 
-.taskTabs #tab1-content {
-    background-color: #3F51B5; }
-
-.taskTabs #tab2-content {
-    background-color: #8844b7; }
-
-.taskTabs #tab3-content {
-    background-color: #00796B; }
+.taskTabs .tab-content {
+    background-color: #1976D2;
+    width:inherit;
+    height: 30px; }
 
 .taskTabs .tabpanel-container {
     display: block;
     position: relative;
     background: white;
-    border: 0px solid black;
+    border: 0 solid black;
     height: 350px;
     overflow: hidden; }
 
 .taskTabs [role="tabpanel"] {
-    color: white;
+    border-left: solid 2px #1976D2;
+    border-right: solid 2px #1976D2;
     width: 100%;
     height: 100%;
     -webkit-transition: all cubic-bezier(0.25, 0.46, 0.45, 0.94) 0.5s;
@@ -96,10 +91,8 @@
 .taskTabs [role="tabpanel"].ng-leave {
     z-index: 100; }
 
-.taskTabs .tabpanel-container [role="tabpanel"] {
-    padding: 20px; }
-
 .taskTabs .md-header {
+    border-radius: 3px;
     background-color: #1976D2 !important; }
 
 .taskTabs md-tab {
@@ -122,15 +115,3 @@
     border: 1px solid #ddd;
     zoom: 200%;
     margin: 8px; }
-
-/* Убрать после удаления бустрапа */
-.toolLink {
-    text-decoration: none !important;
-}
-a:hover.toolLink {
-    color: #ffffff !important;
-}
-a:visited.toolLink {
-    color: #ffffff !important;
-}
-/**/

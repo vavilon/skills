@@ -7,12 +7,6 @@
                 <input type="text" ng-model="taskName"/>
             </md-input-container>
         </form>
-        <div class="complexityFilter" style="margin-left: 5%">
-            <h5>Сложность</h5>
-            <md-checkbox ng-model="taskFilter.complexityEasy">Легко</md-checkbox>
-            <md-checkbox ng-model="taskFilter.complexityMedium">Средне</md-checkbox>
-            <md-checkbox ng-model="taskFilter.complexityHard">Сложно</md-checkbox>
-        </div>
         <form name="filterBySkill" layout="row" layout-align="center center">
             <md-input-container flex="85">
                 <label>Скилы</label>
@@ -39,11 +33,17 @@
                     <label for="sortAlphabetDown">алфавиту</label>
                     <img id="sortAlphabetDown"
                          src="/bower_components/material-design-icons/navigation/svg/design/ic_arrow_drop_down_24px.svg"/>
+                    <img id="sortAlphabetDUp"
+                         src="/bower_components/material-design-icons/navigation/svg/design/ic_arrow_drop_up_24px.svg"
+                         hide/>
                 </div>
                 <div class="sortBy">
-                    <label for="sortComplexityDown">сложности</label>
-                    <img id="sortComplexityDown"
+                    <label for="sortDateDown">дате</label>
+                    <img id="sortDateDown"
                          src="/bower_components/material-design-icons/navigation/svg/design/ic_arrow_drop_down_24px.svg"/>
+                    <img id="sortDateUp"
+                         src="/bower_components/material-design-icons/navigation/svg/design/ic_arrow_drop_up_24px.svg"
+                         hide/>
                 </div>
             </div>
         </div>
@@ -55,9 +55,8 @@
                         <div class="md-tile-content">
                             <div>
                                 <h3 style="float: left; margin-right: 20px"> <a href="/tasks/{{key}}"> {{task.title}}</a></h3>
-                                <h3 style="float: left; color: #4CAF50">ЛЕГКО</h3>
-                                <md-subheader style="float: right; padding: 0">exp: {{task.exp | thousand}}
-                                </md-subheader>
+                                <div class="my-subheader" style="float: right;">exp: {{task.exp | thousand}}
+                                </div>
                             </div>
 
                             <br/>
