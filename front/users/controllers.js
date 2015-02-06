@@ -308,6 +308,13 @@ app.controller('ProfileViewerOneCtrl', ['$scope', '$routeParams', '$http',
         $http.get('models/users.json').success(function(data) {
             $scope.user = data[$routeParams.user_id];
         });
+        $http.get('models/skills.json').success(function(data) {
+            $scope.skills = data;
+        });
+        $http.get('models/tasks_list.json').success(function(data) {
+            $scope.tasks = data;
+        });
+        $scope.tabSelected = 0;
     }
 ]);
 

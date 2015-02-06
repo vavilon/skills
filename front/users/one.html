@@ -1,28 +1,208 @@
-<div class="container-fluid">
-    <div id="creat_condition">{{user.fullName}}</div>
-    <div class="table">{{user.exp | thousand}}</div>
-    <p><p>
+<style>
+    .info-length-aria {
+        padding-left: 2px;
+        padding-right: 5px;
+    }
+    .info-length-aria h5 {
+        margin-top: 0px;
+        margin-bottom: 10px;
+        font-weight: normal;
+    }
+    md-tabs-ink-bar {
+        background-color: #E91E63 !important;
+    }
+    .my-subheader {
+        font-size: 12px;
+        color: rgba(0, 0, 0, 0.54);
+        margin-right: 30px;
+    }
+</style>
 
-    <div class="row" ng-controller="skillsListCtrl">
-    <p>
-        <table class="col-md-12">
-            <tr>
-                <td id="main_table_header">Навыки</td>
-            </tr>
-            <tr ng-repeat="skill in user.skills">
-                <td>{{skills[skill].title}}</td>
-            </tr>
-        </table>
+<div layout="row" style="padding-top: 30px;">
+    <div layout="row" flex="30">
+        <div flex="35"></div>
+        <div layout="column" flex>
+            <div style="border-radius: 4px; border: 2px solid #e0e0e0;">
+                <img src="/bower_components/material-design-icons/social/svg/design/ic_person_48px.svg"
+                     style="width: 100%;">
+            </div>
+            <div style="padding-left: 2px;">
+                <h3 style="margin-bottom: 0px; margin-top: 10px;">{{user.fullName}}</h3>
+                <h3 style="margin-top: 5px; margin-bottom: 0px; color: rgba(0,0,0,0.54); font-weight: normal;">
+                    {{user.nickname}}</h3>
+                <h4 style="margin-top: 5px; margin-bottom: 0px; color: rgba(0,0,0,0.54); font-weight: normal;">exp: {{user.exp | thousand}}</h4>
+            </div>
+
+            <md-divider style="margin-top: 10px; margin-bottom: 10px;"></md-divider>
+
+            <div class="info-length-aria">
+                <div layout="row" layout-align="space-between center">
+                    <h5>Решено заданий:</h5><h5>{{user.tasksDone.length}}</h5></div>
+                <div layout="row" layout-align="space-between center">
+                    <h5>Проверено заданий:</h5><h5>{{user.tasksChecked.length}}</h5></div>
+                <div layout="row" layout-align="space-between center">
+                    <h5>Подтверждено заданий:</h5><h5>{{user.tasksApproved.length}}</h5></div>
+                <div layout="row" layout-align="space-between center">
+                    <h5>Создано заданий:</h5><h5>{{user.tasksCreated.length}}</h5></div>
+            </div>
+
+            <md-divider style="margin-bottom: 10px;"></md-divider>
+
+            <div layout="row" layout-align="space-around center">
+                <h4 style="margin-bottom: 0px; margin-top: 0px; color: #3F51B5;">{{user.skills.length}}</h4>
+                <h4 style="margin-bottom: 0px; margin-top: 0px; color: #E91E63;">{{user.needs.length}}</h4>
+            </div>
+            <div layout="row" layout-align="space-around center">
+                <h5 style="margin-bottom: 0px; margin-top: 0px; color: rgba(0,0,0,0.54);">Навыков</h5>
+                <h5 style="margin-bottom: 0px; margin-top: 0px; color: rgba(0,0,0,0.54);">Целей</h5>
+            </div>
+
+            <md-divider style="margin-top: 15px; margin-bottom: 10px;"></md-divider>
+        </div>
     </div>
-    <div class="row" ng-controller="skillsListCtrl">
-        <table class="col-md-12">
-            <tr id="main_table_header">
-                <td>Цели</td>
-            </tr>
-            <tr ng-repeat="skill in user.needs">
-                <td>{{skills[skill].title}}</td>
-            </tr>
-        </table>
+    <div layout="row" flex>
+        <div flex style="padding-left: 20px;">
+            <div style="box-shadow: 0 1px 2px rgba(0,0,0,0.26);">
+                <md-tabs md-selected="tabSelected">
+                    <md-tab>Решено</md-tab>
+                    <md-tab>Проверено</md-tab>
+                    <md-tab>Подтверждено</md-tab>
+                    <md-tab>Создано</md-tab>
+                </md-tabs>
+                <md-content style="min-height: 56px; max-height: calc(60vh - 94px);">
+                    <md-list>
+                    <ng-switch on="tabSelected">
+                        <div ng-switch-when="0">
+                            <md-item ng-repeat="task in user.tasksDone">
+                                <md-item-content>
+                                    <div class="md-tile-content" layout="column">
+                                        <div>
+                                            <h3 style="float: left; margin-right: 20px"><a href="#">Название решенного задания</a></h3>
+                                        </div>
+                                        <div layout="row">
+                                            <div class="my-subheader">Дата решения: 03.02.2015</div>
+                                            <div class="my-subheader">Автор: <a href="#">Автор Авторович</a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div>
+                                        <p style="margin-right: 15px;">exp: + {{95687 | thousand}}</p>
+                                    </div>
+                                </md-item-content>
+                                <md-divider></md-divider>
+                            </md-item>
+                            <md-item ng-show="user.tasksDone.length == 0">
+                                <md-item-content>
+                                    <div class="md-tile-content" layout="column" layout-align="center center">
+                                        <div>
+                                            <h3 style="color: rgba(0,0,0,0.54);">Пользователь не решил ни одного задания</h3>
+                                        </div>
+                                    </div>
+                                </md-item-content>
+                            </md-item>
+                        </div>
+                        <div ng-switch-when="1">
+                            <md-item ng-repeat="task in user.tasksChecked">
+                                <md-item-content>
+                                    <div class="md-tile-content" layout="column">
+                                        <div>
+                                            <h3 style="float: left; margin-right: 20px"><a href="#">Название проверенного задания</a></h3>
+                                        </div>
+                                        <div layout="row">
+                                            <div class="my-subheader">Дата проверки: 03.02.2015</div>
+                                            <div class="my-subheader">Автор: <a href="#">Автор Авторович</a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div>
+                                        <p style="margin-right: 15px;">exp: + {{87521 | thousand}}</p>
+                                    </div>
+                                </md-item-content>
+                                <md-divider></md-divider>
+                            </md-item>
+                            <md-item ng-show="user.tasksChecked.length == 0">
+                                <md-item-content>
+                                    <div class="md-tile-content" layout="column" layout-align="center center">
+                                        <div>
+                                            <h3 style="color: rgba(0,0,0,0.54);">Пользователь не проверил ни одного задания</h3>
+                                        </div>
+                                    </div>
+                                </md-item-content>
+                            </md-item>
+                        </div>
+                        <div ng-switch-when="2">
+                            <md-item ng-repeat="task in user.tasksApproved">
+                                <md-item-content>
+                                    <div class="md-tile-content" layout="column">
+                                        <div>
+                                            <h3 style="float: left; margin-right: 20px"><a href="#">Название подтвержденного задания</a></h3>
+                                        </div>
+                                        <div layout="row">
+                                            <div class="my-subheader">Дата подтверждения: 03.02.2015</div>
+                                            <div class="my-subheader">Автор: <a href="#">Автор Авторович</a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div>
+                                        <p style="margin-right: 15px;">exp: + {{45236 | thousand}}</p>
+                                    </div>
+                                </md-item-content>
+                                <md-divider></md-divider>
+                            </md-item>
+                            <md-item ng-show="user.tasksApproved.length == 0">
+                                <md-item-content>
+                                    <div class="md-tile-content" layout="column" layout-align="center center">
+                                        <div>
+                                            <h3 style="color: rgba(0,0,0,0.54);">Пользователь не подтвердил ни одного задания</h3>
+                                        </div>
+                                    </div>
+                                </md-item-content>
+                            </md-item>
+                        </div>
+                        <div ng-switch-when="3">
+                            <md-item ng-repeat="task in user.tasksCreated">
+                                <md-item-content>
+                                    <div class="md-tile-content" layout="column">
+                                        <div>
+                                            <h3 style="float: left; margin-right: 20px"><a href="#">Название задания</a></h3>
+                                        </div>
+                                        <div layout="row">
+                                            <div class="my-subheader">Дата создания: 03.02.2015</div>
+                                        </div>
+                                    </div>
+                                    <div>
+                                        <p style="margin-right: 15px;">exp: + {{45678 | thousand}}</p>
+                                    </div>
+                                </md-item-content>
+                                <md-divider></md-divider>
+                            </md-item>
+                            <md-item ng-show="user.tasksCreated.length == 0">
+                                <md-item-content>
+                                    <div class="md-tile-content" layout="column" layout-align="center center">
+                                        <div>
+                                            <h3 style="color: rgba(0,0,0,0.26);">Пользователь не создал ни одного задания</h3>
+                                        </div>
+                                    </div>
+                                </md-item-content>
+                            </md-item>
+                        </div>
+                    </ng-switch>
+                    </md-list>
+                </md-content>
+            </div>
+            <div style="padding-top: 20px;">
+                <h4 style="float: left; margin-right: 7px; margin-top: 0px; margin-bottom: 0px;">Навыки:</h4>
+                <md-button class="md-raised md-primary label-button"
+                           ng-repeat="skill in user.skills">{{skills[skill].title}}
+                </md-button>
+            </div>
+            <div style="padding-top: 10px;">
+                <h4 style="float: left; margin-right: 7px; margin-top: 0px; margin-bottom: 0px;">Цели:</h4>
+                <md-button class="md-raised md-accent md-hue-2 label-button"
+                           ng-repeat="need in user.needs">{{skills[need].title}}
+                </md-button>
+            </div>
+        </div>
+        <div flex="20"></div>
     </div>
-    <p><p>
 </div>

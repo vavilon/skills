@@ -65,10 +65,13 @@
         font-size: 14px;
         margin-right: 5px;
         margin-bottom: 5px;
-        padding: 0;
-        padding-right: 3px;
-        padding-left: 3px;
-        padding-bottom: 1px;
+        padding: 3px;
+        padding-top: 1px;
+    }
+
+    .md-toolbar-tools md-input-container .md-placeholder
+    {
+        top: -18px;
     }
 
 </style>
@@ -87,12 +90,10 @@
                             <span>Пользователи</span>
                         </h2>
                     </div>
-                    <div flex layout="row" layout-align="end center">
-                        <form name="usersForm" style="width: 80%;">
-                            <md-input-container style="margin-top: 12px; margin-right: 20px;" flex>
-                                <input ng-model="username" placeholder="Имя пользователя">
-                            </md-input-container>
-                        </form>
+                    <div class="md-toolbar-tools" layout="row" flex style="padding-top: 15px;">
+                        <md-input-container flex>
+                            <input placeholder="Имя пользователя" ng-model="username">
+                        </md-input-container>
                     </div>
                 </div>
             </md-toolbar>
@@ -115,13 +116,13 @@
                                 </p>
 
                                 <div class="my-show-hide-animation" ng-show="user.expanded">
-                                    <h3 style="float: left; margin-right: 7px; margin-top: 3px;">Навыки:</h3>
+                                    <h3 style="float: left; margin-right: 7px;">Навыки:</h3>
                                     <md-button class="md-raised md-primary label-button"
                                                ng-repeat="skill in user.skills">{{skills[skill].title}}
                                     </md-button>
                                     <br>
 
-                                    <h3 style="float: left; margin-right: 7px; margin-top: 3px;">Цели:</h3>
+                                    <h3 style="float: left; margin-right: 7px;">Цели:</h3>
                                     <md-button class="md-raised md-accent md-hue-2 label-button"
                                                ng-repeat="need in user.needs">{{skills[need].title}}
                                     </md-button>

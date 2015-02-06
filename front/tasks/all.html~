@@ -37,7 +37,7 @@
     <div layout="column" layout-fill class="md-whiteframe-z2" style="background-color: #fff; ">
         <div>
             <div layout="row" layout-padding layout-align="start center">
-                <h4 style="margin-left: 8px; margin-bottom: 15px; margin-top: 15px;">Сортировать по: </h4>
+                <h4 style="margin-left: 8px; margin-bottom: 12px; margin-top: 12px;">Сортировать по: </h4>
 
                 <div class="sortBy" layout="row" layout-align="center center">
                     <label for="sortAlphabetDown">названию</label>

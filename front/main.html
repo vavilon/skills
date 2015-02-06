@@ -80,107 +80,61 @@
         font-size: 12px;
         color: rgba(0, 0, 0, 0.54);
     }
-
     .label-button {
         font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
         text-transform: none;
         font-size: 14px;
         margin-right: 5px;
         margin-bottom: 5px;
-        padding: 0;
-        padding-right: 3px;
-        padding-left: 3px;
-        padding-bottom: 1px;
+        padding: 3px;
+        padding-top: 1px;
+    }
+    code {
+        white-space: pre-wrap !important;
     }
 
-    .md-fab-area {
-        margin-bottom: 15px;
-    }
-
-    .md-fab-button {
-        margin-left: 30px;
-    }
-
-    .md-fab-green {
-        background-color: #4CAF50 !important;
-    }
-
-    .md-fab-yellow {
-        background-color: #FFEB3B !important;
-    }
-
-    .md-fab-cyan {
-        background-color: #00BCD4 !important;
-        color: #FFFFFF !important;
-    }
-
-    .md-toolbar-yellow {
-        background-color: #FFEB3B !important;
-        color: rgba(0, 0, 0, 0.54) !important;
-    }
-
-    .md-primary-add, .md-primary-remove, .md-warn-add, .md-warn-remove, .md-toolbar-yellow-add, .md-toolbar-yellow-remove, .md-fab-green-add, .md-fab-green-remove {
-        -webkit-transition: all cubic-bezier(0.250, 0.460, 0.450, 0.940) 0.5s;
-        -moz-transition: all cubic-bezier(0.250, 0.460, 0.450, 0.940) 0.5s;
-        -o-transition: all cubic-bezier(0.250, 0.460, 0.450, 0.940) 0.5s;
-        transition: all cubic-bezier(0.250, 0.460, 0.450, 0.940) 0.5s;
-    }
-
-    .md-button.md-fab:not([disabled]):focus.md-fab-green, .md-button.md-fab:not([disabled]):hover.md-fab-green {
-        background-color: #43A047 !important;
-    }
-
-    .md-button.md-fab:not([disabled]):focus.md-fab-yellow, .md-button.md-fab:not([disabled]):hover.md-fab-yellow {
-        background-color: #FDD835 !important;
-    }
-
-    .md-button.md-fab:not([disabled]):focus.md-fab-cyan, .md-button.md-fab:not([disabled]):hover.md-fab-cyan {
-        background-color: #00ACC1 !important;
-    }
-
-    .show-hide h4 {
-        font-family: RobotoDraft, Roboto, 'Helvetica Neue', sans-serif;
-        font-size: 14px;
-        margin-top: 5px;
-        margin-bottom: 0px;
+    .task-description {
         padding: 7px;
-        border-radius: 4px;
-        background-color: rgba(0, 0, 0, 0.54);
-        color: #FFFFFF;
+        margin-bottom: 5px;
+        border-radius: 3px;
+        background-color: rgba(0,0,0,0.12);
     }
 
-    h3 {
-        color: #000;
+    .task-desc-circle  {
+        width: 10px;
+        height: 10px;
+        border-radius: 50%;
+        background-color: #e0e0e0;
+        margin-top: 3px;
+        margin-left: 5px;
+        margin-right: 5px;
+    }
+
+    md-tabs-ink-bar {
+        background-color: #E91E63 !important;
     }
 </style>
 
 <div ng-controller="mainPageCtrl" style="position: relative; min-height: calc(100vh - 64px);">
     <div layout="row">
-        <div flex="15" flex-md="5" hide-sm>
-        </div>
+        <div flex="15" flex-md="5" hide-sm></div>
         <div flex layout="column"
              style="margin-top: 30px; margin-bottom: 30px; box-shadow: 0 1px 2px rgba(0,0,0,0.26); background-color: #FFFFFF; z-index: 3;">
-            <md-toolbar ng-class="{'md-primary': tooltipClicked == 0, 'md-fab-green': tooltipClicked == 1,
-                                   'md-toolbar-yellow': tooltipClicked == 2, 'md-fab-cyan': tooltipClicked == 3}">
-                <div class="md-toolbar-tools" ng-switch on="tooltipClicked">
-                    <div ng-switch-when="0">
-                        <div hide-sm>Решите полученные задания, чтобы улучшить свои навыки и приблизиться к целям</div>
-                        <div hide show-sm>Решите полученные задания</div>
-                    </div>
-                    <div ng-switch-when="1">
-                        <div hide-sm>Проверьте решения других пользователей, основываясь на полученных навыках</div>
-                        <div hide show-sm>Проверьте решения других пользователей</div>
-                    </div>
-                    <div ng-switch-when="2">
-                        <div hide-sm>Подтвердите соответствие новых заданий указанным в них навыкам</div>
-                        <div hide show-sm>Подтвердите новые задания</div>
-                    </div>
-                    <div ng-switch-when="3">
-                        Создайте свои собственные задания
-                    </div>
-                </div>
-            </md-toolbar>
-            <md-content style="min-height: 350px; max-height: calc(100vh - 188px); max-width: 80vw;">
+            <md-tabs md-selected="tooltipClicked">
+                <md-tab>
+                    Решить
+                </md-tab>
+                <md-tab>
+                    Проверить
+                </md-tab>
+                <md-tab>
+                    Подтвердить
+                </md-tab>
+                <md-tab>
+                    Создать
+                </md-tab>
+            </md-tabs>
+            <md-content style="min-height: 350px; max-height: calc(100vh - 175px);">
                 <ng-switch on="tooltipClicked">
                     <div role="tabpanel"
                          aria-labelledby="tab1"
@@ -191,26 +145,26 @@
                             <md-item class="animate"
                                      ng-repeat="(taskKey, taskVal) in tasks">
                                 <md-item-content style="align-items: flex-start !important;">
-                                    <div class="md-tile-content">
+                                    <div class="md-tile-content" layout="column">
                                         <div>
                                             <h3 style="float: left; margin-right: 20px"><a
-                                                    href="/tasks/{{taskKey}}/decision">{{taskVal.title}}</a></h3>
-
+                                                    href="#">{{taskVal.title}}</a></h3>
                                             <h3 style="float: left; color: #4CAF50">ЛЕГКО</h3>
-
                                             <p style="float: right;">exp: {{taskVal.exp | thousand}}</p>
                                         </div>
-                                        <br/>
-
-                                        <h3 style="float: left; margin-right: 7px; margin-top: 3px;">Навыки:</h3>
-                                        <md-button class="md-raised md-primary label-button"
-                                                   ng-repeat="skill in taskVal.skills">
-                                            {{skills[skill].title}}
-                                        </md-button>
-
+                                        <div>
+                                            <h3 style="float: left; margin-right: 7px;">Навыки:</h3>
+                                            <md-button class="md-raised md-primary label-button"
+                                                       ng-repeat="skill in taskVal.skills">
+                                                {{skills[skill].title}}
+                                            </md-button>
+                                        </div>
                                         <div class="show-hide-list" ng-show="taskVal.expanded">
-                                            <div style="margin-top: 5px;">
-                                                <pre>{{taskVal.description}}</pre>
+                                            <div style="margin-left: 10px; padding-left: 3px; padding-right: 3px; padding-top: 2px; border-radius: 3px 3px 0px 0px; border: 4px solid #e0e0e0; border-bottom: none; display: inline-block !important;">
+                                                <h4 style="display: inline-block !important;">Условие</h4>
+                                            </div>
+                                            <div class="task-description">
+                                                {{taskVal.description}}
                                             </div>
                                         </div>
                                         <div layout="row" layout-align="space-between center">
@@ -244,20 +198,19 @@
                             <md-item class="animate"
                                      ng-repeat="(solutionKey, solutionVal) in solutions">
                                 <md-item-content style="align-items: flex-start !important;">
-                                    <div class="md-tile-content">
+                                    <div class="md-tile-content" layout="column">
                                         <div>
                                             <h3 style="float: left; margin-right: 20px"><a
-                                                    href="/tasks/{{solutionKey}}/check">{{tasks[solutionVal.taskID].title}}</a></h3>
+                                                    href="#">{{tasks[solutionVal.taskID].title}}</a>
+                                            </h3>
 
                                             <p style="float: right;">exp: {{tasks[solutionVal.taskID].exp |
                                                 thousand}}</p>
                                         </div>
-                                        <br/>
                                         <h4>{{tasks[solutionVal.taskID].description}}</h4>
 
                                         <div class="show-hide-list" ng-show="solutionVal.expanded">
-                                            <div style="margin-top: 5px;">
-                                                <pre>{{solutionVal.text}}</pre>
+                                            <div hljs source="solutionVal.text" style="margin-top: 5px; margin-bottom: 5px;">
                                             </div>
                                         </div>
                                         <div layout="row" layout-align="space-between center">
@@ -291,23 +244,23 @@
                             <md-item class="animate"
                                      ng-repeat="(taskKey, taskVal) in tasks">
                                 <md-item-content style="align-items: flex-start !important;">
-                                    <div class="md-tile-content">
+                                    <div class="md-tile-content" layout="column">
                                         <div>
                                             <h3 style="float: left; margin-right: 20px"><a
-                                                    href="/tasks/{{taskKey}}/approve">{{taskVal.title}}</a></h3>
+                                                    href="#">{{taskVal.title}}</a></h3>
+
                                             <p style="float: right;">exp: {{taskVal.exp | thousand}}</p>
                                         </div>
-                                        <br/>
-
-                                        <h3 style="float: left; margin-right: 7px; margin-top: 3px;">Навыки:</h3>
-                                        <md-button class="md-raised md-primary label-button"
-                                                   ng-repeat="skill in taskVal.skills">
-                                            {{skills[skill].title}}
-                                        </md-button>
-
+                                        <div>
+                                            <h3 style="float: left; margin-right: 7px;">Навыки:</h3>
+                                            <md-button class="md-raised md-primary label-button"
+                                                       ng-repeat="skill in taskVal.skills">
+                                                {{skills[skill].title}}
+                                            </md-button>
+                                        </div>
                                         <div class="show-hide-list" ng-show="taskVal.expanded">
                                             <div style="margin-top: 5px;">
-                                                <pre>{{taskVal.description}}</pre>
+                                                {{taskVal.description}}
                                             </div>
                                         </div>
                                         <div layout="row" layout-align="space-between center">
@@ -318,8 +271,12 @@
                                                 </div>
                                             </div>
                                             <div>
-                                                <md-button><img style="opacity: 0.54;" src="/bower_components/material-design-icons/action/svg/design/ic_thumb_up_24px.svg"></md-button>
-                                                <md-button style="margin-left: 20px;"><img style="opacity: 0.54;" src="/bower_components/material-design-icons/action/svg/design/ic_thumb_down_24px.svg"></md-button>
+                                                <md-button><img style="opacity: 0.54;"
+                                                                src="/bower_components/material-design-icons/action/svg/design/ic_thumb_up_24px.svg">
+                                                </md-button>
+                                                <md-button style="margin-left: 20px;"><img style="opacity: 0.54;"
+                                                                                           src="/bower_components/material-design-icons/action/svg/design/ic_thumb_down_24px.svg">
+                                                </md-button>
                                             </div>
                                         </div>
                                     </div>
@@ -370,48 +327,6 @@
                 </ng-switch>
             </md-content>
         </div>
-        <div flex="15" flex-md="20" flex-sm="20" layout="column" layout-fill>
-            <div style="position: fixed; padding-top: 98px;">
-                <div class="md-fab-area" layout="column" layout-align="center start">
-                    <md-button class="md-fab md-fab-button" ng-class="{'md-primary': tooltipClicked == 0}"
-                               ng-click="tooltipsClick(0)" ng-mouseenter="tooltipsMSOver(0)"
-                               ng-mouseleave="tooltipsMSLeave(0)">
-                        <img src="/bower_components/material-design-icons/editor/svg/design/ic_mode_edit_24px.svg">
-                    </md-button>
-                    <div class="show-hide" ng-show="tooltipsShow[0]"><h4 style="margin-left: 27px;">{{tooltips[0]}}</h4>
-                    </div>
-                </div>
-
-                <div class="md-fab-area" layout="column" layout-align="center start">
-                    <md-button class="md-fab md-fab-button" ng-class="{'md-fab-green md-hue-1': tooltipClicked == 1}"
-                               ng-click="tooltipsClick(1)" ng-mouseenter="tooltipsMSOver(1)"
-                               ng-mouseleave="tooltipsMSLeave(1)">
-                        <img src="/bower_components/material-design-icons/navigation/svg/design/ic_check_24px.svg">
-                    </md-button>
-                    <div class="show-hide" ng-show="tooltipsShow[1]"><h4 style="margin-left: 16px;">{{tooltips[1]}}</h4>
-                    </div>
-                </div>
-
-                <div class="md-fab-area" layout="column" layout-align="center start">
-                    <md-button class="md-fab md-fab-button" ng-class="{'md-fab-yellow': tooltipClicked == 2}"
-                               ng-click="tooltipsClick(2)" ng-mouseenter="tooltipsMSOver(2)"
-                               ng-mouseleave="tooltipsMSLeave(2)">
-                        <img src="/bower_components/material-design-icons/action/svg/design/ic_thumbs_up_down_24px.svg">
-                    </md-button>
-                    <div class="show-hide" ng-show="tooltipsShow[2]"><h4 style="margin-left: 8px;">{{tooltips[2]}}</h4>
-                    </div>
-                </div>
-
-                <div class="md-fab-area" layout="column" layout-align="center start">
-                    <md-button class="md-fab md-fab-button" ng-class="{'md-fab-cyan': tooltipClicked == 3}"
-                               ng-click="tooltipsClick(3)" ng-mouseenter="tooltipsMSOver(3)"
-                               ng-mouseleave="tooltipsMSLeave(3)">
-                        <img src="/bower_components/material-design-icons/content/svg/design/ic_add_24px.svg">
-                    </md-button>
-                    <div class="show-hide" ng-show="tooltipsShow[3]"><h4 style="margin-left: 25px;">{{tooltips[3]}}</h4>
-                    </div>
-                </div>
-            </div>
-        </div>
+        <div flex="15" flex-md="5" hide-sm></div>
     </div>
 </div>
