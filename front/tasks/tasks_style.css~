@@ -55,9 +55,9 @@
     font-size: 14px;
     margin-right: 5px;
     margin-bottom: 5px;
-    padding: 3px;
-    padding-top: 1px;
+    padding: 0 3px 1px;
 }
+
 /* view.html */
 
 .taskTabs .tab-content {

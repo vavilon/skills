@@ -36,8 +36,8 @@
 
     <div layout="column" layout-fill class="md-whiteframe-z2" style="background-color: #fff; ">
         <div>
-            <div layout="row" layout-padding>
-                <h4 style="margin-left: 8px;">Сортировать по: </h4>
+            <div layout="row" layout-padding layout-align="start center">
+                <h4 style="margin-left: 8px; margin-bottom: 12px; margin-top: 12px;">Сортировать по: </h4>
 
                 <div class="sortBy" layout="row" layout-align="center center">
                     <label for="sortAlphabetDown">названию</label>
@@ -47,7 +47,7 @@
                          src="/bower_components/material-design-icons/navigation/svg/design/ic_arrow_drop_up_24px.svg"
                          hide/>
                 </div>
-                <div class="sortBy">
+                <div class="sortBy" layout="row" layout-align="center center">
                     <label for="sortDateDown">дате</label>
                     <img id="sortDateDown"
                          src="/bower_components/material-design-icons/navigation/svg/design/ic_arrow_drop_down_24px.svg"/>
@@ -55,15 +55,17 @@
                          src="/bower_components/material-design-icons/navigation/svg/design/ic_arrow_drop_up_24px.svg"
                          hide/>
                 </div>
-<<<<<<< HEAD
-                <div class="sortBy">
+                <div class="sortBy" layout="row" layout-align="center center">
                     <label for="sortPopularityDown">популярности</label>
                     <img id="sortPopularityDown"
-=======
+                         src="/bower_components/material-design-icons/navigation/svg/design/ic_arrow_drop_down_24px.svg"/>
+                    <img id="sortPopularityUp"
+                         src="/bower_components/material-design-icons/navigation/svg/design/ic_arrow_drop_up_24px.svg"
+                         hide/>
+                </div>
                 <div class="sortBy" layout="row" layout-align="center center">
                     <label for="sortComplexityDown">сложности</label>
                     <img id="sortComplexityDown"
->>>>>>> Исправлены последствия удаления бутстрапа
                          src="/bower_components/material-design-icons/navigation/svg/design/ic_arrow_drop_down_24px.svg"/>
                     <img id="sortPopularityUp"
                          src="/bower_components/material-design-icons/navigation/svg/design/ic_arrow_drop_up_24px.svg"
@@ -79,10 +81,6 @@
                         <div class="md-tile-content" layout="column">
                             <div>
                                 <h3 style="float: left; margin-right: 20px"> <a href="/tasks/{{key}}"> {{task.title}}</a></h3>
-<<<<<<< HEAD
-                                <div class="my-subheader" style="float: right;">exp: {{task.exp | thousand}}
-                                </div>
-=======
                                 <h3 style="float: left; color: #4CAF50">ЛЕГКО</h3>
                                 <p style="float: right; padding: 0">exp: {{task.exp | thousand}}</p>
                             </div>
@@ -91,7 +89,6 @@
                                 <md-button class="md-raised md-primary label-button" ng-repeat="skill in task.skills">
                                     {{skills[skill].title}}
                                 </md-button>
->>>>>>> Исправлены последствия удаления бутстрапа
                             </div>
                             <div class="my-show-hide-animation" ng-show="task.expanded">
                                 <div style="margin-top: 5px;">

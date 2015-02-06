@@ -36,8 +36,8 @@
 
     <div layout="column" layout-fill class="md-whiteframe-z2" style="background-color: #fff; ">
         <div>
-            <div layout="row" layout-padding>
-                <h4 style="margin-left: 8px;">Сортировать по: </h4>
+            <div layout="row" layout-padding layout-align="start center">
+                <h4 style="margin-left: 8px; margin-bottom: 15px; margin-top: 15px;">Сортировать по: </h4>
 
                 <div class="sortBy" layout="row" layout-align="center center">
                     <label for="sortAlphabetDown">названию</label>
@@ -47,7 +47,7 @@
                          src="/bower_components/material-design-icons/navigation/svg/design/ic_arrow_drop_up_24px.svg"
                          hide/>
                 </div>
-                <div class="sortBy">
+                <div class="sortBy" layout="row" layout-align="center center">
                     <label for="sortDateDown">дате</label>
                     <img id="sortDateDown"
                          src="/bower_components/material-design-icons/navigation/svg/design/ic_arrow_drop_down_24px.svg"/>
@@ -55,10 +55,14 @@
                          src="/bower_components/material-design-icons/navigation/svg/design/ic_arrow_drop_up_24px.svg"
                          hide/>
                 </div>
-                <div class="sortBy">
+                <div class="sortBy" layout="row" layout-align="center center">
                     <label for="sortPopularityDown">популярности</label>
                     <img id="sortPopularityDown"
                          src="/bower_components/material-design-icons/navigation/svg/design/ic_arrow_drop_down_24px.svg"/>
+                    <img id="sortPopularityUp"
+                         src="/bower_components/material-design-icons/navigation/svg/design/ic_arrow_drop_up_24px.svg"
+                         hide/>
+                </div>
                 <div class="sortBy" layout="row" layout-align="center center">
                     <label for="sortComplexityDown">сложности</label>
                     <img id="sortComplexityDown"
