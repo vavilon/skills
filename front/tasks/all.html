@@ -63,14 +63,6 @@
                          src="/bower_components/material-design-icons/navigation/svg/design/ic_arrow_drop_up_24px.svg"
                          hide/>
                 </div>
-                <div class="sortBy" layout="row" layout-align="center center">
-                    <label for="sortComplexityDown">сложности</label>
-                    <img id="sortComplexityDown"
-                         src="/bower_components/material-design-icons/navigation/svg/design/ic_arrow_drop_down_24px.svg"/>
-                    <img id="sortPopularityUp"
-                         src="/bower_components/material-design-icons/navigation/svg/design/ic_arrow_drop_up_24px.svg"
-                         hide/>
-                </div>
             </div>
         </div>
         <md-divider></md-divider>
@@ -81,8 +73,7 @@
                         <div class="md-tile-content" layout="column">
                             <div>
                                 <h3 style="float: left; margin-right: 20px"> <a href="/tasks/{{key}}"> {{task.title}}</a></h3>
-                                <h3 style="float: left; color: #4CAF50">ЛЕГКО</h3>
-                                <p style="float: right; padding: 0">exp: {{task.exp | thousand}}</p>
+                                <div class="my-subheader" style="float: right;">exp: {{task.exp | thousand}}</div>
                             </div>
                             <div>
                                 <h3 style="float: left; margin-right: 7px;  ">Навыки:</h3>
