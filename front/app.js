@@ -13,14 +13,15 @@ app.config(function($locationProvider,$routeProvider,$mdThemingProvider,hljsServ
         .when('/main', {templateUrl:'/front/main.html', controller: 'mainPageCtrl'})
         .when('/about_me', {templateUrl:'/front/users/about_me.html'})
         .when('/users', {templateUrl:'/front/users/all.html'})
-        .when('/tasks', {templateUrl:'/front/tasks/all.html', controller:'all_tasks_show_controller'})
-        .when('/tasks/:task_id', {templateUrl:'/front/tasks/view.html', controller:'OneTaskCtrl'})
+        .when('/tasks', {templateUrl:'/front/tasks/all.html', controller:'allTasksCtrl'})
+        .when('/tasks/:task_id', {templateUrl:'/front/tasks/view.html', controller:'oneTaskCtrl'})
         .when('/tasks/:task_id/decision', {templateUrl:'/front/tasks/decision.html'})
         .when('/tasks/:task_id/approve', {templateUrl:'/front/tasks/approve.html'})
         .when('/tasks/:task_id/check', {templateUrl:'/front/tasks/check.html'})
         .when('/tasks/:task_id/create', {templateUrl:'/front/tasks/create.html'})
-        .when('/skills', {templateUrl:'/front/skills/skills.html', controller:'skills_show_controller'})
-        .when('/users/:user_id', {templateUrl: '/front/users/one.html', controller:'ProfileViewerOneCtrl'})
+        .when('/skills', {templateUrl:'/front/skills/skills.html', controller:'skillsCtrl'})
+        .when('/users/:user_id', {templateUrl: '/front/users/one.html', controller:'profileCtrl'})
+        .when('/competences', {templateUrl: '/front/competences/competences.html', controller:'competencesCtrl'})
         .otherwise({redirectTo: '/main'});
 
     $mdThemingProvider.theme('default')
@@ -89,8 +90,10 @@ app.controller('navbar_controller',['$scope', '$http', '$routeParams', '$locatio
         else if((new RegExp('/skills')).test($location.url())) navbarSelectedIndex.set(1);
         else if((new RegExp('/tasks')).test($location.url())) navbarSelectedIndex.set(2);
         else if((new RegExp('/users')).test($location.url())) navbarSelectedIndex.set(3);
+        else if((new RegExp('/competences')).test($location.url())) navbarSelectedIndex.set(4);
         $scope.goToMain = function(){$location.path('/main'); navbarSelectedIndex.set(0);};
         $scope.goToSkills = function(){$location.path('/skills'); navbarSelectedIndex.set(1);};
         $scope.goToTasks = function(){$location.path('/tasks'); navbarSelectedIndex.set(2);};
         $scope.goToUsers = function(){$location.path('/users'); navbarSelectedIndex.set(3);};
+        $scope.goToCompetences = function(){$location.path('/competences'); navbarSelectedIndex.set(4);};
     }]);
