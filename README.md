@@ -23,7 +23,7 @@ Pavlyk Alexandr - stiven917@gmail.com
 Prokopchuk Pavlo - reverse603@yandex.ua  
 Salienko Anton - tohaedko@gmail.com  
 Martyuk Alexander - ma14051985@gmail.com  
-Khvalinskiy Igor - 1379@i.ua
 
 subteam
-====
+====  
+Khvalinskiy Igor - 1379@i.ua
