@@ -28,8 +28,6 @@
             </div>
             <div style="padding-left: 2px;">
                 <h3 style="margin-bottom: 0px; margin-top: 10px;">{{user.fullName}}</h3>
-                <h3 style="margin-top: 5px; margin-bottom: 0px; color: rgba(0,0,0,0.54); font-weight: normal;">
-                    {{user.nickname}}</h3>
                 <h4 style="margin-top: 5px; margin-bottom: 0px; color: rgba(0,0,0,0.54); font-weight: normal;">exp: {{user.exp | thousand}}</h4>
             </div>
 
@@ -53,8 +51,8 @@
                 <h4 style="margin-bottom: 0px; margin-top: 0px; color: #E91E63;">{{user.needs.length}}</h4>
             </div>
             <div layout="row" layout-align="space-around center">
-                <h5 style="margin-bottom: 0px; margin-top: 0px; color: rgba(0,0,0,0.54);">Навыков</h5>
-                <h5 style="margin-bottom: 0px; margin-top: 0px; color: rgba(0,0,0,0.54);">Целей</h5>
+                <h5 style="margin-bottom: 0px; margin-top: 0px; color: rgba(0,0,0,0.54);">Умею</h5>
+                <h5 style="margin-bottom: 0px; margin-top: 0px; color: rgba(0,0,0,0.54);">Хочу</h5>
             </div>
 
             <md-divider style="margin-top: 15px; margin-bottom: 10px;"></md-divider>
@@ -191,13 +189,13 @@
                 </md-content>
             </div>
             <div style="padding-top: 20px;">
-                <h4 style="float: left; margin-right: 7px; margin-top: 0px; margin-bottom: 0px;">Навыки:</h4>
+                <h4 style="float: left; margin-right: 7px; margin-top: 0px; margin-bottom: 0px;">Умею:</h4>
                 <md-button class="md-raised md-primary label-button"
                            ng-repeat="skill in user.skills">{{skills[skill].title}}
                 </md-button>
             </div>
             <div style="padding-top: 10px;">
-                <h4 style="float: left; margin-right: 7px; margin-top: 0px; margin-bottom: 0px;">Цели:</h4>
+                <h4 style="float: left; margin-right: 7px; margin-top: 0px; margin-bottom: 0px;">Хочу:</h4>
                 <md-button class="md-raised md-accent md-hue-2 label-button"
                            ng-repeat="need in user.needs">{{skills[need].title}}
                 </md-button>

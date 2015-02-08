@@ -8,7 +8,7 @@
             </md-input-container>
             <div layout="row" layout-align="center center">
                 <md-input-container flex="85">
-                    <label>Скилы</label>
+                    <label>Умения</label>
                     <input type="text" ng-model="skillName" name="skillsFilter"/>
                 </md-input-container>
                 <div></div>
@@ -76,7 +76,7 @@
                                 <div class="my-subheader" style="float: right;">exp: {{task.exp | thousand}}</div>
                             </div>
                             <div>
-                                <h3 style="float: left; margin-right: 7px;  ">Навыки:</h3>
+                                <h3 style="float: left; margin-right: 7px;  ">Умения:</h3>
                                 <md-button class="md-raised md-primary label-button" ng-repeat="skill in task.skills">
                                     {{skills[skill].title}}
                                 </md-button>

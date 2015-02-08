@@ -153,7 +153,7 @@
                                             <p style="float: right;">exp: {{taskVal.exp | thousand}}</p>
                                         </div>
                                         <div>
-                                            <h3 style="float: left; margin-right: 7px;">Навыки:</h3>
+                                            <h3 style="float: left; margin-right: 7px;">Умения:</h3>
                                             <md-button class="md-raised md-primary label-button"
                                                        ng-repeat="skill in taskVal.skills">
                                                 {{skills[skill].title}}
@@ -252,7 +252,7 @@
                                             <p style="float: right;">exp: {{taskVal.exp | thousand}}</p>
                                         </div>
                                         <div>
-                                            <h3 style="float: left; margin-right: 7px;">Навыки:</h3>
+                                            <h3 style="float: left; margin-right: 7px;">Умения:</h3>
                                             <md-button class="md-raised md-primary label-button"
                                                        ng-repeat="skill in taskVal.skills">
                                                 {{skills[skill].title}}
@@ -312,14 +312,14 @@
                                 </md-input-container>
                                 <div layout="row" layout-align="start center">
                                     <md-input-container flex>
-                                        <label>Добавить навыки</label>
+                                        <label>Добавить умения</label>
                                         <input ng-model="skillTitle">
                                     </md-input-container>
                                     <md-button style="margin-left: 5px;">
                                         <img src="/bower_components/material-design-icons/content/svg/design/ic_add_24px.svg">
                                     </md-button>
                                 </div>
-                                <h5>Навыки: </h5>
+                                <h5>Умения: </h5>
                             </form>
                             <md-button class="md-raised md-fab-cyan" style="float: right;">Создать</md-button>
                         </md-content>
