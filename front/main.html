@@ -163,7 +163,7 @@
                                         </div>
                                         <div>
                                             <h3 style="float: left; margin-right: 7px;">Умения:</h3>
-                                            <md-button class="md-raised md-primary label-button"
+                                            <md-button aria-label="skillBtn" class="md-raised md-primary label-button"
                                                        ng-repeat="skill in taskVal.skills">
                                                 {{skills[skill].title}}
                                             </md-button>
@@ -187,15 +187,15 @@
                                                 </md-input-container>
                                                 <div layout="row" layout-align="space-between center">
                                                     <div layout="row">
-                                                        <md-button>
+                                                        <md-button aria-label="attachFileBtn">
                                                             <img style="opacity: 0.54;" src="/bower_components/material-design-icons/editor/svg/design/ic_attach_file_18px.svg">
                                                         </md-button>
-                                                        <md-button>
+                                                        <md-button aria-label="insertImageBtn">
                                                             <img style="opacity: 0.54;" src="/bower_components/material-design-icons/editor/svg/design/ic_insert_photo_18px.svg">
                                                         </md-button>
                                                     </div>
                                                     <div layout="row" layout-align="end center">
-                                                        <md-button class="md-raised">Отправить</md-button>
+                                                        <md-button class="md-raised" aria-label="sendSolutionBtn">Отправить</md-button>
                                                     </div>
                                                 </div>
                                             </div>
@@ -242,7 +242,7 @@
                                         </div>
                                         <div>
                                             <h3 style="float: left; margin-right: 7px;">Умения:</h3>
-                                            <md-button class="md-raised md-primary label-button"
+                                            <md-button class="md-raised md-primary label-button" aria-label="skillBtn"
                                                        ng-repeat="skill in tasks[solutionVal.taskID].skills">
                                                 {{skills[skill].title}}
                                             </md-button>
@@ -270,10 +270,10 @@
                                             </div>
                                             </div>
                                             <div class="show-hide" ng-show="solutionVal.expanded">
-                                                <md-button><img style="opacity: 0.54;"
+                                                <md-button><img style="opacity: 0.54;"  aria-label="thumbUpBtn"
                                                                 src="/bower_components/material-design-icons/action/svg/design/ic_thumb_up_24px.svg">
                                                 </md-button>
-                                                <md-button style="margin-left: 20px;"><img style="opacity: 0.54;"
+                                                <md-button style="margin-left: 20px;"><img style="opacity: 0.54;"  aria-label="thumbUpBtn"
                                                                                            src="/bower_components/material-design-icons/action/svg/design/ic_thumb_down_24px.svg">
                                                 </md-button>
                                             </div>
@@ -313,7 +313,7 @@
                                         <div>
                                             <h3 style="float: left; margin-right: 7px;">Умения:</h3>
                                             <md-button class="md-raised md-primary label-button"
-                                                       ng-repeat="skill in taskVal.skills">
+                                                       ng-repeat="skill in taskVal.skills" aria-label="skillBtn">
                                                 {{skills[skill].title}}
                                             </md-button>
                                         </div>
@@ -333,10 +333,10 @@
                                                 </div>
                                             </div>
                                             <div class="show-hide" ng-show="taskVal.expanded">
-                                                <md-button><img style="opacity: 0.54;"
+                                                <md-button><img style="opacity: 0.54;" aria-label="thumbUpBtn"
                                                                 src="/bower_components/material-design-icons/action/svg/design/ic_thumb_up_24px.svg">
                                                 </md-button>
-                                                <md-button style="margin-left: 20px;"><img style="opacity: 0.54;"
+                                                <md-button style="margin-left: 20px;"><img style="opacity: 0.54;" aria-label="thumbUpBtn"
                                                                                            src="/bower_components/material-design-icons/action/svg/design/ic_thumb_down_24px.svg">
                                                 </md-button>
                                             </div>
@@ -377,7 +377,7 @@
                                         <label>Добавить умения</label>
                                         <input ng-model="skillTitle">
                                     </md-input-container>
-                                    <md-button style="margin-left: 5px;">
+                                    <md-button style="margin-left: 5px;" aria-label="addSkillBtn">
                                         <img src="/bower_components/material-design-icons/content/svg/design/ic_add_24px.svg">
                                     </md-button>
                                 </div>
