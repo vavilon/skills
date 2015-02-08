@@ -91,23 +91,32 @@
     }
     code {
         white-space: pre-wrap !important;
+        background-color: rgba(0,0,0,0) !important;
+        padding: 0px !important;
+    }
+
+    pre {
+        margin: 0px !important;
     }
 
     .task-description {
-        padding: 7px;
-        margin-bottom: 5px;
-        border-radius: 3px;
-        background-color: rgba(0,0,0,0.12);
+        padding: 10px;
+        padding-top: 14px;
+        padding-bottom: 14px;
+        margin-bottom: 10px;
+        border-radius: 0px 0px 3px 3px;
+        border: 1px solid #BDBDBD;
     }
 
-    .task-desc-circle  {
-        width: 10px;
-        height: 10px;
-        border-radius: 50%;
-        background-color: #e0e0e0;
-        margin-top: 3px;
-        margin-left: 5px;
-        margin-right: 5px;
+    .task-desc-header {
+        margin-top: 6px;
+        background-color: #E8EAF6;
+        padding: 10px;
+        padding-top: 6px;
+        padding-bottom: 6px;
+        border-radius: 3px 3px 0px 0px;
+        border: 1px solid #BDBDBD;
+        border-bottom: none;
     }
 
     md-tabs-ink-bar {
@@ -160,16 +169,40 @@
                                             </md-button>
                                         </div>
                                         <div class="show-hide-list" ng-show="taskVal.expanded">
-                                            <div style="margin-left: 10px; padding-left: 3px; padding-right: 3px; padding-top: 2px; border-radius: 3px 3px 0px 0px; border: 4px solid #e0e0e0; border-bottom: none; display: inline-block !important;">
-                                                <h4 style="display: inline-block !important;">Условие</h4>
+                                            <div class="task-desc-header">
+                                                <h4 style="margin-bottom: 0px;">Условие</h4>
                                             </div>
                                             <div class="task-description">
                                                 {{taskVal.description}}
                                             </div>
                                         </div>
-                                        <div layout="row" layout-align="space-between center">
+                                        <div class="show-hide-list" ng-show="taskVal.expanded">
+                                            <div class="task-desc-header" style="background-color: #FCE4EC;">
+                                                <h4 style="margin-bottom: 0px;">Ваше решение</h4>
+                                            </div>
+                                            <div class="task-description" style="margin-top: 0px;">
+                                                <md-input-container flex>
+                                                    <label>Текст решения</label>
+                                                    <textarea style="min-height: 56px !important;" ng-model="taskSolution" multiple></textarea>
+                                                </md-input-container>
+                                                <div layout="row" layout-align="space-between center">
+                                                    <div layout="row">
+                                                        <md-button>
+                                                            <img style="opacity: 0.54;" src="/bower_components/material-design-icons/editor/svg/design/ic_attach_file_18px.svg">
+                                                        </md-button>
+                                                        <md-button>
+                                                            <img style="opacity: 0.54;" src="/bower_components/material-design-icons/editor/svg/design/ic_insert_photo_18px.svg">
+                                                        </md-button>
+                                                    </div>
+                                                    <div layout="row" layout-align="end center">
+                                                        <md-button class="md-raised">Отправить</md-button>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div layout="row">
                                             <div class="my-subheader">Дата создания: {{taskVal.dateCreated}}</div>
-                                            <div class="my-subheader">Автор: <a
+                                            <div class="my-subheader" style="margin-left: 20px;">Автор: <a
                                                     href="/users/{{users.indexOf(findUser(taskVal.author))}}">{{findUser(taskVal.author).fullName}}</a>
                                             </div>
                                         </div>
@@ -207,16 +240,42 @@
                                             <p style="float: right;">exp: {{tasks[solutionVal.taskID].exp |
                                                 thousand}}</p>
                                         </div>
-                                        <h4>{{tasks[solutionVal.taskID].description}}</h4>
-
+                                        <div>
+                                            <h3 style="float: left; margin-right: 7px;">Умения:</h3>
+                                            <md-button class="md-raised md-primary label-button"
+                                                       ng-repeat="skill in tasks[solutionVal.taskID].skills">
+                                                {{skills[skill].title}}
+                                            </md-button>
+                                        </div>
                                         <div class="show-hide-list" ng-show="solutionVal.expanded">
-                                            <div hljs source="solutionVal.text" style="margin-top: 5px; margin-bottom: 5px;">
+                                            <div class="task-desc-header">
+                                                <h4 style="margin-bottom: 0px;">Условие</h4>
+                                            </div>
+                                            <div class="task-description">
+                                                {{tasks[solutionVal.taskID].description}}
+                                            </div>
+                                        </div>
+                                        <div class="show-hide-list" ng-show="solutionVal.expanded">
+                                            <div class="task-desc-header" style="background-color: #FCE4EC;">
+                                                <h4 style="margin-bottom: 0px;">Решение</h4>
+                                            </div>
+                                            <div class="task-description" style="margin-top: 0px;" hljs source="solutionVal.text">
                                             </div>
                                         </div>
                                         <div layout="row" layout-align="space-between center">
+                                            <div layout="row">
                                             <div class="my-subheader">Дата решения: {{solutionVal.date}}</div>
-                                            <div class="my-subheader">Решил: <a
+                                            <div class="my-subheader" style="margin-left: 20px;">Решил: <a
                                                     href="/users/{{users.indexOf(findUser(solutionVal.userID))}}">{{findUser(solutionVal.userID).fullName}}</a>
+                                            </div>
+                                            </div>
+                                            <div class="show-hide" ng-show="solutionVal.expanded">
+                                                <md-button><img style="opacity: 0.54;"
+                                                                src="/bower_components/material-design-icons/action/svg/design/ic_thumb_up_24px.svg">
+                                                </md-button>
+                                                <md-button style="margin-left: 20px;"><img style="opacity: 0.54;"
+                                                                                           src="/bower_components/material-design-icons/action/svg/design/ic_thumb_down_24px.svg">
+                                                </md-button>
                                             </div>
                                         </div>
                                     </div>
@@ -259,7 +318,10 @@
                                             </md-button>
                                         </div>
                                         <div class="show-hide-list" ng-show="taskVal.expanded">
-                                            <div style="margin-top: 5px;">
+                                            <div class="task-desc-header">
+                                                <h4 style="margin-bottom: 0px;">Условие</h4>
+                                            </div>
+                                            <div class="task-description">
                                                 {{taskVal.description}}
                                             </div>
                                         </div>
@@ -270,7 +332,7 @@
                                                         href="/users/{{users.indexOf(findUser(taskVal.author))}}">{{findUser(taskVal.author).fullName}}</a>
                                                 </div>
                                             </div>
-                                            <div>
+                                            <div class="show-hide" ng-show="taskVal.expanded">
                                                 <md-button><img style="opacity: 0.54;"
                                                                 src="/bower_components/material-design-icons/action/svg/design/ic_thumb_up_24px.svg">
                                                 </md-button>

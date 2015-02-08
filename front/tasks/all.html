@@ -1,4 +1,6 @@
 
+<link rel="stylesheet" href="/front/tasks/styles.css">
+
 <div layout="row" flex style="min-height: calc(100vh - 64px);">
     <div class="md-whiteframe-z2" flex="20" style="padding: 16px; z-index: 1; background-color: #FAFAFA;">
         <form name="filterByName">
@@ -82,8 +84,11 @@
                                 </md-button>
                             </div>
                             <div class="my-show-hide-animation" ng-show="task.expanded">
-                                <div style="margin-top: 5px;">
-                                    <pre>{{task.description}}</pre>
+                                <div class="task-desc-header">
+                                    <h4 style="margin-bottom: 0px;">Условие</h4>
+                                </div>
+                                <div class="task-description">
+                                    {{task.description}}
                                 </div>
                             </div>
                             <div layout="row" layout-align="space-between center">

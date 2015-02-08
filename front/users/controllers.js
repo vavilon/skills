@@ -124,7 +124,7 @@ function extendedSkills(skills)
     this.root = this.skills['root'];
 }
 
-angular.module('skills').controller('skills_show_controller',function($scope,$http,$filter){
+angular.module('skills').controller('skillsCtrl',function($scope,$http,$filter){
     $http.get('/models/skills.json').success(function (skills) {
 
         $http.get('models/users.json').success(function(data) {
@@ -265,7 +265,7 @@ app.controller('skillsListCtrl', ['$scope', '$http', function($scope, $http)
     });
 }]);
 
-app.controller('all_tasks_show_controller', ['$scope', '$http', '$mdSidenav', function($scope, $http, $mdSidenav)
+app.controller('allTasksCtrl', ['$scope', '$http', '$mdSidenav', function($scope, $http, $mdSidenav)
 {
     $http.get('models/skills.json').success(function(skills) {
         $scope.skills = skills;
@@ -303,9 +303,10 @@ app.controller('all_tasks_show_controller', ['$scope', '$http', '$mdSidenav', fu
     };
 }]);
 
-app.controller('ProfileViewerOneCtrl', ['$scope', '$routeParams', '$http',
+app.controller('profileCtrl', ['$scope', '$routeParams', '$http',
     function($scope, $routeParams, $http) {
         $http.get('models/users.json').success(function(data) {
+            $scope.users = data;
             $scope.user = data[$routeParams.user_id];
         });
         $http.get('models/skills.json').success(function(data) {
@@ -314,11 +315,19 @@ app.controller('ProfileViewerOneCtrl', ['$scope', '$routeParams', '$http',
         $http.get('models/tasks_list.json').success(function(data) {
             $scope.tasks = data;
         });
+        $http.get('models/solutions.json').success(function(data) {
+            $scope.solutions = data;
+        });
         $scope.tabSelected = 0;
+
+        $scope.findUser = function(id) {
+            for(var user in $scope.users)
+                if($scope.users[user].id === id) return $scope.users[user];
+        };
     }
 ]);
 
-app.controller('OneTaskCtrl', ['$rootScope', '$scope', '$routeParams', '$http', 'navbarSelectedIndex',
+app.controller('oneTaskCtrl', ['$rootScope', '$scope', '$routeParams', '$http', 'navbarSelectedIndex',
     function($rootScope, $scope, $routeParams, $http, navbarSelectedIndex) {
         $http.get('models/skills.json').success(function(skills) {
             $scope.skills = skills;
@@ -346,3 +355,8 @@ app.controller('OneTaskCtrl', ['$rootScope', '$scope', '$routeParams', '$http', 
         };
     }
 ]);
+
+app.controller('competencesCtrl', ['$scope', '$http', function($scope, $http)
+{
+
+}]);

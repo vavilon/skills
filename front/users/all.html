@@ -37,7 +37,7 @@
     .animate.ng-enter.ng-enter-active,
     .animate.ng-leave {
         opacity: 1;
-        max-width: 2000px;
+        max-width: 900px;
         max-height: 150px;
     }
 
@@ -74,6 +74,9 @@
         top: -18px;
     }
 
+    .md-tile-content p {
+        margin:0px;
+    }
 </style>
 
 <div style="position: absolute; background-color: #3F51B5; height: 232px; width: 100%;"></div>
@@ -106,16 +109,22 @@
                                 <img src="/bower_components/material-design-icons/action/svg/design/ic_account_circle_24px.svg"
                                      class="face" alt="{{user.fullName}}">
                             </div>
-                            <div class="md-tile-content">
-                                <h3><a href="/users/{{users.indexOf(user)}}"> {{user.fullName}}</a></h3>
-                                <h4>exp: {{user.exp | thousand}}</h4>
+                            <div class="md-tile-content" layout="row">
+                                <div flex="50">
+                                    <h3><a href="/users/{{users.indexOf(user)}}"> {{user.fullName}}</a></h3>
+                                    <h4>exp: {{user.exp | thousand}}</h4>
 
-                                <p>
-                                    Получено умений: {{user.skills.length}}<span style="margin-left: 20px;"></span>
-                                    Выполнено заданий: {{user.tasksDone.length}}
-                                </p>
-
-                                <div class="my-show-hide-animation" ng-show="user.expanded">
+                                    <p>
+                                        Выполнено заданий: {{user.tasksDone.length}}
+                                    </p>
+                                    <p>   Проверено: {{user.tasksChecked.length}}
+                                    </p>
+                                    <p>   Подтверждено: {{user.tasksApproved.length}}
+                                    </p>
+                                    <p>   Создано: {{user.tasksCreated.length}}
+                                    </p>
+                                </div>
+                                <div flex>
                                     <h3 style="float: left; margin-right: 7px;">Умею:</h3>
                                     <md-button class="md-raised md-primary label-button"
                                                ng-repeat="skill in user.skills">{{skills[skill].title}}
@@ -127,15 +136,6 @@
                                                ng-repeat="need in user.needs">{{skills[need].title}}
                                     </md-button>
                                 </div>
-                            </div>
-                            <div>
-                                <md-button ng-click="expand(user)" style="margin: 20px" aria-label="expand">
-                                    <img ng-show="!user.expanded"
-                                         src="/bower_components/material-design-icons/navigation/svg/design/ic_expand_more_24px.svg">
-                                    <img ng-show="user.expanded"
-                                         src="/bower_components/material-design-icons/navigation/svg/design/ic_expand_less_24px.svg">
-                                </md-button>
-                                <br>
                             </div>
                         </md-item-content>
                         <md-divider ng-if="!$last"></md-divider>
