@@ -29,3 +29,4 @@ subteam
 Khvalinskiy Igor - 1379@i.ua  
 Preissinger Anton - tohas@mail.ua  
 Sergiy Tsubko - mr.zubar@gmail.com
+Potapskiy Roman (Antihawk) - roman.potapskiy@ukr.net
