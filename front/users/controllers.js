@@ -53,7 +53,7 @@ function extendedSkills(skills)
         for (var i = 0; i < skills[id].parents.length; i++)
         {
             this.skills[skills[id].parents[i]] = this.skills[skills[id].parents[i]] || {};
-            if ($.inArray(this.skills[skills[id].parents[i]], this.skills[id].parents) === -1)
+            if (!_.includes(this.skills[id].parents, this.skills[skills[id].parents[i]]))
                 this.skills[id].parents.push(this.skills[skills[id].parents[i]]);
         }
 
@@ -61,7 +61,7 @@ function extendedSkills(skills)
         {
             this.skills[id].parents[i].leaves = this.skills[id].parents[i].leaves || [];
             if (skills[id].isLeaf)
-                if ($.inArray(this.skills[id], this.skills[id].parents[i].leaves) === -1)
+                if (!_.includes(this.skills[id].parents[i].leaves, this.skills[id]))
                     this.skills[id].parents[i].leaves.push(this.skills[id]);
         }
         if (skills[id].isLeaf) {
@@ -74,7 +74,7 @@ function extendedSkills(skills)
         for (i = 0; i < this.skills[id].parents.length; i++)
         {
             this.skills[id].parents[i].children = this.skills[id].parents[i].children || [];
-            if ($.inArray(this.skills[id], this.skills[id].parents[i].children) === -1)
+            if (!_.includes(this.skills[id].parents[i].children, this.skills[id]))
                 this.skills[id].parents[i].children.push(this.skills[id]);
         }
     }
@@ -83,11 +83,11 @@ function extendedSkills(skills)
     function addAllChildrenRec(to, from)
     {
         for (var i = 0; i < from.children.length; i++)
-            if ($.inArray(from.children[i], to.allChildren) === -1)
+            if (!_.includes(to.allChildren, from.children[i]))
                 to.allChildren.push(from.children[i]);
 
         for (i = 0; i < from.leaves.length; i++)
-            if ($.inArray(from.leaves[i], to.allLeaves) === -1)
+            if (!_.includes(to.allLeaves, from.leaves[i]))
                 to.allLeaves.push(from.leaves[i]);
 
         for (var chid in from.children)
@@ -100,7 +100,7 @@ function extendedSkills(skills)
     function addAllParentsRec(to, from)
     {
         for (var i = 0; i < from.parents.length; i++)
-            if ($.inArray(from.parents[i], to.allParents) === -1)
+            if (!_.includes(to.allParents, from.parents[i]))
                 to.allParents.push(from.parents[i]);
 
         for (var pid in from.parents)
@@ -152,11 +152,11 @@ angular.module('skills').controller('skillsCtrl',function($scope,$http,$filter){
         };
 
         $scope.isInUserSkills = function(skill) {
-            return angular.isUndefined($scope.users) || ($.inArray(skill.id, $scope.users[0].skills) !== -1);
+            return angular.isUndefined($scope.users) || (_.includes($scope.users[0].skills, skill.id));
         };
 
         $scope.isInUserNeeds = function(skill) {
-            return angular.isUndefined($scope.users) || ($.inArray(skill.id, $scope.users[0].needs) !== -1);
+            return angular.isUndefined($scope.users) || (_.includes($scope.users[0].needs, skill.id));
         };
 
         $scope.$watch('skillTitle', function(newval, oldval) {
