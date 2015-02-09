@@ -26,5 +26,5 @@ Martyuk Alexander - ma14051985@gmail.com
 
 subteam
 ====  
-Khvalinskiy Igor - 1379@i.ua
-Preissinger Anton - tohas@mail.ua
+Khvalinskiy Igor - 1379@i.ua  
+Preissinger Anton - tohas@mail.ua  
