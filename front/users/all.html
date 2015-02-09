@@ -18,27 +18,21 @@
         -ms-transition: 500ms cubic-bezier(0.250, 0.750, 0.750, 0.250) all;
         -o-transition: 500ms cubic-bezier(0.250, 0.750, 0.750, 0.250) all;
         transition: 500ms cubic-bezier(0.250, 0.750, 0.750, 0.250) all;
-        position: relative;
-        display: block;
+        display: block !important;
         overflow: hidden;
-        text-overflow: clip;
-        white-space: nowrap;
     }
 
     .animate.ng-leave.animate.ng-leave-active,
     .animate.ng-enter {
         opacity: 0;
-        width: auto;
         height: auto;
-        max-width: 0;
         max-height: 0;
     }
 
     .animate.ng-enter.ng-enter-active,
     .animate.ng-leave {
         opacity: 1;
-        max-width: 2000px;
-        max-height: 150px;
+        max-height: 200px;
     }
 
     .my-show-hide-animation.ng-hide-add,
@@ -74,6 +68,9 @@
         top: -18px;
     }
 
+    .md-tile-content p {
+        margin:0px;
+    }
 </style>
 
 <div style="position: absolute; background-color: #3F51B5; height: 232px; width: 100%;"></div>
@@ -106,36 +103,33 @@
                                 <img src="/bower_components/material-design-icons/action/svg/design/ic_account_circle_24px.svg"
                                      class="face" alt="{{user.fullName}}">
                             </div>
-                            <div class="md-tile-content">
-                                <h3><a href="/users/{{users.indexOf(user)}}"> {{user.fullName}}</a></h3>
-                                <h4>exp: {{user.exp | thousand}}</h4>
+                            <div class="md-tile-content" layout="row">
+                                <div flex="50">
+                                    <h3><a href="/users/{{users.indexOf(user)}}"> {{user.fullName}}</a></h3>
+                                    <h4>exp: {{user.exp | thousand}}</h4>
 
-                                <p>
-                                    Получено навыков: {{user.skills.length}}<span style="margin-left: 20px;"></span>
-                                    Выполнено заданий: {{user.tasksDone.length}}
-                                </p>
-
-                                <div class="my-show-hide-animation" ng-show="user.expanded">
-                                    <h3 style="float: left; margin-right: 7px;">Навыки:</h3>
+                                    <p>
+                                        Выполнено заданий: {{user.tasksDone.length}}
+                                    </p>
+                                    <p>   Проверено: {{user.tasksChecked.length}}
+                                    </p>
+                                    <p>   Подтверждено: {{user.tasksApproved.length}}
+                                    </p>
+                                    <p>   Создано: {{user.tasksCreated.length}}
+                                    </p>
+                                </div>
+                                <div flex>
+                                    <h3 style="float: left; margin-right: 7px;">Умею:</h3>
                                     <md-button class="md-raised md-primary label-button"
                                                ng-repeat="skill in user.skills">{{skills[skill].title}}
                                     </md-button>
                                     <br>
 
-                                    <h3 style="float: left; margin-right: 7px;">Цели:</h3>
+                                    <h3 style="float: left; margin-right: 7px;">Хочу:</h3>
                                     <md-button class="md-raised md-accent md-hue-2 label-button"
                                                ng-repeat="need in user.needs">{{skills[need].title}}
                                     </md-button>
                                 </div>
-                            </div>
-                            <div>
-                                <md-button ng-click="expand(user)" style="margin: 20px" aria-label="expand">
-                                    <img ng-show="!user.expanded"
-                                         src="/bower_components/material-design-icons/navigation/svg/design/ic_expand_more_24px.svg">
-                                    <img ng-show="user.expanded"
-                                         src="/bower_components/material-design-icons/navigation/svg/design/ic_expand_less_24px.svg">
-                                </md-button>
-                                <br>
                             </div>
                         </md-item-content>
                         <md-divider ng-if="!$last"></md-divider>
