@@ -31,4 +31,5 @@ Preissinger Anton (Preissinger) - tohas@mail.ua
 Sergiy Tsubko (Zubaskal) - mr.zubar@gmail.com  
 Potapskiy Roman (Antihawk) - roman.potapskiy@ukr.net  
 Opalenko Evgenij (Opalenko) - oz_on@mail.ua  
-Berezhniy Oleksiy (SgtSailer) - pqmz94@mail.ru
+Berezhniy Oleksiy (SgtSailer) - pqmz94@mail.ru  
+Gumenyuk Andrey (gumenyuk) - gumenyuk92@ukr.net
