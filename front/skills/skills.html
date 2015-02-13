@@ -1,32 +1,4 @@
-<style>
-    .label-button {
-        font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
-        text-transform: none;
-        font-size: 14px;
-        margin-right: 5px;
-        margin-bottom: 5px;
-        padding: 3px;
-        padding-top: 1px;
-    }
-
-    .my-show-hide-animation.ng-hide-add,
-    .my-show-hide-animation.ng-hide-remove {
-        -webkit-transition: 500ms linear all;
-        transition: 500ms linear all;
-
-        /* remember to add this */
-        display: block !important;
-        max-height: 2000px;
-        overflow: hidden;
-        opacity: 1;
-    }
-
-    .my-show-hide-animation.ng-hide {
-        height: auto;
-        max-height: 0;
-        opacity: 0;
-    }
-</style>
+<link rel="stylesheet" href="/front/skills/styles.css"> 
 
 <script type="text/ng-template" id="skills-tree">
     <md-button ng-click="expand(skill)" class="md-raised label-button"
@@ -39,16 +11,15 @@
     </ul>
 </script>
 
-<div layout="row" layout-fill style="min-height: calc(100vh - 64px);">
-    <div class="md-whiteframe-z2" flex="20" flex-sm="35" flex-md="30"
-         style="padding: 16px; background-color: #FAFAFA; z-index: 1;">
+<div layout="row" layout-fill id="w-frame">
+    <div class="md-whiteframe-z2" flex="20" flex-sm="35" flex-md="30" id="w-frame-z2">
         <form name="filterBySkillTitle">
             <md-input-container>
                 <label>Название умения</label>
                 <input type="text" ng-model="skillTitle">
             </md-input-container>
         </form>
-        <div style="margin-left: 5%">
+        <div class="select">
             <h5>Выделить</h5>
             <md-checkbox class="md-primary" ng-model="highlightSkills">Умею</md-checkbox>
             <md-checkbox class="md-accent" ng-model="highlightNeeds">Хочу</md-checkbox>
@@ -63,24 +34,26 @@
         </div>
     </div>
 
-    <div layout="column" flex class="md-whiteframe-z2" style="background-color: #fff;">
+    <div layout="column" flex class="md-whiteframe-z2" id="w-frame-z2_1">
         <div class="my-show-hide-animation" ng-show="skillTitle.length === 0" flex>
-            <div style="margin-top: 10px; margin-left: 20px;">
-                <md-button ng-click="expand(exs.root)" class="md-raised label-button" style="background-color: #FFEB3B">
+            <div class="exs-root">
+                <md-button ng-click="expand(exs.root)" class="md-raised label-button" id="button-exs-root">
                     {{exs.root.title}}
                 </md-button>
             </div>
-            <ul style="margin-top: 0px;" class="my-show-hide-animation" ng-show="exs.root.expanded">
+
+            <ul id="marker-exs-root" class="my-show-hide-animation" ng-show="exs.root.expanded">
                 <li ng-repeat="skill in exs.root.children" ng-include="'skills-tree'">
                 </li>
             </ul>
+
         </div>
         <div class="my-show-hide-animation" ng-show="skillTitle.length !== 0" flex>
-            <div style="margin-left: 20px;">
-                <h4 style="color: rgba(0,0,0,0.54);">Результаты поиска:</h4>
+            <div class="search">
+                <h4>Результаты поиска:</h4>
             </div>
             <div ng-repeat="skill in filteredSkills">
-                <div style="margin-left: 25px;">
+                <div class="button-skill">
                     <md-button ng-click="expand(skill)" class="md-raised label-button">
                         {{skill.title}}
                     </md-button>
